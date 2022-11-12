@@ -43,6 +43,22 @@ input::placeholder {
     font-weight: 500;
 }
 
+/* FADE IN ANIMATION AFTER CLICK */
+.hidden {
+    display: block;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+}
+
+@-webkit-keyframes fadeIn {
+    from { opacity: 0; }
+      to { opacity: 1; }
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+      to { opacity: 1; }
+}
+
 input:focus {
     outline: 1px solid #2F2E8B;
     border: 1px solid #2F2E8B;
