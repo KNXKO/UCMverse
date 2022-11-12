@@ -36,7 +36,16 @@
 </head>
 
 <body>
-    <!-- BACKGROUND-->
+    <!-- PRELOADER CONTAINER -->
+    <div class="loader-wrapper overflow-hidden">
+        <div class="lds-ellipsis">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <!--MAIN BACKGROUND -->
     <div id="background">
         <!-- NAV -->
         <nav class="navbar navbar-expand-lg sticky-top pe-auto bd-primary shadow-sm">
@@ -82,7 +91,7 @@
                                 </li>
                                 <!-- 2 -->
                                 <li>
-                                    <a class="c-black ms-3 shadow-sm" href="#">Odhlásiť sa</a></li>
+                                    <a class="c-black ms-3 shadow-sm" href="index.html">Odhlásiť sa</a></li>
                             </ul>
                         </div>
                     </div>
@@ -177,9 +186,9 @@
                             <textarea class="c-darkgrey border-0 prosim" placeholder="O čom chceš informovať UCM, Oman?" type="text" name="msg"
                                 id="msg" rows="3" maxlength="250" row="2" data-emojiable="true" data-emoji-input="unicode" required></textarea>
                         </p>
-                        </div>
-                        <!-- SUBMIT BUTTON-->
-                        <button type="submit" class="bg-purple px-4 py-2 rounded-3 menu-list fw-bold shadow-sm">Odoslať</button>
+                    </div>
+                    <!-- SUBMIT BUTTON-->
+                    <button type="submit" class="bg-purple px-4 py-2 rounded-3 menu-list fw-bold shadow-sm">Odoslať</button>
                 </div>
                 <!-- LINE -->
                 <hr class="c-black">
@@ -299,6 +308,12 @@
             </div>
         </div>
     </div>
+    <!-- PRELOADER SCRIPT-->
+    <script>
+        $(window).on("load", function () {
+            $(".loader-wrapper").fadeOut("slow");
+        });
+    </script>
     <script src="assets/js/app.js"></script>
 </body>
 
