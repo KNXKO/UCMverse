@@ -41,7 +41,7 @@ function toggler(divId) {
     $("#" + divId).toggle();
 }
 
-/* HEADER BACKGROUND */
+/* NAVIGATION BACKGROUND */
 $(window).scroll(function () {
     if ($(window).scrollTop() >= 50) {
         $("nav").css('background', '#000000ce');
@@ -55,10 +55,13 @@ $(window).scroll(function () {
 /* SWITCH WALLPAPER */
 function btnColor(btn) {
     var property = document.getElementById(btn);
+    var text = document.getElementById("toggleMode");
     if (property.className !== 'toggled') {
         property.className = 'toggled'
+        text.innerHTML = "Light mode";
     } else {
         property.className = '';
+        text.innerHTML = "Dark mde";
     }
 }
 
