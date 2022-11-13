@@ -103,3 +103,13 @@ $(".saveToggle").click(function() {
     $(this).toggleClass('bi bi-bookmark-fill');
 });
 
+// UDALOSTI PRELOADER ANIMATION
+$(document).ready(function() {
+    $(".udalosti").click(function(e) {
+        e.preventDefault();
+        $link = $(this).attr("href");
+        $(".loader-wrapper").fadeIn("slow",function(){ 
+            window.location =  $link; 
+        });
+    });
+ });
