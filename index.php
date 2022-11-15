@@ -46,7 +46,6 @@
      $k_table ='comments';
 
 $result= $mysqli->query("SELECT * FROM $p_table WHERE 1 ORDER BY time DESC") or die($mysqli->error);
-
 ?>
     <!-- PRELOADER CONTAINER -->
     <div class="loader-wrapper overflow-hidden">
@@ -214,7 +213,7 @@ $result= $mysqli->query("SELECT * FROM $p_table WHERE 1 ORDER BY time DESC") or 
                         </p>
                     </div>
                     <!-- SUBMIT BUTTON-->
-                    <button type="submit" class="bg-purple px-4 py-2 rounded-3 menu-list fw-bold shadow-sm">Odoslať</button>
+                    <button type="submit" name="submit" class="bg-purple px-4 py-2 rounded-3 menu-list fw-bold shadow-sm">Odoslať</button>
                 </div>
                 <!-- LINE -->
                 <hr class="c-black">
@@ -308,11 +307,11 @@ $result= $mysqli->query("SELECT * FROM $p_table WHERE 1 ORDER BY time DESC") or 
                 <!-- LINE -->
                 <hr class='c-black'>
                 <!-- POST TEXT-->
-                <h5 class='d-inline c-darkgrey'>Prihláste sa čo najskôr, kým je miesto!</h5>
+                <h5 class='d-inline c-darkgrey'>{$data['msg']}</h5>
                 <!-- POST IMAGE-->";
                 if($data['img_dir']!='images/web/'){
                 echo "<div class='d-flex justify-content-center my-3'>
-                    <img class='img-fluid' src='assets/img/Virtualny_letak_BIO.jpg' alt=''>
+                    <img class='img-fluid' src='{$data['img_dir']}' alt=''>
                 </div>";}
                 echo"
                 <!-- CONTAINER-->
