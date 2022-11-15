@@ -36,6 +36,18 @@
 </head>
 
 <body>
+<?php
+  error_reporting(-1);
+  ini_set('display_errors', 'On');
+
+  $mysqli= new mysqli('localhost','root','root','databaza_pal') or die($mysqli->connect_error);
+     $p_table ='posts';
+     $l_table ='likes';
+     $k_table ='comments';
+
+$result= $mysqli->query("SELECT * FROM $table WHERE 1 ORDER BY time DESC") or die($mysqli->error);
+
+?>
     <!-- PRELOADER CONTAINER -->
     <div class="loader-wrapper overflow-hidden">
         <div class="lds-ellipsis">
@@ -235,6 +247,7 @@
                     </div>-->
             </div>
             <!-- POST CONTAINER -->
+            <?php /*
             <div class="container m-auto p-lg-4 p-md-3 p-sm-3 mt-3 rounded-3 bd-black col-md-12 col-lg-5 py-sm-3 post-bg-color shadow-sm">
                 <!-- TOP CONTAINER -->
                 <div class="py-2 d-flex flex-row">
@@ -274,53 +287,59 @@
                         <h4 class="saveToggle bi bi-bookmark d-inline c-darkblack"></h4>
                     </a>
                 </div>
-            </div>
+            </div>*/?>
 
             <!-- POST CONTAINER -->
-            <div class="container m-auto p-lg-3 p-md-3 p-sm-3 mt-3 rounded-3 bd-black col-md-12 col-lg-5 py-sm-3 post-bg-color shadow-sm">
+            <?php 
+            while ($data= $result->fetch_assoc()){
+            echo "<div class='container m-auto p-lg-3 p-md-3 p-sm-3 mt-3 rounded-3 bd-black col-md-12 col-lg-5 py-sm-3 post-bg-color shadow-sm'>
                 <!-- TOP CONTAINER -->
-                <div class="py-2 d-flex flex-row">
+                <div class='py-2 d-flex flex-row'>
                     <!-- USER FOTO -->
-                    <img class="me-3 shadow-sm" src="assets/img/Ellipse 3.png" alt="">
+                    <img class='me-3 shadow-sm' src='assets/img/Ellipse 3.png' alt=''>
                     <!-- CONTAINER -->
-                    <div class="d-flex flex-column">
+                    <div class='d-flex flex-column'>
                         <!-- USER NAME -->
-                        <p class="text-light mb-0">Matúš Moťovský</p>
+                        <p class='text-light mb-0'>Matúš Moťovský</p>
                         <!-- POST UPLOAD DATE-->
-                        <p class="mb-0 c-black">Včera, 11:34</p>
+                        <p class='mb-0 c-black'>{$data['time']}</p>
                     </div>
                 </div>
                 <!-- LINE -->
-                <hr class="c-black">
+                <hr class='c-black'>
                 <!-- POST TEXT-->
-                <h5 class="d-inline c-darkgrey">Prihláste sa čo najskôr, kým je miesto!</h5>
+                <h5 class='d-inline c-darkgrey'>Prihláste sa čo najskôr, kým je miesto!</h5>
+                <!-- POST IMAGE-->";
+                if($data['img_dir']!='images/web/'){
+                echo "<div class='d-flex justify-content-center my-3'>
+                    <img class='img-fluid' src='assets/img/Virtualny_letak_BIO.jpg' alt=''>
+                </div>";}
+                echo"
                 <!-- CONTAINER-->
-                <div class="d-flex justify-content-center my-3">
-                    <img class="img-fluid" src="assets/img/Virtualny_letak_BIO.jpg" alt="">
-                </div>
-                <!-- CONTAINER-->
-                <div class="my-3">
+                <div class='my-3'>
                     <!-- LIKE ICON-->
-                    <a class="menu-list" href="#!">
-                        <h4 class="likeToggle bi bi-hand-thumbs-up d-inline c-darkblack"></h4>
+                    <a class='menu-list' href='#!'>
+                        <h4 class='likeToggle bi bi-hand-thumbs-up d-inline c-darkblack'></h4>
                     </a>
-                    <p class="d-inline me-3 c-darkgrey">6</p>
+                    <p class='d-inline me-3 c-darkgrey'>6</p>
                     <!-- COMMENTS ICON-->
-                    <a class="menu-list" href="#!">
-                        <h4 class="commentToggle bi bi-chat d-inline c-darkblack"></h4>
+                    <a class='menu-list' href='#!'>
+                        <h4 class='commentToggle bi bi-chat d-inline c-darkblack'></h4>
                     </a>
-                    <p class="d-inline me-3 c-darkgrey">3</p>
+                    <p class='d-inline me-3 c-darkgrey'>3</p>
                     <!-- SHARE ICON-->
-                    <a class="menu-list" href="#!">
-                        <h4 class="shareToggle bi bi-share d-inline c-darkblack"></h4>
+                    <a class='menu-list' href='#!'>
+                        <h4 class='shareToggle bi bi-share d-inline c-darkblack'></h4>
                     </a>
-                    <p class="d-inline me-3 c-darkgrey">4</p>
+                    <p class='d-inline me-3 c-darkgrey'>4</p>
                     <!-- BOOKMARK ICON-->
-                    <a class="menu-list float-end" href="#!">
-                        <h4 class="saveToggle bi bi-bookmark d-inline c-darkblack"></h4>
+                    <a class='menu-list float-end' href='#!'>
+                        <h4 class='saveToggle bi bi-bookmark d-inline c-darkblack'></h4>
                     </a>
                 </div>
-            </div>
+            </div>";
+            }
+            ?>
         </div>
     </div>
     <!-- PRELOADER SCRIPT-->
