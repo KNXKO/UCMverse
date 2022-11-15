@@ -188,6 +188,7 @@
             <!-- CENTER MENU-->
             <div
                 class="container m-lg-auto p-lg-4 p-md-4 p-sm-3 p-3 rounded-3 col-md-12 col-lg-5 user-post-bg-color order-2 order-lg-3 bd-purple shadow-sm">
+                <form action="script.php" method="POST" enctype="multipart/form-data">
                 <!-- CONTAINER -->
                 <div class="d-flex align-items-center align-content-center justify-content-between col-12">
                     <!-- USER FOTO -->
@@ -217,9 +218,10 @@
                         <p class="d-inline me-3 c-darkgrey">Video</p>-->
                 <div id="fotodiv" class="hidden">
                     <div class="d-flex justify-content-between align-items-center">
-                        <input type="file" class="form-control bg-black border-0 h-25 mt-3 my-2 w-100 fs-6 rounded-3" />
+                        <input type="file" class="form-control bg-black border-0 h-25 mt-3 my-2 w-100 fs-6 rounded-3"  name="userfile[]" value="" multiple=""/>
                     </div>
                 </div>
+            </form>
                 <!-- CENTER MENU
                     <div id="zvukdiv" class="hidden">
                         <div class="form">
