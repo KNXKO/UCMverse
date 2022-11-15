@@ -1,1 +1,5 @@
-/images/web/*
+/images/web/*.jpg
+/images/web/*.png
+/images/web/*.gif
+/images/web/*.jpeg
+
