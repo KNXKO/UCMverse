@@ -290,7 +290,16 @@ $result= $mysqli->query("SELECT * FROM $p_table WHERE 1 ORDER BY time DESC") or 
 
             <!-- POST CONTAINER -->
             <?php 
+            $user_id=1;
             while ($data= $result->fetch_assoc()){
+                $results = $mysqli->query("SELECT * FROM $l_table WHERE user_id=1 AND post_id={$data['ID']}");
+                    $data_likes = $results->fetch_assoc();
+                    $like = 0;
+                    if(mysqli_num_rows($results)==1)
+                    {
+                        $like = $data_likes['value'];
+                    }
+                    $postid=$data['ID'];
             echo "<div class='container m-auto p-lg-3 p-md-3 p-sm-3 mt-3 rounded-3 bd-black col-md-12 col-lg-5 py-sm-3 post-bg-color shadow-sm'>
                 <!-- TOP CONTAINER -->
                 <div class='py-2 d-flex flex-row'>
@@ -313,14 +322,24 @@ $result= $mysqli->query("SELECT * FROM $p_table WHERE 1 ORDER BY time DESC") or 
                 echo "<div class='d-flex justify-content-center my-3'>
                     <img class='img-fluid' src='{$data['img_dir']}' alt=''>
                 </div>";}
-                echo"
+                echo "
                 <!-- CONTAINER-->
                 <div class='my-3'>
-                    <!-- LIKE ICON-->
-                    <a class='menu-list' href='#!'>
-                        <h4 class='likeToggle bi bi-hand-thumbs-up d-inline c-darkblack'></h4>
-                    </a>
-                    <p class='d-inline me-3 c-darkgrey'>6</p>
+                    <!-- LIKE ICON-->";
+                    if (mysqli_num_rows($results) == 1 AND $like == 1 ){?>
+                    <h4 onclick='startAjax(<?php echo $data["ID"]?>,<?php echo $user_id?>,0);'>Test</h4>
+                  
+        
+                      <h4 class="bi bi-hand-thumbs-up d-inline c-darkblack"></h4>
+                  
+                    <?php } else{?>
+                        <h4 onclick="startAjax(<?php echo $data['ID']?>,<?php echo $user_id?>,1);">Test</h4>
+                        
+                        
+                        <h4 class="bi bi-hand-thumbs-up d-inline c-darkblack"></h4>
+                    
+
+                    <?php } echo"<p class='d-inline me-3 c-darkgrey'>{$data['likes']}</p>
                     <!-- COMMENTS ICON-->
                     <a class='menu-list' href='#!'>
                         <h4 class='commentToggle bi bi-chat d-inline c-darkblack'></h4>
@@ -342,6 +361,26 @@ $result= $mysqli->query("SELECT * FROM $p_table WHERE 1 ORDER BY time DESC") or 
         </div>
     </div>
     <!-- PRELOADER SCRIPT-->
+    <script type="text/javascript">
+        function startAjax(x,y,z){
+
+            
+            
+            $.ajax({  
+            type: 'POST',  
+            url: 'likes.php', 
+            data: {post_id: x,user_id:y,value:z},
+            success: function(response) {
+            content.html(response);
+    },
+        });
+    
+        $(document).ready(startAjax);
+}
+       
+
+ 
+    </script>
     <script>
         $(window).on("load", function () {
             $(".loader-wrapper").fadeOut(1000);
