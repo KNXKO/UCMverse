@@ -33,6 +33,9 @@
     <script src="assets/emoji/js/jquery.emojiarea.min.js"></script>
     <script src="assets/emoji/js/emoji-picker.min.js"></script>
     <title>UCMverse</title>
+    <script>
+        
+    </script>
 </head>
 
 <body>
@@ -326,20 +329,13 @@ $result= $mysqli->query("SELECT * FROM $p_table WHERE 1 ORDER BY time DESC") or 
                 <!-- CONTAINER-->
                 <div class='my-3'>
                     <!-- LIKE ICON-->";
-                    if (mysqli_num_rows($results) == 1 AND $like == 1 ){?>
-                    <h4 onclick='startAjax(<?php echo $data["ID"]?>,<?php echo $user_id?>,0);'>Test</h4>
-                  
-        
-                      <h4 class="bi bi-hand-thumbs-up d-inline c-darkblack"></h4>
-                  
-                    <?php } else{?>
-                        <h4 onclick="startAjax(<?php echo $data['ID']?>,<?php echo $user_id?>,1);">Test</h4>
-                        
-                        
-                        <h4 class="bi bi-hand-thumbs-up d-inline c-darkblack"></h4>
-                    
 
+                    if (mysqli_num_rows($results) == 1 AND $like == 1 ){?>
+                    <h4 id="response" class="likeToggle bi bi-hand-thumbs-up-fill d-inline c-darkblack" onclick='startAjax(<?php echo $data["ID"]?>,<?php echo $user_id?>,0);'></h4>
+                    <?php } else{?>
+                        <h4 id="response" class="likeToggle bi bi-hand-thumbs-up d-inline c-darkblack" onclick="startAjax(<?php echo $data['ID']?>,<?php echo $user_id?>,1);"></h4>
                     <?php } echo"<p class='d-inline me-3 c-darkgrey'>{$data['likes']}</p>
+                    
                     <!-- COMMENTS ICON-->
                     <a class='menu-list' href='#!'>
                         <h4 class='commentToggle bi bi-chat d-inline c-darkblack'></h4>
@@ -362,21 +358,39 @@ $result= $mysqli->query("SELECT * FROM $p_table WHERE 1 ORDER BY time DESC") or 
     </div>
     <!-- PRELOADER SCRIPT-->
     <script type="text/javascript">
+        $(document).ready(function() {
+            $(document).ajaxStop(function() {
+                alert(
+                  "AJAX request stopped");
+            });
+            
+        });
         function startAjax(x,y,z){
 
             
             
             $.ajax({  
             type: 'POST',  
-            url: 'likes.php', 
+            url: '/likes.php', 
             data: {post_id: x,user_id:y,value:z},
             success: function(response) {
             content.html(response);
+           
+           
     },
         });
-    
-        $(document).ready(startAjax);
-}
+      
+        $(document).ready(startAjax); 
+
+      
+}  
+$(document).ajaxStart(function() {
+    window.location.reload();
+            });
+
+/*$(document).ajaxStop(function(){
+  alert("All AJAX requests completed");
+});*/
        
 
  
