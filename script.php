@@ -19,7 +19,7 @@ ini_set('display_errors', 'On');
 
     if (!strlen(trim(@$_POST['msg'])))
     {   
-        header("location:index.php");
+        header("location:home.php");
         exit();
        
     } 
@@ -71,7 +71,7 @@ location.reload();
                 //}
             //}
         }
-       header("location:index.php");
+       header("location:home.php");
         
          
      
