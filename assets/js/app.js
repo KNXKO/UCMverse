@@ -1,3 +1,15 @@
+$(document).ready(function(){
+    $(window).scroll(function(){
+        if($(window).scrollTop() > $(window).height()){
+            $(".nav").css({"background-color":"transparent"});   
+        }
+        else{
+            $(".nav").css({"background-color":"white"});
+        }
+
+    })
+})
+
 /* SELECTS */
 function jq_ChainCombo(el) {
     var selected = $(el).find(':selected').data('id'); // get parent selected options' data-id attribute
@@ -41,16 +53,6 @@ function toggler(divId) {
     $("#" + divId).toggle();
 }
 
-/* NAVIGATION BACKGROUND */
-$(window).scroll(function () {
-    if ($(window).scrollTop() >= 50) {
-        $("nav").css('background', '#000000ce');
-        $("nav").css('border-bottom', '2px solid #5E5CFF');
-    } else {
-        $("nav").css('background', '#080808b6');
-        $("nav").css('border-bottom', '2px solid black');
-    }
-});
 
 /* SWITCH WALLPAPER */
 function btnColor(btn) {

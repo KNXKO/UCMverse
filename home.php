@@ -264,24 +264,16 @@
                 <!-- CONTAINER-->
                 <div class="my-3">
                     <!-- LIKE ICON-->
-                    <a class="menu-list" href="#!" aria-disabled="true">
-                        <h4 class="likeToggle bi bi-hand-thumbs-up d-inline c-darkblack"></h4>
-                    </a>
+                    <h4 class="likeToggle bi bi-hand-thumbs-up d-inline c-darkblack"></h4>
                     <p class="d-inline me-3 c-darkgrey">6</p>
                     <!-- COMMENTS ICON-->
-                    <a class="menu-list" href="#!">
-                        <h4 class="commentToggle bi bi-chat d-inline c-darkblack"></h4>
-                    </a>
+                    <h4 class="commentToggle bi bi-chat d-inline c-darkblack"></h4>
                     <p class="d-inline me-3 c-darkgrey">3</p>
                     <!-- SHARE ICON-->
-                    <a class="menu-list" href="#!">
-                        <h4 class="shareToggle bi bi-share d-inline c-darkblack"></h4>
-                    </a>
+                    <h4 class="shareToggle bi bi-share d-inline c-darkblack"></h4>
                     <p class="d-inline me-3 c-darkgrey">4</p>
                     <!-- BOOKMARK ICON-->
-                    <a class="menu-list float-end" href="#!">
-                        <h4 class="saveToggle bi bi-bookmark d-inline c-darkblack"></h4>
-                    </a>
+                    <h4 class="saveToggle bi bi-bookmark d-inline c-darkblack float-end"></h4>
                 </div>
             </div>*/ ?>
 
@@ -333,19 +325,13 @@
                 echo "<p class='d-inline me-3 c-darkgrey'>{$data['likes']}</p>
                     
                     <!-- COMMENTS ICON-->
-                    <a class='menu-list' href='#!'>
-                        <h4 class='commentToggle bi bi-chat d-inline c-darkblack'></h4>
-                    </a>
+                    <h4 class='commentToggle bi bi-chat d-inline c-darkblack'></h4>
                     <p class='d-inline me-3 c-darkgrey'>3</p>
                     <!-- SHARE ICON-->
-                    <a class='menu-list' href='#!'>
-                        <h4 class='shareToggle bi bi-share d-inline c-darkblack'></h4>
-                    </a>
+                    <h4 class='shareToggle bi bi-share d-inline c-darkblack'></h4>
                     <p class='d-inline me-3 c-darkgrey'>4</p>
                     <!-- BOOKMARK ICON-->
-                    <a class='menu-list float-end' href='#!'>
-                        <h4 class='saveToggle bi bi-bookmark d-inline c-darkblack'></h4>
-                    </a>
+                    <h4 class='saveToggle bi bi-bookmark d-inline c-darkblack float-end'></h4>
                 </div>
             </div>";
             }
