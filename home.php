@@ -63,7 +63,7 @@
         <nav class="navbar navbar-expand-lg sticky-top pe-auto bd-primary shadow-sm">
             <div class="container d-flex justify-content-lg-between">
                 <!-- LOGO -->
-                <a href="home.html">
+                <a href="home.php">
                     <img class="logo navbar-brand menu-list" src="assets/img/UCMverse_logo.png" alt=""></a>
                 <button type="button" class="navbar-toggler custom-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                     <span class="navbar-toggler-icon"></span>
@@ -114,7 +114,7 @@
             <div class="left-bar container d-flex flex-lg-column h-100 col-md-12 col-lg-2 justify-content-md-between justify-content-lg-start justify-content-between
              float-lg-start col-xxl-2 col-xl-2">
                 <!-- 1.  -->
-                <a class="menu-bg active" href="home.html">
+                <a class="menu-bg active" href="home.php">
                     <div class="d-flex align-content-center align-items-center mb-lg-4 px-3">
                         <h3 class="bi bi-house-fill me-md-3 c-darkprimary"></h3>
                         <h3 class="fs-5 d-none d-lg-inline c-darkprimary">Domov</h3>
