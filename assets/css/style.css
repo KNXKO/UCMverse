@@ -51,6 +51,10 @@ input::placeholder {
     font-weight: 500;
 }
 
+nav {
+    background-color: #020202a4;
+}
+
 /* FADE IN ANIMATION AFTER CLICK */
 .hidden {
     display: block;
@@ -88,6 +92,7 @@ input:focus {
     outline: 0px !important;
     box-shadow: none !important;
 }
+
 
 textarea {
     background-color: rgba(0, 255, 255, 0);
@@ -211,12 +216,8 @@ select {
     border: thin solid #272727;
 }
 
-nav {
-    transition: .2s ease-in-out;
-}
-
 #wrapper {
-    background-image: url("../../assets/img/background.jpg");
+    background-image: url("../img/background.jpg");
     background-size: cover;
     width: 100%;
     height: 100vh;
@@ -279,11 +280,6 @@ nav {
     color: #363587;
 }
 
-nav {
-    background: #080808cb;
-    border-bottom: 2px solid black;
-}
-
 .search {
     background-color: #0202022c;
     font-weight: 300;
@@ -334,16 +330,14 @@ nav {
     color: #5E5CFF;
 }
 
-
-.menu-list h4 {
-    transition: .2s ease-in-out;
+h4 {
+    transition: .4s ease-in-out;
 }
 
-.menu-list h4:hover {
-    transition: .2s ease-in-out;
+h4:hover {
+    transition: .4s ease-in-out;
     color: #5E5CFF;
 }
-
 
 @keyframes gradient {
     0% {
