@@ -33,11 +33,10 @@
     <script src="assets/emoji/js/jquery.emojiarea.min.js"></script>
     <script src="assets/emoji/js/emoji-picker.min.js"></script>
     <title>UCMverse</title>
-
 </head>
 
 <body>
-    <?php
+<?php
     error_reporting(-1);
     ini_set('display_errors', 'On');
 
@@ -46,7 +45,7 @@
     $l_table = 'likes';
     $k_table = 'comments';
 
-    $result = $mysqli->query("SELECT * FROM $p_table WHERE 1 ORDER BY time DESC") or die($mysqli->error);
+    $result = $mysqli->query("SELECT * FROM $p_table WHERE 1 ORDER BY likes DESC") or die($mysqli->error);
     ?>
     <!-- PRELOADER CONTAINER -->
     <div class="loader-wrapper overflow-hidden">
@@ -60,21 +59,23 @@
     <!--MAIN BACKGROUND -->
     <div id="background">
         <!-- NAV -->
-        <nav class="navbar navbar-expand-lg sticky-top pe-auto bd-primary shadow-sm">
+        <nav class="navbar navbar-expand-lg sticky-top pe-auto">
             <div class="container d-flex justify-content-lg-between">
                 <!-- LOGO -->
                 <a href="home.php">
-                    <img class="logo navbar-brand menu-list" src="assets/img/UCMverse_logo.png" alt=""></a>
+                    <img class="logo navbar-brand menu-list" src="assets/img/UCMverse_logo.png"></a>
                 <button type="button" class="navbar-toggler custom-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <!-- HAMBURGER -->
-                <div class="navbar collapse navbar-collapse justify-content-between flex-column flex-md-row align-content-md-center align-items-md-center" id="navbarCollapse">
+                <div class="navbar collapse navbar-collapse justify-content-between flex-column flex-md-row align-content-md-center align-items-md-center"
+                    id="navbarCollapse">
                     <!-- SEARCH -->
                     <div class="flex-grow-1 d-flex">
                         <form class="form-inline flex-nowrap mx-lg-auto">
                             <div class="input-group mx-0 d-flex align-items-center">
-                                <input type="text" class="search rounded-pill px-4 mr-sm-2 bd-purple shadow-sm" placeholder="#Hladať" maxlength="15" required>
+                                <input type="text" class="search rounded-pill px-4 mr-sm-2 bd-purple shadow-sm" placeholder="#Hladať" maxlength="15"
+                                    required>
                                 <!-- SEARCH ICON -->
                                 <a class="menu-list ms-2">
                                     <i class="bi-search shadow-sm"></i>
@@ -87,7 +88,8 @@
                         <!-- USER FOTO -->
                         <img class="mx-3 shadow-sm" src="assets/img/Ellipse 3.png" alt="">
                         <div class="dropdown shadow-sm" onclick="event.stopPropagation()" aria-labelledby="triggerId">
-                            <button class="menu-list dropdown-toggle bg-transparent fw-bold c-black" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            <button class="menu-list dropdown-toggle bg-transparent fw-bold c-black" type="button" id="dropdownMenuButton1"
+                                data-bs-toggle="dropdown" aria-expanded="false">
                                 Oman Gulvi
                             </button>
                             <!-- LIST -->
@@ -95,13 +97,12 @@
                                 <!-- 1 -->
                                 <li>
                                     <a id="toggleMode" href="#!" onclick="btnColor('background')" class="c-black ms-3 shadow-sm">
-                                        Dark mode
+                                        Switch mode
                                     </a>
                                 </li>
                                 <!-- 2 -->
                                 <li>
-                                    <a class="c-black ms-3 shadow-sm" href="index.html">Odhlásiť sa</a>
-                                </li>
+                                    <a class="c-black ms-3 shadow-sm" href="index.html">Odhlásiť sa</a></li>
                             </ul>
                         </div>
                     </div>
@@ -114,17 +115,17 @@
             <div class="left-bar container d-flex flex-lg-column h-100 col-md-12 col-lg-2 justify-content-md-between justify-content-lg-start justify-content-between
              float-lg-start col-xxl-2 col-xl-2">
                 <!-- 1.  -->
-                <a class="menu-bg active" href="home.php">
+                <a class="menu-bg" href="home.php">
                     <div class="d-flex align-content-center align-items-center mb-lg-4 px-3">
-                        <h3 class="bi bi-house-fill me-md-3 c-darkprimary"></h3>
-                        <h3 class="fs-5 d-none d-lg-inline c-darkprimary">Domov</h3>
+                        <h3 class="bi bi-house me-md-3"></h3>
+                        <h3 class="fs-5 d-none d-lg-inline">Domov</h3>
                     </div>
                 </a>
                 <!-- 2.  -->
                 <a class="menu-bg" href="popular.php">
                     <div class="d-flex align-content-center align-items-center mb-lg-4 px-3">
-                        <h3 class="bi bi-bar-chart me-md-3"></h3>
-                        <h3 class="fs-5 d-none d-lg-inline">Populárne</h3>
+                        <h3 class="bi bi-bar-chart-fill me-md-3 c-darkprimary"></h3>
+                        <h3 class="fs-5 d-none d-lg-inline c-darkprimary">Populárne</h3>
                     </div>
                 </a>
                 <!-- 3.  -->
@@ -177,7 +178,7 @@
                         <div class="mx-3 d-flex flex-column justify-content-center">
                             <h5 class="fw-300 fw-bold c-darkgrey fs-6 mb-1">Prednáška Romana Boču</h5>
                             <p class="fw-300 fs-6 mb-0">30.10 16:10</p>
-                            <a class="fw-300 c-darkprimary fs-6 udalosti" target="_blank" href="http://fpv.ucm.sk/sk/odborna-prednaska-romana-bocu">Viac info <i class="bi bi-arrow-right"></i></a>
+                            <a class="fw-300 c-darkprimary fs-6 udalosti"  target="_blank" href="http://fpv.ucm.sk/sk/odborna-prednaska-romana-bocu">Viac info <i class="bi bi-arrow-right"></i></a>
                         </div>
                     </div>
                     <!-- LINE -->
@@ -194,53 +195,6 @@
                     <!-- LINE  -->
                     <hr class="c-black">
                 </div>
-            </div>
-            <!-- CENTER MENU-->
-            <div class="container m-lg-auto p-lg-4 p-md-4 p-sm-3 p-3 rounded-3 col-md-12 col-lg-5 user-post-bg-color order-2 order-lg-3 bd-purple shadow-sm">
-                <form action="script.php" method="POST" enctype="multipart/form-data">
-                    <!-- CONTAINER -->
-                    <div class="d-flex align-items-center align-content-center justify-content-between col-12">
-                        <!-- USER FOTO -->
-                        <img class="me-3" src="assets/img/Ellipse 3.png" alt="">
-                        <!-- MSG -->
-                        <div class="col-6 col-xxl-8 col-md-8">
-                            <!-- EMOJI -->
-                            <p class="emoji-picker-container">
-                                <textarea class="c-darkgrey border-0 prosim" placeholder="O čom chceš informovať UCM, Oman?" type="text" name="msg" id="msg" maxlength="250" row="2" data-emojiable="true" data-emoji-input="unicode" required></textarea>
-                            </p>
-                        </div>
-                        <!-- SUBMIT BUTTON-->
-                        <button type="submit" name="submit" class="bg-purple px-4 py-2 rounded-3 menu-list fw-bold shadow-sm">Odoslať</button>
-                    </div>
-                    <!-- LINE -->
-                    <hr class="c-black">
-                    <!-- ATTACH FOTO -->
-                    <a class="menu-list" onclick="toggler('fotodiv');">
-                        <h5 class="bi bi-image-fill d-inline c-darkprimary"></h5>
-                    </a>
-                    <!--
-                        <a onclick="toggler('zvukdiv');"><img src="assets/img/Group 15.png" alt="Vlozit zvuk">
-                            <p class="d-inline me-3 c-darkgrey">Zvuk</p>
-                        </a>
-                        <img src="assets/img/Group 16.png" alt="Vlozit video"> 
-                        <p class="d-inline me-3 c-darkgrey">Video</p>-->
-                    <div id="fotodiv" class="hidden">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <input type="file" class="form-control bg-black border-0 h-25 mt-3 my-2 w-100 fs-6 rounded-3" name="userfile[]" value="" multiple="" />
-                        </div>
-                    </div>
-                </form>
-                <!-- CENTER MENU
-                    <div id="zvukdiv" class="hidden">
-                        <div class="form">
-                            <form>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <input type='file' class="form-control bg-black border-0 h-25 mt-3 my-2 w-50 fs-6 rounded-3" accept="audio/*">
-                                    <button type="submit" class="btn btn-dark border-0 border w-25 bg-purple h-25 rounded-3">Odoslať</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>-->
             </div>
             <!-- POST CONTAINER -->
             <?php /*
@@ -338,8 +292,6 @@
             ?>
         </div>
     </div>
-
-    <!-- PRELOADER SCRIPT-->
     <script type="text/javascript">
 
         function startAjax(x, y, z) {
@@ -365,8 +317,9 @@
 
         });
     </script>
+    <!-- PRELOADER SCRIPT-->
     <script>
-        $(window).on("load", function() {
+        $(window).on("load", function () {
             $(".loader-wrapper").fadeOut(1000);
         });
     </script>
