@@ -33,23 +33,21 @@
     <script src="assets/emoji/js/jquery.emojiarea.min.js"></script>
     <script src="assets/emoji/js/emoji-picker.min.js"></script>
     <title>UCMverse</title>
-    <script>
-        
-    </script>
+
 </head>
 
 <body>
-<?php
-  error_reporting(-1);
-  ini_set('display_errors', 'On');
+    <?php
+    error_reporting(-1);
+    ini_set('display_errors', 'On');
 
-  $mysqli= new mysqli('localhost','root','','databaza_pal') or die($mysqli->connect_error);
-     $p_table ='posts';
-     $l_table ='likes';
-     $k_table ='comments';
+    $mysqli = new mysqli('localhost', 'root', '', 'databaza_pal') or die($mysqli->connect_error);
+    $p_table = 'posts';
+    $l_table = 'likes';
+    $k_table = 'comments';
 
-$result= $mysqli->query("SELECT * FROM $p_table WHERE 1 ORDER BY time DESC") or die($mysqli->error);
-?>
+    $result = $mysqli->query("SELECT * FROM $p_table WHERE 1 ORDER BY time DESC") or die($mysqli->error);
+    ?>
     <!-- PRELOADER CONTAINER -->
     <div class="loader-wrapper overflow-hidden">
         <div class="lds-ellipsis">
@@ -71,14 +69,12 @@ $result= $mysqli->query("SELECT * FROM $p_table WHERE 1 ORDER BY time DESC") or 
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <!-- HAMBURGER -->
-                <div class="navbar collapse navbar-collapse justify-content-between flex-column flex-md-row align-content-md-center align-items-md-center"
-                    id="navbarCollapse">
+                <div class="navbar collapse navbar-collapse justify-content-between flex-column flex-md-row align-content-md-center align-items-md-center" id="navbarCollapse">
                     <!-- SEARCH -->
                     <div class="flex-grow-1 d-flex">
                         <form class="form-inline flex-nowrap mx-lg-auto">
                             <div class="input-group mx-0 d-flex align-items-center">
-                                <input type="text" class="search rounded-pill px-4 mr-sm-2 bd-purple shadow-sm" placeholder="#Hladať" maxlength="15"
-                                    required>
+                                <input type="text" class="search rounded-pill px-4 mr-sm-2 bd-purple shadow-sm" placeholder="#Hladať" maxlength="15" required>
                                 <!-- SEARCH ICON -->
                                 <a class="menu-list ms-2">
                                     <i class="bi-search shadow-sm"></i>
@@ -91,8 +87,7 @@ $result= $mysqli->query("SELECT * FROM $p_table WHERE 1 ORDER BY time DESC") or 
                         <!-- USER FOTO -->
                         <img class="mx-3 shadow-sm" src="assets/img/Ellipse 3.png" alt="">
                         <div class="dropdown shadow-sm" onclick="event.stopPropagation()" aria-labelledby="triggerId">
-                            <button class="menu-list dropdown-toggle bg-transparent fw-bold c-black" type="button" id="dropdownMenuButton1"
-                                data-bs-toggle="dropdown" aria-expanded="false">
+                            <button class="menu-list dropdown-toggle bg-transparent fw-bold c-black" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                                 Oman Gulvi
                             </button>
                             <!-- LIST -->
@@ -105,7 +100,8 @@ $result= $mysqli->query("SELECT * FROM $p_table WHERE 1 ORDER BY time DESC") or 
                                 </li>
                                 <!-- 2 -->
                                 <li>
-                                    <a class="c-black ms-3 shadow-sm" href="index.html">Odhlásiť sa</a></li>
+                                    <a class="c-black ms-3 shadow-sm" href="index.html">Odhlásiť sa</a>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -200,42 +196,40 @@ $result= $mysqli->query("SELECT * FROM $p_table WHERE 1 ORDER BY time DESC") or 
                 </div>
             </div>
             <!-- CENTER MENU-->
-            <div
-                class="container m-lg-auto p-lg-4 p-md-4 p-sm-3 p-3 rounded-3 col-md-12 col-lg-5 user-post-bg-color order-2 order-lg-3 bd-purple shadow-sm">
+            <div class="container m-lg-auto p-lg-4 p-md-4 p-sm-3 p-3 rounded-3 col-md-12 col-lg-5 user-post-bg-color order-2 order-lg-3 bd-purple shadow-sm">
                 <form action="script.php" method="POST" enctype="multipart/form-data">
-                <!-- CONTAINER -->
-                <div class="d-flex align-items-center align-content-center justify-content-between col-12">
-                    <!-- USER FOTO -->
-                    <img class="me-3" src="assets/img/Ellipse 3.png" alt="">
-                    <!-- MSG -->
-                    <div class="col-6 col-xxl-8 col-md-8">
-                        <!-- EMOJI -->
-                        <p class="emoji-picker-container">
-                            <textarea class="c-darkgrey border-0 prosim" placeholder="O čom chceš informovať UCM, Oman?" type="text" name="msg"
-                                id="msg" maxlength="250" row="2" data-emojiable="true" data-emoji-input="unicode" required></textarea>
-                        </p>
+                    <!-- CONTAINER -->
+                    <div class="d-flex align-items-center align-content-center justify-content-between col-12">
+                        <!-- USER FOTO -->
+                        <img class="me-3" src="assets/img/Ellipse 3.png" alt="">
+                        <!-- MSG -->
+                        <div class="col-6 col-xxl-8 col-md-8">
+                            <!-- EMOJI -->
+                            <p class="emoji-picker-container">
+                                <textarea class="c-darkgrey border-0 prosim" placeholder="O čom chceš informovať UCM, Oman?" type="text" name="msg" id="msg" maxlength="250" row="2" data-emojiable="true" data-emoji-input="unicode" required></textarea>
+                            </p>
+                        </div>
+                        <!-- SUBMIT BUTTON-->
+                        <button type="submit" name="submit" class="bg-purple px-4 py-2 rounded-3 menu-list fw-bold shadow-sm">Odoslať</button>
                     </div>
-                    <!-- SUBMIT BUTTON-->
-                    <button type="submit" name="submit" class="bg-purple px-4 py-2 rounded-3 menu-list fw-bold shadow-sm">Odoslať</button>
-                </div>
-                <!-- LINE -->
-                <hr class="c-black">
-                <!-- ATTACH FOTO -->
-                <a class="menu-list" onclick="toggler('fotodiv');">
-                    <h5 class="bi bi-image-fill d-inline c-darkprimary"></h5>
-                </a>
-                <!--
+                    <!-- LINE -->
+                    <hr class="c-black">
+                    <!-- ATTACH FOTO -->
+                    <a class="menu-list" onclick="toggler('fotodiv');">
+                        <h5 class="bi bi-image-fill d-inline c-darkprimary"></h5>
+                    </a>
+                    <!--
                         <a onclick="toggler('zvukdiv');"><img src="assets/img/Group 15.png" alt="Vlozit zvuk">
                             <p class="d-inline me-3 c-darkgrey">Zvuk</p>
                         </a>
                         <img src="assets/img/Group 16.png" alt="Vlozit video"> 
                         <p class="d-inline me-3 c-darkgrey">Video</p>-->
-                <div id="fotodiv" class="hidden">
-                    <div class="d-flex justify-content-between align-items-center">
-                        <input type="file" class="form-control bg-black border-0 h-25 mt-3 my-2 w-100 fs-6 rounded-3"  name="userfile[]" value="" multiple=""/>
+                    <div id="fotodiv" class="hidden">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <input type="file" class="form-control bg-black border-0 h-25 mt-3 my-2 w-100 fs-6 rounded-3" name="userfile[]" value="" multiple="" />
+                        </div>
                     </div>
-                </div>
-            </form>
+                </form>
                 <!-- CENTER MENU
                     <div id="zvukdiv" class="hidden">
                         <div class="form">
@@ -289,21 +283,20 @@ $result= $mysqli->query("SELECT * FROM $p_table WHERE 1 ORDER BY time DESC") or 
                         <h4 class="saveToggle bi bi-bookmark d-inline c-darkblack"></h4>
                     </a>
                 </div>
-            </div>*/?>
+            </div>*/ ?>
 
             <!-- POST CONTAINER -->
-            <?php 
-            $user_id=1;
-            while ($data= $result->fetch_assoc()){
+            <?php
+            $user_id = 1;
+            while ($data = $result->fetch_assoc()) {
                 $results = $mysqli->query("SELECT * FROM $l_table WHERE user_id=1 AND post_id={$data['ID']}");
-                    $data_likes = $results->fetch_assoc();
-                    $like = 0;
-                    if(mysqli_num_rows($results)==1)
-                    {
-                        $like = $data_likes['value'];
-                    }
-                    $postid=$data['ID'];
-            echo "<div class='container m-auto p-lg-3 p-md-3 p-sm-3 mt-3 rounded-3 bd-black col-md-12 col-lg-5 py-sm-3 post-bg-color shadow-sm'>
+                $data_likes = $results->fetch_assoc();
+                $like = 0;
+                if (mysqli_num_rows($results) == 1) {
+                    $like = $data_likes['value'];
+                }
+                $postid = $data['ID'];
+                echo "<div class='container m-auto p-lg-3 p-md-3 p-sm-3 mt-3 rounded-3 bd-black col-md-12 col-lg-5 py-sm-3 post-bg-color shadow-sm'>
                 <!-- TOP CONTAINER -->
                 <div class='py-2 d-flex flex-row'>
                     <!-- USER FOTO -->
@@ -321,20 +314,23 @@ $result= $mysqli->query("SELECT * FROM $p_table WHERE 1 ORDER BY time DESC") or 
                 <!-- POST TEXT-->
                 <h5 class='d-inline c-darkgrey'>{$data['msg']}</h5>
                 <!-- POST IMAGE-->";
-                if($data['img_dir']!='images/web/'){
-                echo "<div class='d-flex justify-content-center my-3'>
+                if ($data['img_dir'] != 'images/web/') {
+                    echo "<div class='d-flex justify-content-center my-3'>
                     <img class='img-fluid' src='{$data['img_dir']}' alt=''>
-                </div>";}
+                </div>";
+                }
                 echo "
                 <!-- CONTAINER-->
                 <div class='my-3'>
                     <!-- LIKE ICON-->";
 
-                    if (mysqli_num_rows($results) == 1 AND $like == 1 ){?>
-                    <h4 id="response" class="likeToggle bi bi-hand-thumbs-up-fill d-inline c-darkblack" onclick='startAjax(<?php echo $data["ID"]?>,<?php echo $user_id?>,0);'></h4>
-                    <?php } else{?>
-                        <h4 id="response" class="likeToggle bi bi-hand-thumbs-up d-inline c-darkblack" onclick="startAjax(<?php echo $data['ID']?>,<?php echo $user_id?>,1);"></h4>
-                    <?php } echo"<p class='d-inline me-3 c-darkgrey'>{$data['likes']}</p>
+                if (mysqli_num_rows($results) == 1 and $like == 1) { ?>
+
+                    <h4 id="response" class="likeToggle bi bi-hand-thumbs-up-fill d-inline c-darkblack" onclick='startAjax(<?php echo $data["ID"] ?>,<?php echo $user_id ?>,0);'></h4>
+                <?php } else { ?>
+                    <h4 id="response" class="likeToggle bi bi-hand-thumbs-up d-inline c-darkblack" onclick="startAjax(<?php echo $data['ID'] ?>,<?php echo $user_id ?>,1);"></h4>
+            <?php }
+                echo "<p class='d-inline me-3 c-darkgrey'>{$data['likes']}</p>
                     
                     <!-- COMMENTS ICON-->
                     <a class='menu-list' href='#!'>
@@ -356,47 +352,42 @@ $result= $mysqli->query("SELECT * FROM $p_table WHERE 1 ORDER BY time DESC") or 
             ?>
         </div>
     </div>
+
     <!-- PRELOADER SCRIPT-->
     <script type="text/javascript">
         $(document).ready(function() {
             $(document).ajaxStop(function() {
                 alert(
-                  "AJAX request stopped");
-            });
-            
-        });
-        function startAjax(x,y,z){
-
-            
-            
-            $.ajax({  
-            type: 'POST',  
-            url: '/likes.php', 
-            data: {post_id: x,user_id:y,value:z},
-            success: function(response) {
-            content.html(response);
-           
-           
-    },
-        });
-      
-        $(document).ready(startAjax); 
-
-      
-}  
-$(document).ajaxStart(function() {
-    window.location.reload();
+                    "AJAX request stopped");
             });
 
-/*$(document).ajaxStop(function(){
-  alert("All AJAX requests completed");
-});*/
-       
+        });
 
- 
+        function startAjax(x, y, z) {
+
+            $.ajax({
+                type: 'POST',
+                url: '/likes.php',
+                data: {
+                    post_id: x,
+                    user_id: y,
+                    value: z
+                },
+                success: function(response) {
+                    content.html(response);
+                },
+            });
+
+            $(document).ready(startAjax);
+        }
+        $(document).ajaxStart(function() {
+
+            window.location.reload(true);
+
+        });
     </script>
     <script>
-        $(window).on("load", function () {
+        $(window).on("load", function() {
             $(".loader-wrapper").fadeOut(1000);
         });
     </script>

@@ -42,6 +42,7 @@ ini_set('display_errors', 'On');
             $mysqli->query("UPDATE IGNORE $table SET likes=$likes+1 WHERE ID LIKE '%$postid%'");
         }
         
+        
     
 
     /*if (isset($_POST['liked'])) {
