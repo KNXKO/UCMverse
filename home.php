@@ -318,7 +318,7 @@
 
                 if (mysqli_num_rows($results) == 1 and $like == 1) { ?>
 
-                    <h4 id="response" class="likeToggle bi bi-hand-thumbs-up-fill d-inline c-darkblack" onclick='startAjax(<?php echo $data["ID"] ?>,<?php echo $user_id ?>,0);'></h4>
+                    <h4 id="response" class="likeToggle bi bi-hand-thumbs-up-fill c-darkprimary d-inline c-darkblack" onclick='startAjax(<?php echo $data["ID"] ?>,<?php echo $user_id ?>,0);'></h4>
                 <?php } else { ?>
                     <h4 id="response" class="likeToggle bi bi-hand-thumbs-up d-inline c-darkblack" onclick="startAjax(<?php echo $data['ID'] ?>,<?php echo $user_id ?>,1);"></h4>
             <?php }
