@@ -119,10 +119,13 @@ select {
 }
 
 .img-thumbnail {
-    object-fit: contain;
+    object-fit: cover;
     border-radius: .3rem !important;
     border: 0 !important;
     padding: 0 !important;
+    max-width: 150px !important; 
+    min-width: 100px !important;
+    max-height: 100px !important;
 }
 
 
