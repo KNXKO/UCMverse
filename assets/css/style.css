@@ -435,3 +435,511 @@ h4:hover {
         transform: translate(24px, 0);
     }
 }
+
+
+/* PROFIL */
+
+
+/*profil menu */
+.container-profil
+{
+    background-color: #0c0b1c;
+    border: solid 1px #ffffff14;
+    border-radius: 20px;
+    margin: 1% 0 0 20%;
+    padding: 2% 5% 2% 2%;
+    box-shadow: 10px 10px 5px -7px rgba(0, 0, 0, 0.29);
+}
+ 
+.profil-bar , .profil-pic-info
+{
+    display: flex;
+}
+
+.profil-bar a div 
+{
+    margin-right: 45px;
+}
+
+.profil-bg div:hover h3 , .profil-bg-active div h3  {
+    transition: .2s ease-in-out;
+    color: #5E5CFF;
+}
+
+.profil-bg div:hover , 
+.profil-bg-active div:hover{
+    transition: .2s ease-in-out;
+    border-radius: 40px;
+    background-color: #00000077;
+    color: #1c164e;
+    box-shadow: 10px 10px 5px -7px rgba(0, 0, 0, 0.29);
+}
+
+
+/* Profil info */ 
+
+.profil-info
+{
+    display: flex;
+    flex-direction: row;
+    margin-top: 2%;
+}
+
+.profil-left
+{
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 5%;
+    margin-right: 1%;
+}
+
+.icons-lcp , .icons-lcp div
+{
+    width: 130%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 2%;
+}
+.icons-lcp div h3
+{
+    margin-right: 0.15em;
+    color:#5E5CFF;
+    font-size: 2em;
+}
+
+.icons-lcp div h2{
+
+    color: #8E8E8E;
+    display: flex;
+    align-items: flex-end;
+    font-size: 1.5em;
+}
+
+
+
+/*profil picure */
+.profil-left img , .profil_photo img
+{
+    width: 100%;
+    border-radius: 50%;
+    margin-top: 2%;
+    min-width: 25vw;
+}
+
+
+.profil-right
+{
+    margin-top: 3%;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.profil-right div
+{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+}
+
+.profil-right hr
+{
+    margin-top: -1%;
+    margin-left: 2em;
+    color: #72c593;
+    width: 100%;
+    border: solid 1.5px #72c593;
+}
+
+.profil-right div
+{
+    margin-left: 10%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.profil-right-info h2
+{
+    color: #8E8E8E;
+    font-size: 1.5em;
+}
+
+.profil-right-info h4
+{
+    color: #8E8E8E;
+    font-size: 1.2em;
+}
+
+.profil-right-faculty 
+{
+    display: flex;
+    flex-direction: row;
+    margin: 6% 0;
+}
+
+.profil-right-faculty  .profil-right-field
+{
+    flex-direction: column;
+
+}
+
+.profil-info-year h3
+{
+    font-size: 4em;
+}
+
+.profil-info-year
+{
+    padding-right: 10px;
+    border-right: solid 1px #72c593;
+}
+
+.profil-right-faculty .profil-right-field
+{
+    display: flex;
+    align-items: flex-start;
+    margin-left: 2%;
+}
+
+.profil-right-field h4{
+    color: #72c593;
+    font-size: 2.1vw;
+}
+
+.profil-right-field h3
+{
+    font-size: 2.1vw;
+}
+
+.profil-right-info h2
+{
+  margin-right: 2%;   
+}
+
+@media only screen and (max-width: 991.5px) 
+{
+    .container-profil
+    {
+        margin: 5% 5%;
+    }
+   .container-profil div
+   {
+    display: flex;
+    justify-content: center;
+    justify-content: space-evenly;
+   }
+
+   .profil-bar a div 
+   {
+    margin-right: 0;
+   }
+
+   .icons-lcp
+   {
+    width: 150%;
+   }
+   
+   .icons-lcp div h2
+   {
+    margin-left: -15%;
+   }
+   
+    .profil-right
+    {
+        align-items: flex-start;
+    }
+
+    .profil-left img , .profil_photo img
+    {
+        width: 33vw;
+    }
+
+    .profil-right h1
+    {
+        margin-left: 2vw;
+    }
+    
+}
+
+@media only screen  and (max-width: 830px)
+{
+
+    .profil-info
+    {
+        margin-top: 2em;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex-wrap: nowrap;
+
+    }
+
+    .profil-left img , .profil_photo img
+    {
+        width: 51vw;
+    }
+    
+    .profil-right 
+    {
+        align-items: flex-start;
+    }
+
+    .profil-right h1
+    {
+      margin-left: 11vw;
+    }
+
+    .profil-right hr
+    {
+        margin-left: 0;
+    }
+
+    .icons-lcp , .icons-lcp div
+    {
+         width: 300%
+    }
+
+    .profil-right div
+    {
+        margin-left: 0;
+    }
+
+
+    .profil-right-field h4 , .profil-right-field h3
+    {
+        font-size: 3.2vw;
+    }
+
+}
+
+
+/* EDIT PROFIL */
+
+
+/* photo , name , surname */
+
+
+.profil_photo
+{
+    margin-left: 5%;
+    width: 35%;
+}
+
+.profil_photo img
+{
+    width: 22vw;
+    min-width: 17em;
+}
+
+
+.edit-container-up
+{
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    flex-direction: row;
+}
+
+.edit-mpd
+{
+  margin: 3% 0 0 5%;
+  width: 100%;
+  flex-direction: column;
+}
+
+.edit-mpd h1,
+.edit-container-down h1
+{
+    color: rgba(255, 255, 255, 0.767);
+    font-size: 3vw;
+    margin-bottom: 2%;
+}
+
+.edit-mpd form
+{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.edit-mpd form input:focus {
+    outline: 1px solid rgba(255, 255, 255, 0.767);
+    border: 1px solid rgba(255, 255, 255, 0.767);
+    transition: .2s ease-in-out;
+}
+
+
+.edit-mpd form input
+{
+   width: 46%; 
+   margin-right: 4%;
+   border: none;
+   border-radius: 7px;
+   background-color: #100f25;
+   color:rgba(255, 255, 255, 0.767);
+}
+
+.edit-mpd form input::placeholder
+{
+    color:rgba(255, 255, 255, 0.767);
+}
+
+.edit-mpd form .input-photo
+{
+    width: 100%;
+}
+
+.edit-mpd form input[type=date]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}
+
+.edit-photo{
+    width: 100%;
+    border-radius: 7px;
+    margin-right: 4%;
+    text-align:center;
+    padding:3%;
+    background-color: #100f25;
+    color:rgba(255, 255, 255, 0.767)
+  }
+
+  .edit-photo input{
+    display: none;
+  }
+
+  .edit-photo label{
+    cursor:pointer;
+  }
+
+  .edit-photo label i
+  {
+    margin-top: 5%;
+  }
+
+  #imageName{
+    color: rgba(255, 255, 255, 0.767);
+  }
+
+
+.edit-container-down
+{
+    margin-top: 5%;
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    flex-direction: column;
+    width: 100%;
+}
+
+.edit-container-down form select:focus,
+.edit-container-down form input:focus {
+    outline: 1px solid rgba(255, 255, 255, 0.767);
+    border: 1px solid rgba(255, 255, 255, 0.767);
+    transition: .2s ease-in-out;
+}
+
+
+.edit-container-down form
+{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.edit-container-down form input ,
+.edit-container-down form select
+{
+   width: 48%; 
+   margin-right: 2%;
+   border: none;
+   background-color: #100f25;
+   color:rgba(255, 255, 255, 0.767)
+}
+
+.edit-container-down form input::placeholder
+{
+    color: rgba(255, 255, 255, 0.767);
+}
+
+
+.edit-container-down form .select-field 
+{ 
+    width: 98%;
+    margin-bottom: 2%;
+}
+
+.edit-btn
+{
+    background-color: rgb(94 92 255);
+    color: rgb(255, 255, 255);
+    height: 50px;
+    border-radius: 7px;
+
+    transition: .2s ease-in-out;
+}
+
+.edit-btn:hover
+{
+    background-color: #2F2E8B;
+    transition: .2s ease-in-out;
+}
+
+/* responsivne edit profil */
+
+@media only screen and (max-width: 830px) 
+{
+
+    .edit-mpd h1, 
+    .edit-container-down h1
+    {
+        font-size: 5vw;
+        margin-bottom: 5%;
+        margin-top: 5%;
+        margin-left: 1%;
+    }
+
+    .edit-container-down h1
+    {
+        margin-left: 2%;
+    }
+
+    .edit-mpd form 
+    {
+        flex-direction: column;
+    }
+
+    .edit-mpd form input
+    {
+        width: 100%;
+        margin-bottom: 3%;
+    }
+
+    .edit-container-up
+    {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .edit-container-down form
+    {
+        flex-direction: column;
+        width: 100%;
+        margin-left: 2%;
+    }
+
+    .edit-container-down form input,
+    .edit-container-down form select,
+    .edit-container-down form .select-field
+    {
+        width: 100%;
+        margin-bottom: 3%;
+    }   
+    
+    .edit-btn
+    {
+        width: 100%;
+        margin-left: 10%;
+    }
+}
