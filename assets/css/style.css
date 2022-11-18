@@ -439,80 +439,8 @@ h4:hover {
 
 /* PROFIL */
 
-
-/*profil menu */
-.container-profil {
-    margin: 1% 0% 0% 20%;
-    padding: 2% 0% 2% 2%;
-}
-
-.profil-bar,
-.profil-pic-info {
-    display: flex;
-}
-
-.profil-bar a div {
-    margin-right: 45px;
-}
-
-/* Profil info */
-
-.profil-info {
-    display: flex;
-    flex-direction: row;
-    margin-top: 2%;
-}
-
-.profil-left {
-    width: 30%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-left: 5%;
-    margin-right: 1%;
-}
-
-.icons-lcp,
-.icons-lcp div {
-    width: 130%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    margin-top: 2%;
-}
-
-.icons-lcp div h3 {
-    margin-right: 0.15em;
-    color: #5E5CFF;
-    font-size: 2em;
-}
-
-.icons-lcp div h2 {
-
-    color: #8E8E8E;
-    display: flex;
-    align-items: flex-end;
-    font-size: 1.5em;
-}
-
-/*profil picure */
-.profil-left img,
-.profil_photo img {
-    width: 100%;
-    border-radius: 50%;
-    margin-top: 2%;
-    min-width: 25vw;
-}
-
-
-.profil-right {
-    margin-top: 3%;
-    display: flex;
-    flex-direction: column;
-}
-
 .profil-right hr {
-    margin-top: -1%;
+
     border: solid 2px #5E5CFF;
 }
 
@@ -535,92 +463,8 @@ h4:hover {
     border-right: solid 1px #2F2E8B;
 }
 
-.profil-right-faculty .profil-right-field {
-    display: flex;
-    align-items: flex-start;
-    margin-left: 2%;
-}
-
-.profil-right-info h2 {
-    margin-right: 2%;
-}
-
-@media only screen and (max-width: 991.5px) {
-    .container-profil {
-        margin: 0% 5%;
-    }
-
-    .container-profil div {
-        display: flex;
-        justify-content: center;
-        justify-content: space-evenly;
-    }
-
-    .profil-bar a div {
-        margin-right: 0;
-    }
-
-    .icons-lcp {
-        width: 150%;
-    }
-
-    .icons-lcp div h2 {
-        margin-left: -15%;
-    }
-
-
-
-    .profil-left img,
-    .profil_photo img {
-        width: 33vw;
-    }
-
-    .profil-right h1 {
-        margin-left: 2vw;
-    }
-
-}
-
-@media only screen and (max-width: 830px) {
-
-    .profil-info {
-        margin-top: 2em;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        flex-wrap: nowrap;
-
-    }
-
-    .profil-left img,
-    .profil_photo img {
-        width: 51vw;
-    }
-
-    .profil-right h1 {
-        margin-left: 11vw;
-    }
-
-    .profil-right hr {
-        margin-left: 0;
-    }
-
-    .icons-lcp,
-    .icons-lcp div {
-        width: 300%
-    }
-
-    .profil-right div {
-        margin-left: 0;
-    }
-
-}
-
-
 /* EDIT PROFIL */
-
 /* photo , name , surname */
-
 
 .profil_photo {
     margin-left: 5%;

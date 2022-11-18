@@ -147,70 +147,78 @@
                 </a>
             </div>
             <!-- PROFIL -->
-            <div class="container-profil bd-purple post-bg-color shadow-sm rounded-3">
+            <div class="container-profil p-3 bd-purple post-bg-color shadow-sm rounded-3 col-12 col-lg-7 m-auto">
                 <!-- Profil menu -->
-                <div class="profil-bar">
+                <div class="profil-bar d-flex justify-content-sm-center
+                justify-content-around justify-content-lg-start">
                     <!-- 1.  -->
                     <a class="menu-bg" href="profil.html">
-                        <div class="d-flex align-content-center align-items-center px-4">
-                            <h3 class="bi bi-person me-md-3 c-darkprimary"></h3>
-                            <h3 class="fs-5 d-none d-lg-inline c-darkprimary">Môj profil</h3>
+                        <div class="d-flex align-content-center align-items-center px-sm-4">
+                            <h3 class="bi bi-person me-sm-3 c-darkprimary"></h3>
+                            <h3 class="fs-5 d-none d-sm-inline c-darkprimary">Môj profil</h3>
                         </div>
                     </a>
                     <!-- 2.  -->
                     <a class="menu-bg" href="edit_profil.html">
-                        <div class="d-flex align-content-center align-items-center px-4">
-                            <h3 class="bi bi-pencil-square me-md-3"></h3>
-                            <h3 class="fs-5 d-none d-lg-inline">Upraviť profil</h3>
+                        <div class="d-flex align-content-center align-items-center px-sm-4">
+                            <h3 class="bi bi-pencil-square me-sm-3"></h3>
+                            <h3 class="fs-5 d-none d-sm-inline">Upraviť profil</h3>
                         </div>
                     </a>
                 </div>
                 <!-- Profil info -->
-                <div class="profil-info">
+                <div class="profil-info flex-column flex-md-row d-flex col-12">
                     <!-- Profil picture - Likes - Coments - Posts -->
-                    <div class="profil-left">
+                    <div class="profile-left d-flex flex-column col-12 justify-content-center col-md-4">
                         <!-- Profilva fotka-->
-                        <img src="assets/img/Ellipse 3.png" alt="Profil_picure">
-                        <div class="icons-lcp">
-                            <div class="number-icons-lcp">
-                                <h3 class="bi bi-hand-thumbs-up"></h3>
-                                <h2>15</h2>
+                            <div class="mb-3">
+                                <img src="assets/img/profile_pic.png" class="img-fluid m-auto d-flex" alt="">
                             </div>
-                            <div class="number-icons-lcp">
-                                <h3 class="bi bi-chat"></h3>
-                                <h2>15</h2>
+                        
+                        <div class="justify-content-center align-content-center d-flex flex-row">
+                            <div class="d-flex flex-row ms-2">
+                                <h2 class="bi bi-hand-thumbs-up c-primary me-2"></h2>
+                                <p class="fs-4">15</p>
                             </div>
-                            <div class="number-icons-lcp">
-                                <h3 class="bi bi-images"></h3>
-                                <h2>15</h2>
+                            <div class="d-flex flex-row ms-2">
+                                <h2 class="bi bi-chat c-primary me-2"></h2>
+                                <p class="fs-4">15</p>
+                            </div>
+
+                            <div class="d-flex flex-row ms-2">
+                                <h2 class="bi bi-images c-primary me-2"></h2>
+                                <p class="fs-4">15</p>
                             </div>
                         </div>
                     </div>
                     <!-- Profil info -->
-                    <div class="profil-right">
+                    <div class="profil-right col-12 col-lg-8 col-md-8">
                         <!-- Meno , Priezvisko , E-mail, dátum naordenia , fakulta ,  stupen odbor -->
-                        <h1>Oman Gulvi</h1>
-                        <hr class="w-100">
-                        <div class="profil-right-info d-flex justify-content-center justify-content-lg-start ms-3">
-                            <h3 class="fs-5">O tebe</h3>
+                        <div class="d-flex justify-content-center justify-content-md-start">
+                            <h1>Oman Gulvi</h1>
                         </div>
-                        <div class="profil-right-faculty w-100 ms-5 my-5">
-                            <div class="profil-info-year">
-                                <h3 class="c-black">2.Bc</h3>
+                        <hr class="ms-md-2 col-12">
+                        <div class="profil-right-info d-flex justify-content-center justify-content-md-start">
+                            <h3 class="fs-5 ms-md-3">O tebe</h3>
+                        </div>
+                        <div class="profil-right-faculty d-flex justify-content-center justify-content-md-start my-2 my-lg-4 ms-md-4">
+                            <div class="profil-info-year d-flex align-content-center justify-content-center">
+                                <h1 class="c-black fs-1 d-flex
+                                align-items-center">2.Bc</h1>
                             </div>
-                            <div class="profil-right-field">
+                            <div class="profil-right-field ms-2">
                                 <h4 class="fs-2 c-primary">Fakulta prírodných vied</h4>
                                 <h3 class="fs-4">Aplikovaná informatika</h3>
                             </div>
                         </div>
-                        <div class="profil-right-info d-flex flex-column justify-content-start ms-3">
-                            <div class="mb-1 d-flex align-content-center">
-                                <h2 class="bi bi-envelope d-inline c-darkblack fs-4"></h2>
-                                <p class="d-inline c-darkgrey mt-1">murinova5@ucm.sk</p>
+                        <div class="d-flex flex-column  align-items-center align-items-md-start">
+                            <div class="mb-1 d-flex flex-row align-items-center">
+                                <h2 class="bi bi-envelope c-darkblack fs-4 me-2"></h2>
+                                <p class="c-darkgrey">murinova5@ucm.sk</p>
                             </div>
-                            <div class="mb-1 d-flex align-content-center">
-                                <h2 class="bi bi-calendar4 d-inline c-darkblack fs-4"></h2>
-                                <p class="d-inline c-darkgrey mt-1">22 rokov</p>
+                            <div class="mb-1 d-flex flex-row align-items-center">
+                                <h2 class="bi bi-calendar4 c-darkblack fs-4 me-2"></h2>
+                                <p class="c-darkgrey">22 rokov</p>
                             </div>
                         </div>
                     </div>
