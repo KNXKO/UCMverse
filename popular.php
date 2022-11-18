@@ -160,7 +160,7 @@
             <!-- RIGHT BAR -->
             <div class="container my-3 px-0 float-lg-end col-md-12 col-lg-3 my-lg-0 col-xxl-3 m-lg-auto shadow-sm">
                 <div class="p-4 rounded-3 d-flex flex-column m-md-auto flex-lg-column w-auto post-bg-color bd-black">
-                    <h4 class="mb-3">Novinky</h4>
+                    <h3 class="mb-3">Novinky</h3>
                     <!-- 1 -->
                     <div class="d-flex mt-1">
                         <img class="img-thumbnail w-25 h-auto" src="assets/img/udalosti/banners/banner_tyzden_vedy.jpg" style="object-fit: cover;" alt="">
