@@ -161,7 +161,7 @@
                 <div class="p-4 rounded-3 d-flex flex-column m-md-auto flex-lg-column w-auto post-bg-color bd-black">
                     <h4 class="mb-3">Novinky</h4>
                     <!-- 1 -->
-                    <div class="d-flex mt-1">
+                    <div class="d-flex mt-1 ms-2">
                         <div class="row me-1">
                            <img class="img-thumbnail max-vw-25" src="assets/img/udalosti/banners/banner_tyzden_vedy.jpg"
                             alt=""> 
@@ -177,7 +177,7 @@
                     <!-- LINE -->
                     <hr class="c-black">
                     <!-- 2 -->
-                    <div class="d-flex mt-1">
+                    <div class="d-flex mt-1 ms-2">
                         <div class="row me-1">
                              <img class="img-thumbnail max-vw-25" src="assets/img/udalosti/banners/images.jfif" alt="">
                         </div>
@@ -191,7 +191,7 @@
                     <!-- LINE -->
                     <hr class="c-black">
                     <!-- 3 -->
-                    <div class="d-flex mt-1">
+                    <div class="d-flex mt-1 ms-2">
                         <div class="row me-1">
                             <img class="img-thumbnail max-vw-25" src="assets/img/udalosti/banners/banner_DOD.jpg"  alt="">
                         </div>
