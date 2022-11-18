@@ -32,8 +32,7 @@
     <script src="assets/emoji/js/util.min.js"></script>
     <script src="assets/emoji/js/jquery.emojiarea.min.js"></script>
     <script src="assets/emoji/js/emoji-picker.min.js"></script>
-    <title>UCMverse</title>
-
+    <title>UCMverse | Domov</title>
 </head>
 
 <body>
@@ -158,7 +157,7 @@
             </div>
             <!-- RIGHT BAR -->
             <div class="container my-3 px-0 float-lg-end col-md-12 col-lg-3 my-lg-0 col-xxl-3 m-lg-auto shadow-sm">
-                <div class="p-4 rounded-3 d-flex flex-column m-md-auto flex-lg-column w-auto post-bg-color bd-black">
+                <div class="rounded-3 d-flex flex-column m-md-auto flex-lg-column w-auto post-bg-color bd-black p-4">
                     <h4 class="mb-3">Novinky</h4>
                     <!-- 1 -->
                     <div class="d-flex mt-1 ms-2">
@@ -215,7 +214,7 @@
                         <!-- USER FOTO -->
                         <img class="me-3" src="assets/img/Ellipse 3.png" alt="">
                         <!-- MSG -->
-                        <div class="col-6 col-xxl-8 col-md-8">
+                        <div class="col-6 col-xxl-8 col-md-8 col-lg-7">
                             <!-- EMOJI -->
                             <p class="emoji-picker-container">
                                 <textarea class="c-darkgrey border-0 prosim" placeholder="O čom chceš informovať UCM, Oman?" type="text" name="msg" id="msg" maxlength="250" row="2" data-emojiable="true" data-emoji-input="unicode" required></textarea>
@@ -227,20 +226,21 @@
                     <!-- LINE -->
                     <hr class="c-black">
                     <!-- ATTACH FOTO -->
-                    <a class="menu-list" onclick="toggler('fotodiv');">
-                        <h5 class="bi bi-image-fill d-inline c-darkprimary"></h5>
-                    </a>
+                    <label class="uploadFile menu-list">
+                        <i class="bi bi-image-fill d-inline c-darkprimary fa-md mr-2"></i>
+                        <input type="file" class="inputfile form-control" name="userfile[]" value="" multiple="" />
+                    </label>
                     <!--
                         <a onclick="toggler('zvukdiv');"><img src="assets/img/Group 15.png" alt="Vlozit zvuk">
                             <p class="d-inline me-3 c-darkgrey">Zvuk</p>
                         </a>
                         <img src="assets/img/Group 16.png" alt="Vlozit video"> 
-                        <p class="d-inline me-3 c-darkgrey">Video</p>-->
+                        <p class="d-inline me-3 c-darkgrey">Video</p>
                     <div id="fotodiv" class="hidden">
                         <div class="d-flex justify-content-between align-items-center">
                             <input type="file" class="form-control bg-black border-0 h-25 mt-3 my-2 w-100 fs-6 rounded-3" name="userfile[]" value="" multiple="" />
                         </div>
-                    </div>
+                    </div>-->
                 </form>
                 <!-- CENTER MENU
                     <div id="zvukdiv" class="hidden">
