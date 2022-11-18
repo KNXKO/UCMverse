@@ -114,44 +114,44 @@
             <div class="left-bar container d-flex flex-lg-column h-100 col-md-12 col-lg-2 justify-content-md-between justify-content-lg-start justify-content-between
              float-lg-start col-xxl-2 col-xl-2">
                 <!-- 1.  -->
-                <a class="menu-bg active" href="home.php">
+                <a class="menu-bg" href="home.php">
                     <div class="d-flex align-content-center align-items-center mb-lg-4 px-3">
-                        <h3 class="bi bi-house-fill me-md-3 c-darkprimary"></h3>
+                        <h3 class="bi bi-house me-lg-3 c-darkprimary"></h3>
                         <h3 class="fs-5 d-none d-lg-inline c-darkprimary">Domov</h3>
                     </div>
                 </a>
                 <!-- 2.  -->
-                <a class="menu-bg" href="popular.html">
+                <a class="menu-bg" href="popular.php">
                     <div class="d-flex align-content-center align-items-center mb-lg-4 px-3">
-                        <h3 class="bi bi-bar-chart me-md-3"></h3>
+                        <h3 class="bi bi-bar-chart me-lg-3"></h3>
                         <h3 class="fs-5 d-none d-lg-inline">Populárne</h3>
                     </div>
                 </a>
                 <!-- 3.  -->
                 <a class="menu-bg" href="#">
                     <div class="d-flex align-content-center align-items-center mb-lg-4 px-3">
-                        <h3 class="bi bi-binoculars me-md-3"></h3>
+                        <h3 class="bi bi-binoculars me-lg-3"></h3>
                         <h3 class="fs-5 d-none d-lg-inline">Preskúmať</h3>
                     </div>
                 </a>
                 <!-- 4.  -->
                 <a class="menu-bg" href="#">
                     <div class="d-flex align-content-center align-items-center mb-lg-4 px-3">
-                        <h3 class="bi bi-bell me-md-3"></h3>
+                        <h3 class="bi bi-bell me-lg-3"></h3>
                         <h3 class="fs-5 d-none d-lg-inline">Notifikácie</h3>
                     </div>
                 </a>
                 <!-- 5.  -->
                 <a class="menu-bg" href="#">
                     <div class="d-flex align-content-center align-items-center mb-lg-4 px-3">
-                        <h3 class="bi bi-bookmark me-md-3"></h3>
+                        <h3 class="bi bi-bookmark me-lg-3"></h3>
                         <h3 class="fs-5 d-none d-lg-inline">Uložené</h3>
                     </div>
                 </a>
                 <!-- 6.  -->
-                <a class="menu-bg" href="#">
+                <a class="menu-bg" href="profil.html">
                     <div class="d-flex align-content-center align-items-center mb-lg-4 px-3">
-                        <h3 class="bi bi-person me-md-3"></h3>
+                        <h3 class="bi bi-person me-lg-3"></h3>
                         <h3 class="fs-5 d-none d-lg-inline">Profil</h3>
                     </div>
                 </a>
@@ -162,33 +162,45 @@
                     <h4 class="mb-3">Novinky</h4>
                     <!-- 1 -->
                     <div class="d-flex mt-1">
-                        <img class="img-thumbnail w-25 h-auto" src="assets/img/udalosti/banners/banner_tyzden_vedy.jpg" style="object-fit: cover;" alt="">
+                        <div class="row me-1">
+                           <img class="img-thumbnail max-vw-25" src="assets/img/udalosti/banners/banner_tyzden_vedy.jpg"
+                            alt=""> 
+                        </div>
+                        
                         <div class="mx-3 d-flex flex-column justify-content-center">
                             <h5 class="fw-300 fw-bold c-darkgrey fs-6">Týžden vedy a techniky</h5>
                             <p class="fw-300 fs-6 mb-1">1.11 12:15</p>
-                            <a class="fw-300 c-darkprimary fs-6 udalosti" target="_blank" href="https://tyzdenvedy.sk/">Viac info <i class="bi bi-arrow-right"></i></a>
+                            <a class="fw-300 c-darkprimary fs-6 udalosti" target="_blank" href="https://tyzdenvedy.sk/">Viac info <i
+                                    class="bi bi-arrow-right"></i></a>
                         </div>
                     </div>
                     <!-- LINE -->
                     <hr class="c-black">
                     <!-- 2 -->
-                    <div class="d-flex mt-1 ">
-                        <img class="img-thumbnail w-25 h-auto" src="assets/img/udalosti/banners/images.jfif" style="object-fit: cover;" alt="">
+                    <div class="d-flex mt-1">
+                        <div class="row me-1">
+                             <img class="img-thumbnail max-vw-25" src="assets/img/udalosti/banners/images.jfif" alt="">
+                        </div>
                         <div class="mx-3 d-flex flex-column justify-content-center">
                             <h5 class="fw-300 fw-bold c-darkgrey fs-6 mb-1">Prednáška Romana Boču</h5>
                             <p class="fw-300 fs-6 mb-0">30.10 16:10</p>
-                            <a class="fw-300 c-darkprimary fs-6 udalosti" target="_blank" href="http://fpv.ucm.sk/sk/odborna-prednaska-romana-bocu">Viac info <i class="bi bi-arrow-right"></i></a>
+                            <a class="fw-300 c-darkprimary fs-6 udalosti" target="_blank"
+                                href="http://fpv.ucm.sk/sk/odborna-prednaska-romana-bocu">Viac info <i class="bi bi-arrow-right"></i></a>
                         </div>
                     </div>
                     <!-- LINE -->
                     <hr class="c-black">
                     <!-- 3 -->
                     <div class="d-flex mt-1">
-                        <img class="img-thumbnail w-25 h-auto" src="assets/img/udalosti/banners/banner_DOD.jpg" style="object-fit: cover;" alt="">
+                        <div class="row me-1">
+                            <img class="img-thumbnail max-vw-25" src="assets/img/udalosti/banners/banner_DOD.jpg"  alt="">
+                        </div>
+                        
                         <div class="mx-3 d-flex flex-column justify-content-center">
                             <h5 class="fw-300 fw-bold c-darkgrey fs-6 mb-1">Deň otvorených dverí na FPV</h5>
                             <p class="fw-300 fs-6 mb-0">14.10 10:30</p>
-                            <a class="fw-300 c-darkprimary fs-6 udalosti" target="_blank" href="http://fpv.ucm.sk/sk/dod-2022">Viac info <i class="bi bi-arrow-right"></i></a>
+                            <a class="fw-300 c-darkprimary fs-6 udalosti" target="_blank" href="http://fpv.ucm.sk/sk/dod-2022">Viac info <i
+                                    class="bi bi-arrow-right"></i></a>
                         </div>
                     </div>
                     <!-- LINE  -->
