@@ -124,7 +124,7 @@
                 <!-- 2.  -->
                 <a class="menu-bg" href="popular.php">
                     <div class="d-flex align-content-center align-items-center mb-lg-4 px-3">
-                        <h3 class="bi bi-bar-chart-fill me-md-3 c-darkprimary"></h3>
+                        <h3 class="bi bi-bar-chart me-md-3 c-darkprimary"></h3>
                         <h3 class="fs-5 d-none d-lg-inline c-darkprimary">Populárne</h3>
                     </div>
                 </a>
@@ -150,7 +150,7 @@
                     </div>
                 </a>
                 <!-- 6.  -->
-                <a class="menu-bg" href="#">
+                <a class="menu-bg" href="profil.php">
                     <div class="d-flex align-content-center align-items-center mb-lg-4 px-3">
                         <h3 class="bi bi-person me-md-3"></h3>
                         <h3 class="fs-5 d-none d-lg-inline">Profil</h3>
