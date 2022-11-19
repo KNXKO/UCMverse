@@ -21,16 +21,23 @@
     <!-- JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="assets/js/app.js"></script>
-    <script src="https://use.fontawesome.com/3a2eaf6206.js"></script>
     <!-- BS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-    <title>UCMverse | Upraviť profil</title>
-
+    <title>UCMverse | Profil</title>
 </head>
 
 <body>
+<?php
+error_reporting(-1);
+ini_set('display_errors', 'On');
+
+  $mysqli= new mysqli('localhost','root','','databaza_pal') or die($mysqli->connect_error);
+     $table ='profiles';
+     $result= $mysqli->query("SELECT * FROM $table WHERE user_id=1") or die($mysqli->error);
+     $data = $result->fetch_assoc();
+?>
     <!-- PRELOADER CONTAINER -->
     <div class="loader-wrapper overflow-hidden">
         <div class="lds-ellipsis">
@@ -93,6 +100,7 @@
                 </div>
             </div>
         </nav>
+        <!-- MAIN CONTAINER -->
         <div class="container-fluid mt-5 mt-lg-5 px-xxl-5 m-lg-auto">
             <!-- LEFT BAR -->
             <div class="left-bar container d-flex flex-lg-column h-100 col-md-12 col-lg-2 justify-content-md-between justify-content-lg-start justify-content-between
@@ -141,57 +149,81 @@
                 </a>
             </div>
             <!-- PROFIL -->
-            <div class="mt-3 col-12 col-md-12 col-lg-9 me-lg-3 m-lg-auto me-xxl-auto col-xxl-8">
+            <div
+                class="p-3 bd-purple post-bg-color shadow-sm rounded-3 col-12 col-lg-9 mt-3 col-xl-9 col-xxl-9 m-xx-auto m-auto me-lg-2 me-xl-2">
                 <!-- Profil menu -->
-                <div class="profil-bar d-flex justify-content-center">
+                <div class="profil-bar d-flex justify-content-sm-center
+                justify-content-around justify-content-lg-start">
                     <!-- 1.  -->
                     <a class="menu-bg" href="profil.html">
-                        <div class="d-flex align-content-center align-items-center mb-lg-4 px-3">
-                            <h3 class="bi bi-person me-sm-3"></h3>
-                            <h3 class="fs-5 d-none d-sm-inline">Môj profil</h3>
+                        <div class="d-flex align-content-center align-items-center px-sm-4">
+                            <h3 class="bi bi-person me-sm-3 c-darkprimary"></h3>
+                            <h3 class="fs-5 d-none d-sm-inline c-darkprimary">Môj profil</h3>
                         </div>
                     </a>
                     <!-- 2.  -->
                     <a class="menu-bg" href="edit_profil.html">
-                        <div class="d-flex align-content-center align-items-center mb-lg-4 px-3">
-                            <h3 class="bi bi-pencil-square me-sm-3 c-darkprimary"></h3>
-                            <h3 class="fs-5 d-none d-sm-inline c-darkprimary">Upraviť profil</h3>
+                        <div class="d-flex align-content-center align-items-center px-sm-4">
+                            <h3 class="bi bi-pencil-square me-sm-3"></h3>
+                            <h3 class="fs-5 d-none d-sm-inline">Upraviť profil</h3>
                         </div>
                     </a>
                 </div>
-                <!-- Zmena osobný údajov - meno , priezvisko , dátum narodenia , profilová fotka-->
-                <div class="edit-container-up">
-                    <div class="profil_photo w-auto">
-                        <img src="assets/img/profile_pic.png" alt="profilova_fotka">
-                    </div>
-                    <div class="edit-mpd">
-                        <h1> Osobné údaje </h1>
-                        <form action="profile_script.php" method="POST" enctype="multipart/form-data">
-                            <input class="" type="text" name="name" id="name" placeholder="Meno" maxlength="15" required>
-                            <input class="mb-4 " type="text" name="priezvisko" id="priezvisko" placeholder="Priezvisko" maxlength="25" required>
-                            <input class="mb-4 " type="email" name="email" id="email" placeholder="E-mail" maxlength="35" required>
-                            <input type="date" class="mb-4 p-2 me-2">
-
-                            <div class="edit-photo">
-                                <label for="inputTag">
-                                    Select Image <br />
-                                    <i class="fa fa-2x fa-camera"></i>
-                                    <input id="inputTag" name="picture" type="file" value="" multiple="" />
-                                    <br />
-                                    <span id="imageName"></span>
-                                </label>
+                <!-- Profil info -->
+                <div class="profil-info flex-column flex-md-row d-flex col-12">
+                    <!-- Profil picture - Likes - Coments - Posts -->
+                    <div class="profile-left d-flex flex-column col-12 justify-content-center col-md-4">
+                        <!-- Profilva fotka-->
+                        <div class="mb-3">
+                            <?php
+                            echo"<img src='{$data['img_dir']}' class='img-fluid m-auto d-flex min-vw-75 min-vh-75' alt=''>";
+                            ?>
+                        </div>
+                        <div class="justify-content-center align-content-center d-flex flex-row">
+                            <div class="d-flex flex-row ms-3">
+                                <h2 class="bi bi-hand-thumbs-up c-primary me-2"></h2>
+                                <p class="fs-4">15</p>
                             </div>
-                            <!-- Uplode profilovej fotky -->
-                            <script>
-                                let input = document.getElementById("inputTag");
-                                let imageName = document.getElementById("imageName")
-                                input.addEventListener("change", () => {
-                                    let inputImage = document.querySelector("input[type=file]").files[0];
-                                    imageName.innerText = inputImage.name;
-                                })
-                            </script>
-                            <button type="submit" name="submit" class="bg-purple px-4 py-2 rounded-3 menu-list fw-bold shadow-sm">Odoslať</button>
-                        </form>
+                            <div class="d-flex flex-row ms-3">
+                                <h2 class="bi bi-chat c-primary me-2"></h2>
+                                <p class="fs-4">15</p>
+                            </div>
+                            <div class="d-flex flex-row ms-3">
+                                <h2 class="bi bi-images c-primary me-2"></h2>
+                                <p class="fs-4">15</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Profil info -->
+                    <div class="profil-right col-12 col-lg-8 col-md-8">
+                        <!-- Meno , Priezvisko , E-mail, dátum naordenia , fakulta ,  stupen odbor -->
+                        <div class="d-flex justify-content-center justify-content-md-start">
+                            <h1>Oman Gulvi</h1>
+                        </div>
+                        <hr class="ms-md-2 col-12">
+                        <div class="profil-right-info d-flex justify-content-center justify-content-md-start">
+                            <h3 class="fs-5 ms-md-3">O tebe</h3>
+                        </div>
+                        <div class="profil-right-faculty d-flex justify-content-center justify-content-md-start my-2 my-lg-4 ms-md-4">
+                            <div class="profil-info-year d-flex align-content-center justify-content-center">
+                                <h1 class="c-black fs-1 d-flex
+                                align-items-center">2.Bc</h1>
+                            </div>
+                            <div class="profil-right-field ms-2">
+                                <h4 class="fs-2 c-primary">Fakulta prírodných vied</h4>
+                                <h3 class="fs-4">Aplikovaná informatika</h3>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-column  align-items-center align-items-md-start">
+                            <div class="mb-1 d-flex flex-row align-items-center">
+                                <h2 class="bi bi-calendar4 c-darkblack fs-4 me-2"></h2>
+                                <p class="c-darkgrey mt-1">22 rokov</p>
+                            </div>
+                            <div class="mb-1 d-flex flex-row align-items-center">
+                                <h2 class="bi bi-envelope c-darkblack fs-4 me-2"></h2>
+                                <p class="c-darkgrey mt-1">murinova5@ucm.sk</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

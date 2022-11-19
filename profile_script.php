@@ -4,14 +4,15 @@ ini_set('display_errors', 'On');
 
   $mysqli= new mysqli('localhost','root','','databaza_pal') or die($mysqli->connect_error);
      $table ='profiles';
-
+echo "1";
      if(isset($_POST['submit'])){
-       
+      echo "1";
+       $file=$_FILES['picture'];
         $extensions=array('jpg','png','gif','jpeg');
 
-        $file_ext = explode('.',$file_array[$i]['name']);
-       
-        $msg = @$_POST['msg'];
+        $file_ext = explode('.',$file['name']);
+        echo "1";
+       // $msg = @$_POST['msg'];
 
        /* NEPOTREBNE $name=$file_ext[0];
         $name= preg_replace("!-!"," ",$name);
@@ -25,15 +26,15 @@ ini_set('display_errors', 'On');
             echo "$file_array[$i]['name'] - Invalid file extension!";
         }
         else{*/
-        
-        $img_dir='images/profiles/'.$file_array[$i]['name'];
-        move_uploaded_file($file_array[$i]['tmp_name'],$img_dir);
-        
-        $sql = "INSERT INTO $table(msg,img_dir,time) VALUES('$msg','$img_dir',now())";
+          echo "1";
+        $img_dir='images/profiles/'.$file['name'];
+        move_uploaded_file($file['tmp_name'],$img_dir);
+        echo "1";
+        $sql = "INSERT INTO $table(user_id,img_dir) VALUES(1,'$img_dir')";
         $mysqli->query($sql) or die($mysqli->error);
         
-        echo $file_array[$i]['name'].' - '.$phpFileUploadErrors[$file_array[$i]['error']];
-           
+        echo $file['name'].' - '.$phpFileUploadErrors[$file['error']];
+        
         
         /* echo '
 <script type="text/javascript">
@@ -45,8 +46,9 @@ location.reload();
         
         //}
     //}
+    header("location:profil.php");
 }
-header("location:home.php");
+
 
  
 
