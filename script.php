@@ -21,7 +21,6 @@ ini_set('display_errors', 'On');
     {   
         header("location:home.php");
         exit();
-       
     } 
 
     if(isset($_POST['submit'])){
