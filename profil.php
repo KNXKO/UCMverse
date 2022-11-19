@@ -176,7 +176,7 @@ ini_set('display_errors', 'On');
                         <!-- Profilva fotka-->
                         <div class="mb-3">
                             <?php
-                            echo"<img src='{$data['img_dir']}' class='img-fluid m-auto d-flex min-vw-75 min-vh-75' alt=''>";
+                            echo"<img src='{$data['img_dir']}' class='img-fluid m-auto d-flex min-vw-75 min-vh-75 rounded-circle' alt=''>";
                             ?>
                         </div>
                         <div class="justify-content-center align-content-center d-flex flex-row">
