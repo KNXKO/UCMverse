@@ -128,6 +128,11 @@ select {
     max-height: 100px !important;
 }
 
+.img-profile {
+    width: 300px !important;
+    height: 300px !important;
+    object-fit: cover;
+}
 
 @media only screen and (min-width: 1000px) {
 
@@ -453,6 +458,7 @@ h4:hover {
     position: relative;
     resize: none;
   }
+  
   .uploadFile [type=file] {
     cursor: pointer !important;
     display: block;
