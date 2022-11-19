@@ -176,7 +176,7 @@ ini_set('display_errors', 'On');
                         <!-- Profilva fotka-->
                         <div class="mb-3">
                             <?php
-                            echo"<img src='{$data['img_dir']}' class='img-fluid m-auto d-flex min-vw-75 min-vh-75 rounded-circle' alt=''>";
+                            echo"<img src='{$data['img_dir']}' class='m-auto d-flex rounded-circle img-profile' alt=''>";
                             ?>
                         </div>
                         <div class="justify-content-center align-content-center d-flex flex-row">
@@ -195,12 +195,12 @@ ini_set('display_errors', 'On');
                         </div>
                     </div>
                     <!-- Profil info -->
-                    <div class="profil-right col-12 col-lg-8 col-md-8">
+                    <div class="profil-right col-12 col-lg-7 col-md-7 col-xl-6">
                         <!-- Meno , Priezvisko , E-mail, dátum naordenia , fakulta ,  stupen odbor -->
                         <div class="d-flex justify-content-center justify-content-md-start">
                             <h1>Oman Gulvi</h1>
                         </div>
-                        <hr class="ms-md-2 col-12">
+                        <hr class="ms-md-2 col-12 col-md-10 col-lg-10 col-xl-11">
                         <div class="profil-right-info d-flex justify-content-center justify-content-md-start">
                             <h3 class="fs-5 ms-md-3">O tebe</h3>
                         </div>
