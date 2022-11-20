@@ -105,7 +105,7 @@
                     </div>
                 </a>
                 <!-- 2.  -->
-                <a class="menu-bg" href="popular.html">
+                <a class="menu-bg" href="popular.php">
                     <div class="d-flex align-content-center align-items-center mb-lg-4 px-3">
                         <h3 class="bi bi-bar-chart me-lg-3"></h3>
                         <h3 class="fs-5 d-none d-lg-inline">Populárne</h3>
@@ -133,7 +133,7 @@
                     </div>
                 </a>
                 <!-- 6.  -->
-                <a class="menu-bg" href="profil.html">
+                <a class="menu-bg" href="profil.php">
                     <div class="d-flex align-content-center align-items-center mb-lg-4 px-3">
                         <h3 class="bi bi-person me-lg-3 c-darkprimary"></h3>
                         <h3 class="fs-5 d-none d-lg-inline c-darkprimary">Profil</h3>
@@ -145,14 +145,14 @@
                 <!-- Profil menu -->
                 <div class="profil-bar d-flex justify-content-center">
                     <!-- 1.  -->
-                    <a class="menu-bg" href="profil.html">
+                    <a class="menu-bg" href="profil.php">
                         <div class="d-flex align-content-center align-items-center mb-lg-4 px-3">
                             <h3 class="bi bi-person me-sm-3"></h3>
                             <h3 class="fs-5 d-none d-sm-inline">Môj profil</h3>
                         </div>
                     </a>
                     <!-- 2.  -->
-                    <a class="menu-bg" href="edit_profil.html">
+                    <a class="menu-bg" href="edit_profil.php">
                         <div class="d-flex align-content-center align-items-center mb-lg-4 px-3">
                             <h3 class="bi bi-pencil-square me-sm-3 c-darkprimary"></h3>
                             <h3 class="fs-5 d-none d-sm-inline c-darkprimary">Upraviť profil</h3>

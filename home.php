@@ -148,7 +148,7 @@
                     </div>
                 </a>
                 <!-- 6.  -->
-                <a class="menu-bg" href="profil.html">
+                <a class="menu-bg" href="profil.php">
                     <div class="d-flex align-content-center align-items-center mb-lg-4 px-3">
                         <h3 class="bi bi-person me-lg-3"></h3>
                         <h3 class="fs-5 d-none d-lg-inline">Profil</h3>
