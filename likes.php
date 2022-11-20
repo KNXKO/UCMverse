@@ -7,9 +7,6 @@ ini_set('display_errors', 'On');
   $table ='posts';   
   $l_table ='likes';
     
-        echo @$_POST['post_id'];
-        echo @$_POST['user_id'];
-        echo @$_POST['value'];
 
         $postid = @$_POST['post_id'];
         $userid = @$_POST['user_id']; 

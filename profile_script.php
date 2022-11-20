@@ -4,15 +4,19 @@ ini_set('display_errors', 'On');
 
   $mysqli= new mysqli('localhost','root','','databaza_pal') or die($mysqli->connect_error);
      $table ='profiles';
-echo "1";
+
      if(isset($_POST['submit'])){
-      echo "1";
+      
        $file=$_FILES['picture'];
         $extensions=array('jpg','png','gif','jpeg');
 
         $file_ext = explode('.',$file['name']);
-        echo "1";
+       
        // $msg = @$_POST['msg'];
+       $name = @$_POST['name'];
+       $vorname = @$_POST['vorname'];
+       $email = @$_POST['email'];
+       $birthday = @$_POST['birthday'];
 
        /* NEPOTREBNE $name=$file_ext[0];
         $name= preg_replace("!-!"," ",$name);
@@ -26,10 +30,11 @@ echo "1";
             echo "$file_array[$i]['name'] - Invalid file extension!";
         }
         else{*/
-          echo "1";
+         
         $img_dir='images/profiles/'.$file['name'];
         move_uploaded_file($file['tmp_name'],$img_dir);
-        echo "1";
+        
+
         $sql = "INSERT INTO $table(user_id,img_dir) VALUES(1,'$img_dir')";
         $mysqli->query($sql) or die($mysqli->error);
         
