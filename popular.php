@@ -25,14 +25,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-    <!-- EMOJI -->
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href="assets/emoji/css/emoji.css" rel="stylesheet">
-    <script src="assets/emoji/js/config.min.js"></script>
-    <script src="assets/emoji/js/util.min.js"></script>
-    <script src="assets/emoji/js/jquery.emojiarea.min.js"></script>
-    <script src="assets/emoji/js/emoji-picker.min.js"></script>
-    <title>UCMverse</title>
+    <title>UCMverse | Populárne</title>
 </head>
 
 <body>

@@ -217,7 +217,7 @@
                         <div class="col-6 col-xxl-8 col-md-8 col-lg-7">
                             <!-- EMOJI -->
                             <p class="emoji-picker-container">
-                                <textarea class="c-darkgrey border-0 prosim" placeholder="O čom chceš informovať UCM, Oman?" type="text" name="msg" id="msg" maxlength="250" row="2" data-emojiable="true" data-emoji-input="unicode" required></textarea>
+                                <textarea class="c-darkgrey border-0 prosim" placeholder="O čom chceš informovať UCM, Oman?" type="text" name="msg" id="msg" maxlength="250" row="2" data-emojiable="true" data-emoji-input="unicode" minlength="6" required></textarea>
                             </p>
                         </div>
                         <!-- SUBMIT BUTTON-->
