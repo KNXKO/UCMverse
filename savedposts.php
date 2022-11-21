@@ -123,14 +123,14 @@
                     </div>
                 </a>
                 <!-- 3.  -->
-                <a class="menu-bg" href="">
+                <a class="menu-bg" href="blank.html">
                     <div class="d-flex align-content-center align-items-center mb-lg-4 px-3">
                         <h3 class="bi bi-binoculars me-md-3"></h3>
                         <h3 class="fs-5 d-none d-lg-inline">Preskúmať</h3>
                     </div>
                 </a>
                 <!-- 4.  -->
-                <a class="menu-bg" href="">
+                <a class="menu-bg" href="blank.html">
                     <div class="d-flex align-content-center align-items-center mb-lg-4 px-3">
                         <h3 class="bi bi-bell me-md-3"></h3>
                         <h3 class="fs-5 d-none d-lg-inline">Notifikácie</h3>
