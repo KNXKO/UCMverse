@@ -231,6 +231,18 @@ select {
     height: 100%;
 }
 
+.overlay404 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    color: #505050;
+    opacity: .2;
+    font-size: 25vw;
+    position: absolute;
+    -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+}
+
 #background {
     background: linear-gradient(90deg, #0c0c20, #16142c, #1c164e);
     background-size: 400% 400%;
