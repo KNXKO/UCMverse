@@ -11,8 +11,8 @@ if (isset($_POST["submit"])){
     require_once 'dbh.inc.php';
     require_once 'functions.inc.php';
 
-    $sql = mysqli_query("SELECT * FROM users WHERE usersEmail LIKE '%$email%'") ;
-    $row = mysqli_num_rows;
+    //$sql = mysqli_query("SELECT * FROM users WHERE usersEmail LIKE '%$email%'") ;
+    //$row = mysqli_num_rows;
 
     if (emptyInputSignup($name, $email, $password, $passwordrpt) !== false){
         header("location: ../signup.php?error=emptyinput");
