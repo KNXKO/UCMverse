@@ -25,7 +25,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-    <title>UCMverse | Populárne</title>
+    <title>UCMverse | Uložené</title>
 </head>
 
 <body>
@@ -95,7 +95,8 @@
                                 </li>
                                 <!-- 2 -->
                                 <li>
-                                    <a class="c-black ms-3 shadow-sm" href="index.html">Odhlásiť sa</a></li>
+                                    <a class="c-black ms-3 shadow-sm" href="index.html">Odhlásiť sa</a>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -117,19 +118,19 @@
                 <!-- 2.  -->
                 <a class="menu-bg" href="popular.php">
                     <div class="d-flex align-content-center align-items-center mb-lg-4 px-3">
-                        <h3 class="bi bi-bar-chart-fill me-md-3 c-darkprimary"></h3>
-                        <h3 class="fs-5 d-none d-lg-inline c-darkprimary">Populárne</h3>
+                        <h3 class="bi bi-bar-chart-fill me-md-3"></h3>
+                        <h3 class="fs-5 d-none d-lg-inline">Populárne</h3>
                     </div>
                 </a>
                 <!-- 3.  -->
-                <a class="menu-bg" href="#">
+                <a class="menu-bg" href="">
                     <div class="d-flex align-content-center align-items-center mb-lg-4 px-3">
                         <h3 class="bi bi-binoculars me-md-3"></h3>
                         <h3 class="fs-5 d-none d-lg-inline">Preskúmať</h3>
                     </div>
                 </a>
                 <!-- 4.  -->
-                <a class="menu-bg" href="#">
+                <a class="menu-bg" href="">
                     <div class="d-flex align-content-center align-items-center mb-lg-4 px-3">
                         <h3 class="bi bi-bell me-md-3"></h3>
                         <h3 class="fs-5 d-none d-lg-inline">Notifikácie</h3>
@@ -138,8 +139,8 @@
                 <!-- 5.  -->
                 <a class="menu-bg" href="savedposts.php">
                     <div class="d-flex align-content-center align-items-center mb-lg-4 px-3">
-                        <h3 class="bi bi-bookmark me-md-3"></h3>
-                        <h3 class="fs-5 d-none d-lg-inline">Uložené</h3>
+                        <h3 class="bi bi-bookmark me-md-3 c-darkprimary"></h3>
+                        <h3 class="fs-5 d-none d-lg-inline c-darkprimary">Uložené</h3>
                     </div>
                 </a>
                 <!-- 6.  -->

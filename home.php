@@ -141,7 +141,7 @@
                     </div>
                 </a>
                 <!-- 5.  -->
-                <a class="menu-bg" href="#">
+                <a class="menu-bg" href="savedposts.php">
                     <div class="d-flex align-content-center align-items-center mb-lg-4 px-3">
                         <h3 class="bi bi-bookmark me-lg-3"></h3>
                         <h3 class="fs-5 d-none d-lg-inline">Uložené</h3>
