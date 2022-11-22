@@ -127,21 +127,21 @@
                     </div>
                 </a>
                 <!-- 3.  -->
-                <a class="menu-bg" href="#">
+                <a class="menu-bg" href="blank.html">
                     <div class="d-flex align-content-center align-items-center mb-lg-4 px-3">
                         <h3 class="bi bi-binoculars me-lg-3"></h3>
                         <h3 class="fs-5 d-none d-lg-inline">Preskúmať</h3>
                     </div>
                 </a>
                 <!-- 4.  -->
-                <a class="menu-bg" href="#">
+                <a class="menu-bg" href="blank.html">
                     <div class="d-flex align-content-center align-items-center mb-lg-4 px-3">
                         <h3 class="bi bi-bell me-lg-3"></h3>
                         <h3 class="fs-5 d-none d-lg-inline">Notifikácie</h3>
                     </div>
                 </a>
                 <!-- 5.  -->
-                <a class="menu-bg" href="#">
+                <a class="menu-bg" href="savedposts.php">
                     <div class="d-flex align-content-center align-items-center mb-lg-4 px-3">
                         <h3 class="bi bi-bookmark me-lg-3"></h3>
                         <h3 class="fs-5 d-none d-lg-inline">Uložené</h3>
@@ -217,7 +217,7 @@
                         <div class="col-6 col-xxl-8 col-md-8 col-lg-7">
                             <!-- EMOJI -->
                             <p class="emoji-picker-container">
-                                <textarea class="c-darkgrey border-0 prosim" placeholder="O čom chceš informovať UCM, Oman?" type="text" name="msg" id="msg" maxlength="250" row="2" data-emojiable="true" data-emoji-input="unicode" required></textarea>
+                                <textarea class="c-darkgrey border-0 prosim" placeholder="O čom chceš informovať UCM, Oman?" type="text" name="msg" id="msg" maxlength="250" row="2" data-emojiable="true" data-emoji-input="unicode" minlength="6" required></textarea>
                             </p>
                         </div>
                         <!-- SUBMIT BUTTON-->

@@ -8,7 +8,7 @@
 }
 
 html,
-body {
+body,#wrapper {
     height: 100%;
     overflow: auto;
 }
@@ -129,11 +129,10 @@ select {
 }
 
 .img-profile {
-    height: 300px;
-    width: 300px;
+    width: 300px !important;
+    height: 300px !important;
     object-fit: cover;
 }
-
 
 @media only screen and (min-width: 1000px) {
 
@@ -229,8 +228,19 @@ select {
     background-image: url("../img/background.jpg");
     background-size: cover;
     width: 100%;
-    height: 100vh;
-    position: fixed;
+    height: 100%;
+}
+
+.overlay404 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    color: #505050;
+    opacity: .2;
+    font-size: 25vw;
+    position: absolute;
+    -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
 }
 
 #background {
@@ -459,6 +469,7 @@ h4:hover {
     position: relative;
     resize: none;
   }
+  
   .uploadFile [type=file] {
     cursor: pointer !important;
     display: block;

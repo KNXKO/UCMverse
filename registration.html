@@ -38,16 +38,16 @@
         </div>
     </div>
     <div id="wrapper">
-        <div class="h-100 d-flex align-items-center justify-content-center">
-            <div class="container-fluid d-flex justify-content-center flex-column col-md-10 col-lg-7 col-xl-6 col-xxl-4">
-                <img src="assets/img/logo.png" style="width:5rem" alt="UCMverse logo" class="mx-auto d-block m-3">
+        <div class="container-fluid mt-5">
+            <div class="container flex-column d-flex align-items-center align-content-center">
+                <img src="assets/img/logo.png" style="width:5rem" alt="UCMverse logo" class="mx-auto d-block m-2">
                 <h1 class="fw-semibold mb-4 shadow-sm">Vytvorte si účet</h1>
                 <form action="">
-                    <input class="mb-4 shadow-sm" type="text" name="name" id="name" placeholder="Meno" maxlength="15" required>
-                    <input class="mb-4 ms-sm-2 shadow-sm" type="text" name="priezvisko" id="priezvisko" placeholder="Priezvisko" maxlength="25"
-                        required>
+                    <input class="mb-4 shadow-sm" type="text" name="name" id="name" placeholder="Meno" maxlength="15" minlength="3" required>
+                    <input class="mb-4 ms-sm-2 shadow-sm" type="text" name="priezvisko" id="priezvisko" placeholder="Priezvisko" minlength="3"
+                        maxlength="25" required>
                     <br>
-                    <input class="mb-4 shadow-sm" type="email" name="email" id="email" placeholder="E-mail" maxlength="35" required>
+                    <input class="mb-4 shadow-sm" type="email" name="email" id="email" placeholder="E-mail" maxlength="35" minlength="5" required>
                     <p class="fw-semibold c-darkgrey shadow-sm">Dátum narodenia</p>
                     <input type="date" class="mb-4 p-2 me-2 shadow-sm">
                     <br>
@@ -186,12 +186,13 @@
                         <option value="91" data-id="91" data-option="16">Manažment v turizme a hotelierstve</option>
                     </select>
                     <p class="fw-semibold c-darkgrey shadow-sm"></p>
-                    <input class="mb-4 shadow-sm" type="password" name="password" id="password" placeholder="Heslo" required maxlength="40">
-                    <input class="mb-4 ms-sm-2 shadow-sm" type="password" name="password" id="password" placeholder="Potvrdenie hesla" required
+                    <input class="mb-4 shadow-sm" type="password" name="password" id="password" placeholder="Heslo" required minlength="8"
                         maxlength="40">
+                    <input class="mb-4 ms-sm-2 shadow-sm" type="password" name="password" id="password" placeholder="Potvrdenie hesla" minlength="8"
+                        required maxlength="40">
                     <br>
                     <a class="menu-list">
-                        <button class="fw-semibold btn-submit px-4 shadow-sm" type="submit">Zaregistrovať sa</button>
+                        <button class="fw-semibold btn-submit px-4 shadow-sm  mb-4" type="submit">Zaregistrovať sa</button>
                     </a>
                 </form>
             </div>
