@@ -120,21 +120,21 @@ ini_set('display_errors', 'On');
                     </div>
                 </a>
                 <!-- 3.  -->
-                <a class="menu-bg" href="#">
+                <a class="menu-bg" href="blank.html">
                     <div class="d-flex align-content-center align-items-center mb-lg-4 px-3">
                         <h3 class="bi bi-binoculars me-lg-3"></h3>
                         <h3 class="fs-5 d-none d-lg-inline">Preskúmať</h3>
                     </div>
                 </a>
                 <!-- 4.  -->
-                <a class="menu-bg" href="#">
+                <a class="menu-bg" href="blank.html">
                     <div class="d-flex align-content-center align-items-center mb-lg-4 px-3">
                         <h3 class="bi bi-bell me-lg-3"></h3>
                         <h3 class="fs-5 d-none d-lg-inline">Notifikácie</h3>
                     </div>
                 </a>
                 <!-- 5.  -->
-                <a class="menu-bg" href="#">
+                <a class="menu-bg" href="blank.html">
                     <div class="d-flex align-content-center align-items-center mb-lg-4 px-3">
                         <h3 class="bi bi-bookmark me-lg-3"></h3>
                         <h3 class="fs-5 d-none d-lg-inline">Uložené</h3>
