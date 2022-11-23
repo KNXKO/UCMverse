@@ -162,15 +162,13 @@
                     <!-- 1 -->
                     <div class="d-flex mt-1 ms-2">
                         <div class="row me-1">
-                           <img class="img-thumbnail max-vw-25" src="assets/img/udalosti/banners/banner_tyzden_vedy.jpg"
-                            alt=""> 
+                            <img class="img-thumbnail max-vw-25" src="assets/img/udalosti/banners/banner_tyzden_vedy.jpg" alt="">
                         </div>
-                        
+
                         <div class="mx-3 d-flex flex-column justify-content-center">
                             <h5 class="fw-300 fw-bold c-darkgrey fs-6">Týžden vedy a techniky</h5>
                             <p class="fw-300 fs-6 mb-1">1.11 12:15</p>
-                            <a class="fw-300 c-darkprimary fs-6 udalosti" target="_blank" href="https://tyzdenvedy.sk/">Viac info <i
-                                    class="bi bi-arrow-right"></i></a>
+                            <a class="fw-300 c-darkprimary fs-6 udalosti" target="_blank" href="https://tyzdenvedy.sk/">Viac info <i class="bi bi-arrow-right"></i></a>
                         </div>
                     </div>
                     <!-- LINE -->
@@ -178,13 +176,12 @@
                     <!-- 2 -->
                     <div class="d-flex mt-1 ms-2">
                         <div class="row me-1">
-                             <img class="img-thumbnail max-vw-25" src="assets/img/udalosti/banners/images.jfif" alt="">
+                            <img class="img-thumbnail max-vw-25" src="assets/img/udalosti/banners/images.jfif" alt="">
                         </div>
                         <div class="mx-3 d-flex flex-column justify-content-center">
                             <h5 class="fw-300 fw-bold c-darkgrey fs-6 mb-1">Prednáška Romana Boču</h5>
                             <p class="fw-300 fs-6 mb-0">30.10 16:10</p>
-                            <a class="fw-300 c-darkprimary fs-6 udalosti" target="_blank"
-                                href="http://fpv.ucm.sk/sk/odborna-prednaska-romana-bocu">Viac info <i class="bi bi-arrow-right"></i></a>
+                            <a class="fw-300 c-darkprimary fs-6 udalosti" target="_blank" href="http://fpv.ucm.sk/sk/odborna-prednaska-romana-bocu">Viac info <i class="bi bi-arrow-right"></i></a>
                         </div>
                     </div>
                     <!-- LINE -->
@@ -192,14 +189,13 @@
                     <!-- 3 -->
                     <div class="d-flex mt-1 ms-2">
                         <div class="row me-1">
-                            <img class="img-thumbnail max-vw-25" src="assets/img/udalosti/banners/banner_DOD.jpg"  alt="">
+                            <img class="img-thumbnail max-vw-25" src="assets/img/udalosti/banners/banner_DOD.jpg" alt="">
                         </div>
-                        
+
                         <div class="mx-3 d-flex flex-column justify-content-center">
                             <h5 class="fw-300 fw-bold c-darkgrey fs-6 mb-1">Deň otvorených dverí na FPV</h5>
                             <p class="fw-300 fs-6 mb-0">14.10 10:30</p>
-                            <a class="fw-300 c-darkprimary fs-6 udalosti" target="_blank" href="http://fpv.ucm.sk/sk/dod-2022">Viac info <i
-                                    class="bi bi-arrow-right"></i></a>
+                            <a class="fw-300 c-darkprimary fs-6 udalosti" target="_blank" href="http://fpv.ucm.sk/sk/dod-2022">Viac info <i class="bi bi-arrow-right"></i></a>
                         </div>
                     </div>
                     <!-- LINE  -->
@@ -207,24 +203,25 @@
                 </div>
             </div>
             <!-- CENTER MENU-->
-            <div class="container m-lg-auto p-lg-4 p-md-4 p-sm-3 p-3 rounded-3 col-md-12 col-lg-5 user-post-bg-color order-2 order-lg-3 bd-purple shadow-sm">
-                <form action="script.php" method="POST" enctype="multipart/form-data">
+            <div class="container m-lg-auto p-lg-3 p-md-3 p-sm-3 p-3 rounded-3 col-md-12 col-lg-5 user-post-bg-color order-2 order-lg-3 bd-purple shadow-sm">
+                <form action="script.php" method="POST" enctype="multipart/form-data"
+                onSubmit="if (this.message.value == '') {return false;}">
                     <!-- CONTAINER -->
                     <div class="d-flex align-items-center align-content-center justify-content-between col-12">
                         <!-- USER FOTO -->
-                        <img class="me-3" src="assets/img/Ellipse 3.png" alt="">
+                        <img src="assets/img/Ellipse 3.png" alt="">
                         <!-- MSG -->
                         <div class="col-6 col-xxl-8 col-md-8 col-lg-7">
                             <!-- EMOJI -->
                             <p class="emoji-picker-container">
-                                <textarea class="c-darkgrey border-0 prosim" placeholder="O čom chceš informovať UCM, Oman?" type="text" name="msg" id="msg" maxlength="250" row="2" data-emojiable="true" data-emoji-input="unicode" minlength="6" required></textarea>
+                                <textarea class="c-darkgrey border-0 prosim" placeholder="O čom chceš informovať UCM, Oman?" type="text" name="msg" id="msg" maxlength="250" data-emojiable="true" data-emoji-input="unicode" minlength="6" required></textarea>
                             </p>
                         </div>
                         <!-- SUBMIT BUTTON-->
-                        <button type="submit" name="submit" class="bg-purple px-4 py-2 rounded-3 menu-list fw-bold shadow-sm">Odoslať</button>
+                        <button type="submit" name="submit" class="bg-purple px-4 py-2 rounded-3 menu-list fw-bold shadow-sm" onclick="fnCheckForRestrictedWords();">Odoslať</button>
                     </div>
                     <!-- LINE -->
-                    <hr class="c-black">
+                    <hr class="c-black m-0">
                     <!-- ATTACH FOTO -->
                     <label class="uploadFile menu-list">
                         <i class="bi bi-image-fill d-inline c-darkprimary fa-md mr-2"></i>
@@ -353,7 +350,6 @@
 
     <!-- PRELOADER SCRIPT-->
     <script type="text/javascript">
-
         function startAjax(x, y, z) {
 
             $.ajax({

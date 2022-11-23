@@ -1,15 +1,3 @@
-$(document).ready(function(){
-    $(window).scroll(function(){
-        if($(window).scrollTop() > $(window).height()){
-            $(".nav").css({"background-color":"transparent"});   
-        }
-        else{
-            $(".nav").css({"background-color":"white"});
-        }
-
-    })
-})
-
 /* SELECTS */
 function jq_ChainCombo(el) {
     var selected = $(el).find(':selected').data('id'); // get parent selected options' data-id attribute
@@ -82,36 +70,55 @@ $(function () {
 });
 
 // TOGGLE FILL BACKGROUND - LIKE ICON
-$(".likeToggle").click(function() {
+$(".likeToggle").click(function () {
     $(this).toggleClass('bi-hand-thumbs-up');
     $(this).toggleClass('bi-hand-thumbs-up-fill');
 });
 
 // TOGGLE FILL BACKGROUND - CHAT ICON
-$(".commentToggle").click(function() {
+$(".commentToggle").click(function () {
     $(this).toggleClass('bi bi-chat');
     $(this).toggleClass('bi bi-chat-fill');
 });
 
 // TOGGLE FILL BACKGROUND - SHARE ICON
-$(".shareToggle").click(function() {
+$(".shareToggle").click(function () {
     $(this).toggleClass('bi bi-share');
     $(this).toggleClass('bi bi-share-fill');
 });
 
 // TOGGLE FILL BACKGROUND - SAVE ICON
-$(".saveToggle").click(function() {
+$(".saveToggle").click(function () {
     $(this).toggleClass('bi bi-bookmark');
     $(this).toggleClass('bi bi-bookmark-fill');
 });
 
 // UDALOSTI PRELOADER ANIMATION
-$(document).ready(function() {
-    $(".udalosti").click(function(e) {
+$(document).ready(function () {
+    $(".udalosti").click(function (e) {
         e.preventDefault();
         $link = $(this).attr("href");
-        $(".loader-wrapper").fadeIn("slow",function(){ 
-            window.location =  $link; 
+        $(".loader-wrapper").fadeIn("slow", function () {
+            window.location = $link;
         });
     });
- });
+});
+
+// TEXTAREA BLOCKWORDS 
+function fnCheckForRestrictedWords() {
+    var restrictedWords = new Array("kokot", "KOKOT", "KKT", "kkt",  "bagana", "dement", "DMNT", "štetka", "štetka", "kurva", "KURVA", "JEBO", "JBMNT", "piča", "pica", "PICA", "rit", "buzna", "buzerant", "cicina", "flandra", "chuj", "drbat", "kunda", "srat", "zmrd", "dojebat", "fas", "gec", "hejzel", "ojeb", "najebat", "zajebat", "pojebat", "zabit", "nigga", "negger", "NIGGA");
+    var txtInput = document.getElementById("msg").value;
+    var error = 0;
+    for (var i = 0; i < restrictedWords.length; i++) {
+        var val = restrictedWords[i];
+        if ((txtInput.toLowerCase()).indexOf(val.toString()) > -1) {
+            error = error + 1;
+            break;
+        }
+    }
+    if (error > 0) {
+        alert('Zadali ste zakázané slovo/á');
+        window.history.forward(-1);
+        event.preventDefault();
+    }
+}

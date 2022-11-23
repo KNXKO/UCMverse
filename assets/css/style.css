@@ -20,7 +20,6 @@ h2,
 h3,
 h4,
 h5,
-textarea,
 .dropdown button,
 .dropdown-menu li a {
     font-family: 'Montserrat', sans-serif;
@@ -94,10 +93,13 @@ input:focus {
 }
 
 
-textarea {
+.emoji-picker-container textarea {
     background-color: rgba(0, 255, 255, 0);
     font-family: 'Montserrat', sans-serif;
+    resize: both !important;
+    padding: 0.5rem 0 !important
 }
+
 
 input {
     background-color: rgba(0, 255, 255, 0);
