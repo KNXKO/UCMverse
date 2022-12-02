@@ -44,6 +44,7 @@
     $p_table = 'posts';
     $l_table = 'likes';
     $k_table = 'comments';
+    $s_table = 'saved';
 
     $result = $mysqli->query("SELECT * FROM $p_table WHERE 1 ORDER BY time DESC") or die($mysqli->error);
     ?>
@@ -204,7 +205,7 @@
             </div>
             <!-- CENTER MENU-->
             <div class="container m-lg-auto p-lg-3 p-md-3 p-sm-3 p-3 rounded-3 col-md-12 col-lg-5 user-post-bg-color order-2 order-lg-3 bd-purple shadow-sm">
-                <form action="script.php" method="POST" enctype="multipart/form-data"
+                <form action="script.php" method="POST" enctype="multipart/form-data" 
                 onSubmit="if (this.message.value == '') {return false;}">
                     <!-- CONTAINER -->
                     <div class="d-flex align-items-center align-content-center justify-content-between col-12">
@@ -296,6 +297,14 @@
                 if (mysqli_num_rows($results) == 1) {
                     $like = $data_likes['value'];
                 }
+
+                $resu = $mysqli->query("SELECT * FROM $s_table WHERE user_id=1 AND post_id={$data['ID']}");
+                $data_saves = $resu->fetch_assoc();
+                $save = 0;
+                if (mysqli_num_rows($resu) == 1) {
+                    $save = $data_saves['value'];
+                }
+
                 $postid = $data['ID'];
                 echo "<div class='container m-auto p-lg-3 p-md-3 p-sm-3 mt-3 rounded-3 bd-black col-md-12 col-lg-5 py-sm-3 post-bg-color shadow-sm'>
                 <!-- TOP CONTAINER -->
@@ -339,9 +348,15 @@
                     <!-- SHARE ICON-->
                     <h4 class='shareToggle bi bi-share d-inline c-darkblack'></h4>
                     <p class='d-inline me-3 c-darkgrey'>4</p>
-                    <!-- BOOKMARK ICON-->
-                    <h4 class='saveToggle bi bi-bookmark d-inline c-darkblack float-end'></h4>
-                </div>
+                    <!-- BOOKMARK ICON-->";
+                    if (mysqli_num_rows($resu) == 1 and $save == 1) { ?>
+
+                        <h4  class="saveToggle bi bi-bookmark-fill d-inline c-darkblack float-end" onclick='savePost(<?php echo $data["ID"] ?>,<?php echo $user_id ?>,0);'></h4>
+                    <?php } else { ?>
+                        <h4 class="saveToggle bi bi-bookmark d-inline c-darkblack float-end" onclick="savePost(<?php echo $data['ID'] ?>,<?php echo $user_id ?>,1);"></h4>
+                <?php }
+            
+                  echo "</div>
             </div>";
             }
             ?>
@@ -363,15 +378,36 @@
                 success: function(response) {
                     content.html(response);
                 },
+                
             });
 
             $(document).ready(startAjax);
         }
         $(document).ajaxStart(function() {
-
-            window.location.reload(true);
+                window.location.reload(true);
 
         });
+    </script>
+    <script type="text/javascript">
+        function savePost(x, y, z) {
+
+            $.ajax({
+                global:false,
+                type: 'POST',
+                url: '/saved_script.php',
+                data: {
+                    post_id: x,
+                    user_id: y,
+                    value: z
+                },
+                success: function(response) {
+                    content.html(response);
+                },
+            });
+
+            $(document).ready(startAjax);
+        }
+        
     </script>
     <script>
         $(window).on("load", function() {
