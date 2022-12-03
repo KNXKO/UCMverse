@@ -8,7 +8,8 @@
 }
 
 html,
-body,#wrapper {
+body,
+#wrapper {
     height: 100%;
     overflow: auto;
 }
@@ -123,7 +124,7 @@ select {
     border-radius: .3rem !important;
     border: 0 !important;
     padding: 0 !important;
-    max-width: 150px !important; 
+    max-width: 150px !important;
     min-width: 100px !important;
     max-height: 100px !important;
 }
@@ -238,9 +239,12 @@ select {
     opacity: .2;
     font-size: 25vw;
     position: absolute;
-    -webkit-user-select: none; /* Safari */
-  -ms-user-select: none; /* IE 10 and IE 11 */
-  user-select: none; /* Standard syntax */
+    -webkit-user-select: none;
+    /* Safari */
+    -ms-user-select: none;
+    /* IE 10 and IE 11 */
+    user-select: none;
+    /* Standard syntax */
 }
 
 #background {
@@ -375,7 +379,7 @@ h4:hover {
     }
 }
 
- /* PRELOAD ANIMATION    */
+/* PRELOAD ANIMATION    */
 .loader-wrapper {
     width: 100%;
     height: 100%;
@@ -458,8 +462,9 @@ h4:hover {
         transform: translate(24px, 0);
     }
 }
-  /* UPLOAD IMAGE  */
-  .uploadFile {
+
+/* UPLOAD IMAGE  */
+.uploadFile {
 
     color: grey;
     font-size: 16px;
@@ -468,9 +473,9 @@ h4:hover {
     padding: 10px 10px 4px 10px;
     position: relative;
     resize: none;
-  }
-  
-  .uploadFile [type=file] {
+}
+
+.uploadFile [type=file] {
     cursor: pointer !important;
     display: block;
     font-size: 999px;
@@ -483,7 +488,7 @@ h4:hover {
     text-align: right;
     top: 0px;
     z-index: 1;
-  }
+}
 
 /* PROFIL */
 .profil-right hr {
@@ -704,4 +709,12 @@ h4:hover {
         width: 100%;
         margin-left: 10%;
     }
+}
+
+.step1Content {
+    display: block;
+}
+
+.step2Content {
+    display: none;
 }

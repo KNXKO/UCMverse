@@ -162,15 +162,13 @@
                     <!-- 1 -->
                     <div class="d-flex mt-1 ms-2">
                         <div class="row me-1">
-                           <img class="img-thumbnail max-vw-25" src="assets/img/udalosti/banners/banner_tyzden_vedy.jpg"
-                            alt=""> 
+                            <img class="img-thumbnail max-vw-25" src="assets/img/udalosti/banners/banner_tyzden_vedy.jpg" alt="">
                         </div>
-                        
+
                         <div class="mx-3 d-flex flex-column justify-content-center">
                             <h5 class="fw-300 fw-bold c-darkgrey fs-6">Týžden vedy a techniky</h5>
                             <p class="fw-300 fs-6 mb-1">1.11 12:15</p>
-                            <a class="fw-300 c-darkprimary fs-6 udalosti" target="_blank" href="https://tyzdenvedy.sk/">Viac info <i
-                                    class="bi bi-arrow-right"></i></a>
+                            <a class="fw-300 c-darkprimary fs-6 udalosti" target="_blank" href="https://tyzdenvedy.sk/">Viac info <i class="bi bi-arrow-right"></i></a>
                         </div>
                     </div>
                     <!-- LINE -->
@@ -178,13 +176,12 @@
                     <!-- 2 -->
                     <div class="d-flex mt-1 ms-2">
                         <div class="row me-1">
-                             <img class="img-thumbnail max-vw-25" src="assets/img/udalosti/banners/images.jfif" alt="">
+                            <img class="img-thumbnail max-vw-25" src="assets/img/udalosti/banners/images.jfif" alt="">
                         </div>
                         <div class="mx-3 d-flex flex-column justify-content-center">
                             <h5 class="fw-300 fw-bold c-darkgrey fs-6 mb-1">Prednáška Romana Boču</h5>
                             <p class="fw-300 fs-6 mb-0">30.10 16:10</p>
-                            <a class="fw-300 c-darkprimary fs-6 udalosti" target="_blank"
-                                href="http://fpv.ucm.sk/sk/odborna-prednaska-romana-bocu">Viac info <i class="bi bi-arrow-right"></i></a>
+                            <a class="fw-300 c-darkprimary fs-6 udalosti" target="_blank" href="http://fpv.ucm.sk/sk/odborna-prednaska-romana-bocu">Viac info <i class="bi bi-arrow-right"></i></a>
                         </div>
                     </div>
                     <!-- LINE -->
@@ -192,14 +189,13 @@
                     <!-- 3 -->
                     <div class="d-flex mt-1 ms-2">
                         <div class="row me-1">
-                            <img class="img-thumbnail max-vw-25" src="assets/img/udalosti/banners/banner_DOD.jpg"  alt="">
+                            <img class="img-thumbnail max-vw-25" src="assets/img/udalosti/banners/banner_DOD.jpg" alt="">
                         </div>
-                        
+
                         <div class="mx-3 d-flex flex-column justify-content-center">
                             <h5 class="fw-300 fw-bold c-darkgrey fs-6 mb-1">Deň otvorených dverí na FPV</h5>
                             <p class="fw-300 fs-6 mb-0">14.10 10:30</p>
-                            <a class="fw-300 c-darkprimary fs-6 udalosti" target="_blank" href="http://fpv.ucm.sk/sk/dod-2022">Viac info <i
-                                    class="bi bi-arrow-right"></i></a>
+                            <a class="fw-300 c-darkprimary fs-6 udalosti" target="_blank" href="http://fpv.ucm.sk/sk/dod-2022">Viac info <i class="bi bi-arrow-right"></i></a>
                         </div>
                     </div>
                     <!-- LINE  -->
@@ -327,13 +323,12 @@
                 <!-- CONTAINER-->
                 <div class='my-3'>
                     <!-- LIKE ICON-->";
+                ?>
+                    <button id="response" class = 'step1Content bi-hand-thumbs-up' onclick = 'step2()' onclick='startAjax(<?php echo $data["ID"] ?>,<?php echo $user_id ?>,0);'></button>
 
-                if (mysqli_num_rows($results) == 1 and $like == 1) { ?>
-
-                    <h4 id="response" class="likeToggle bi bi-hand-thumbs-up-fill c-darkprimary d-inline c-darkblack" onclick='startAjax(<?php echo $data["ID"] ?>,<?php echo $user_id ?>,0);'></h4>
-                <?php } else { ?>
-                    <h4 id="response" class="likeToggle bi bi-hand-thumbs-up d-inline c-darkblack" onclick="startAjax(<?php echo $data['ID'] ?>,<?php echo $user_id ?>,1);"></h4>
-            <?php }
+                    <button id="response" class = 'step2Content bi-hand-thumbs-up-fill' onclick = 'step2()' onclick="startAjax(<?php echo $data['ID'] ?>,<?php echo $user_id ?>,1);"></button>
+            
+            <?php 
                 echo "<p class='d-inline me-3 c-darkgrey'>{$data['likes']}</p>
                     
                     <!-- COMMENTS ICON-->
@@ -348,12 +343,24 @@
             </div>";
             }
             ?>
+            <script>
+                $(document).ready(function() {
+                    $(".like0").click(function() {
+                        $(".like1").toggle();
+                    });
+                });
+
+                $(document).ready(function() {
+                    $(".like1").click(function() {
+                        $(".like0").toggle();
+                    });
+                });
+            </script>
         </div>
     </div>
 
     <!-- PRELOADER SCRIPT-->
     <script type="text/javascript">
-
         function startAjax(x, y, z) {
 
             $.ajax({
@@ -371,11 +378,6 @@
 
             $(document).ready(startAjax);
         }
-        $(document).ajaxStart(function() {
-
-            window.location.reload(true);
-
-        });
     </script>
     <script>
         $(window).on("load", function() {

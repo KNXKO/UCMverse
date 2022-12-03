@@ -1,10 +1,10 @@
-$(document).ready(function(){
-    $(window).scroll(function(){
-        if($(window).scrollTop() > $(window).height()){
-            $(".nav").css({"background-color":"transparent"});   
+$(document).ready(function () {
+    $(window).scroll(function () {
+        if ($(window).scrollTop() > $(window).height()) {
+            $(".nav").css({ "background-color": "transparent" });
         }
-        else{
-            $(".nav").css({"background-color":"white"});
+        else {
+            $(".nav").css({ "background-color": "white" });
         }
 
     })
@@ -82,36 +82,47 @@ $(function () {
 });
 
 // TOGGLE FILL BACKGROUND - LIKE ICON
-$(".likeToggle").click(function() {
+$(".likeToggle").click(function () {
     $(this).toggleClass('bi-hand-thumbs-up');
     $(this).toggleClass('bi-hand-thumbs-up-fill');
 });
 
 // TOGGLE FILL BACKGROUND - CHAT ICON
-$(".commentToggle").click(function() {
+$(".commentToggle").click(function () {
     $(this).toggleClass('bi bi-chat');
     $(this).toggleClass('bi bi-chat-fill');
 });
 
 // TOGGLE FILL BACKGROUND - SHARE ICON
-$(".shareToggle").click(function() {
+$(".shareToggle").click(function () {
     $(this).toggleClass('bi bi-share');
     $(this).toggleClass('bi bi-share-fill');
 });
 
 // TOGGLE FILL BACKGROUND - SAVE ICON
-$(".saveToggle").click(function() {
+$(".saveToggle").click(function () {
     $(this).toggleClass('bi bi-bookmark');
     $(this).toggleClass('bi bi-bookmark-fill');
 });
 
 // UDALOSTI PRELOADER ANIMATION
-$(document).ready(function() {
-    $(".udalosti").click(function(e) {
+$(document).ready(function () {
+    $(".udalosti").click(function (e) {
         e.preventDefault();
         $link = $(this).attr("href");
-        $(".loader-wrapper").fadeIn("slow",function(){ 
-            window.location =  $link; 
+        $(".loader-wrapper").fadeIn("slow", function () {
+            window.location = $link;
         });
     });
- });
+});
+
+// TOGGLE FILL H4 LIKE
+function step2(){
+    if(document.querySelector('.step1Content').style.display === "none"){
+        document.querySelector('.step2Content').style.display = 'none';
+        document.querySelector('.step1Content').style.display = 'block';
+    }else{
+        document.querySelector('.step1Content').style.display = 'none';
+        document.querySelector('.step2Content').style.display = 'block';
+    }
+}
