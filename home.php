@@ -59,7 +59,7 @@
     <!--MAIN BACKGROUND -->
     <div id="background">
         <!-- NAV -->
-        <nav class="navbar navbar-expand-lg sticky-top pe-auto bd-primary shadow-sm">
+        <nav class="navbar nav navbar-expand-lg sticky-top pe-auto bd-primary shadow-sm">
             <div class="container d-flex justify-content-lg-between">
                 <!-- LOGO -->
                 <a href="home.php">
@@ -204,8 +204,7 @@
             </div>
             <!-- CENTER MENU-->
             <div class="container m-lg-auto p-lg-3 p-md-3 p-sm-3 p-3 rounded-3 col-md-12 col-lg-5 user-post-bg-color order-2 order-lg-3 bd-purple shadow-sm">
-                <form action="script.php" method="POST" enctype="multipart/form-data"
-                onSubmit="if (this.message.value == '') {return false;}">
+                <form action="script.php" method="POST" enctype="multipart/form-data" onSubmit="if (this.message.value == '') {return false;}">
                     <!-- CONTAINER -->
                     <div class="d-flex align-items-center align-content-center justify-content-between col-12">
                         <!-- USER FOTO -->
