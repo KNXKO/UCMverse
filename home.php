@@ -1,3 +1,12 @@
+<?php 
+session_start();
+
+	include("includes/dbh.inc.php");
+	include("includes/functions.inc.php");
+
+	$user_data = check_login($conn);
+
+?>
 <!DOCTYPE html>
 <html>
 
@@ -99,7 +108,7 @@
                                 </li>
                                 <!-- 2 -->
                                 <li>
-                                    <a class="c-black ms-3 shadow-sm" href="index.html">Odhlásiť sa</a>
+                                    <a class="c-black ms-3 shadow-sm" href="/includes/logout.inc.php">Odhlásiť sa</a>
                                 </li>
                             </ul>
                         </div>
