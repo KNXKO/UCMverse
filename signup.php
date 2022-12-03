@@ -58,7 +58,7 @@
                     <input class="mb-4 shadow-sm" type="email" name="email" id="email" placeholder="E-mail" maxlength="35" required>
                     <p class="fw-semibold c-darkgrey shadow-sm">Dátum narodenia</p>
                     <!-- DATUM NARODENIA -->
-                    <input type="date" name="bdate" id="bdate" class="mb-4 p-2 me-2 shadow-sm" required>
+                    <input type="date" name="bdate" id="bdate" class="mb-4 p-2 me-2 shadow-sm" min='1922-01-01' max='2005-01-01' required>
                     <p class="fw-semibold c-darkgrey shadow-sm">Škola</p>
                     <!-- SELECT VYBER FAKULTY -->
                     <select class="combo-a mb-2 p-2 shadow-sm" data-nextcombo=".combo-b">
@@ -210,7 +210,6 @@
                             <button class="fw-semibold btn-submit px-4 shadow-sm mb-3" type="submit" name="submit">Zaregistrovať sa</button>
                         </a>
                     </div>
-
                 </form>
                 <a class="menu-list d-flex" href="index.php">
                     <button class="fw-semibold btn-fg-pw mb-4 px-4 shadow-sm ">Mám už účet</button>
