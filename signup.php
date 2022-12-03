@@ -205,15 +205,18 @@
                     <input class="mb-4 ms-sm-2 shadow-sm" type="password" name="passwordrpt" id="passwordrpt" placeholder="Potvrdenie hesla" required maxlength="40" minlength="8">
                     <br>
                     <!-- BUTTON 1. -->
-                    <a class="menu-list" href="#">
-                        <button class="fw-semibold btn-submit px-4 shadow-sm mb-3" type="submit" name="submit">Zaregistrovať sa</button>
-                    </a>
-                    
+                    <div class="col-12 d-flex align-content-center justify-content-center">
+                        <a class="menu-list" href="#" class="">
+                            <button class="fw-semibold btn-submit px-4 shadow-sm mb-3" type="submit" name="submit">Zaregistrovať sa</button>
+                        </a>
+                    </div>
+
                 </form>
-                <a class="menu-list" href="index.php">
-                        <button class="fw-semibold btn-fg-pw mb-4 px-4 shadow-sm">Mám už účet</button>
-                    </a>
-                
+                <a class="menu-list d-flex" href="index.php">
+                    <button class="fw-semibold btn-fg-pw mb-4 px-4 shadow-sm ">Mám už účet</button>
+                </a>
+
+
                 <?php
                 if (isset($_GET["error"])) {
                     if ($_GET["error"] == "emptyinput") {
