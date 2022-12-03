@@ -711,10 +711,17 @@ h4:hover {
     }
 }
 
-.step1Content {
-    display: block;
+.on {
+    display: inline;
 }
 
-.step2Content {
+.off {
     display: none;
+}
+.OFFon {
+    display: none;
+}
+
+.OFFoff {
+    display: inline;
 }

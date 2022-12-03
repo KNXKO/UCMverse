@@ -117,12 +117,27 @@ $(document).ready(function () {
 });
 
 // TOGGLE FILL H4 LIKE
-function step2(){
-    if(document.querySelector('.step1Content').style.display === "none"){
-        document.querySelector('.step2Content').style.display = 'none';
-        document.querySelector('.step1Content').style.display = 'block';
-    }else{
-        document.querySelector('.step1Content').style.display = 'none';
-        document.querySelector('.step2Content').style.display = 'block';
-    }
+$(".togglecko").click(function () {
+    if($(this).children('.on').css('display') == 'none')
+    {
+        $(this).children('.off').css('display', 'none');
+        $(this).children('.on').css('display', 'inline');
+    } 
+    else {
+        $(this).children('.on').css('display', 'none');
+        $(this).children('.off').css('display', 'inline');
 }
+});
+
+$(".toggleckoOFF").click(function () {
+    if($(this).children('.OFFon').css('display') == 'none')
+    {
+        $(this).children('.OFFoff').css('display', 'none');
+        $(this).children('.OFFon').css('display', 'inline');
+    } 
+    else {
+        $(this).children('.OFFon').css('display', 'none');
+        $(this).children('.OFFoff').css('display', 'inline');
+}
+});
+

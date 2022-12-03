@@ -323,12 +323,24 @@
                 <!-- CONTAINER-->
                 <div class='my-3'>
                     <!-- LIKE ICON-->";
-                ?>
-                    <button id="response" class = 'step1Content bi-hand-thumbs-up' onclick = 'step2()' onclick='startAjax(<?php echo $data["ID"] ?>,<?php echo $user_id ?>,0);'></button>
-
-                    <button id="response" class = 'step2Content bi-hand-thumbs-up-fill' onclick = 'step2()' onclick="startAjax(<?php echo $data['ID'] ?>,<?php echo $user_id ?>,1);"></button>
             
-            <?php 
+            
+                if (mysqli_num_rows($results) == 1 and $like == 1) { ?>
+
+                <div class="togglecko d-inline">
+                    <h4 class='on bi-hand-thumbs-up-fill c-darkprimary c-darkblack ' onclick='startAjax(<?php echo $data["ID"] ?>,<?php echo $user_id ?>,0);'></h4>
+                    <h4 class='off bi-hand-thumbs-up  c-darkprimary c-darkblack' onclick="startAjax(<?php echo $data['ID'] ?>,<?php echo $user_id ?>,1);"></h4>
+                </div>
+                
+                <?php 
+                } else 
+                { ?>
+                <div class="toggleckoOFF d-inline">
+                    <h4 class='OFFon bi-hand-thumbs-up-fill c-darkprimary c-darkblack ' onclick='startAjax(<?php echo $data["ID"] ?>,<?php echo $user_id ?>,0);'></h4>
+                    <h4 class='OFFoff bi-hand-thumbs-up  c-darkprimary c-darkblack ' onclick="startAjax(<?php echo $data['ID'] ?>,<?php echo $user_id ?>,1);"></h4>
+                </div>
+                <?php  }   
+                
                 echo "<p class='d-inline me-3 c-darkgrey'>{$data['likes']}</p>
                     
                     <!-- COMMENTS ICON-->
@@ -343,19 +355,6 @@
             </div>";
             }
             ?>
-            <script>
-                $(document).ready(function() {
-                    $(".like0").click(function() {
-                        $(".like1").toggle();
-                    });
-                });
-
-                $(document).ready(function() {
-                    $(".like1").click(function() {
-                        $(".like0").toggle();
-                    });
-                });
-            </script>
         </div>
     </div>
 
