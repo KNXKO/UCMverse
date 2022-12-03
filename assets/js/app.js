@@ -116,7 +116,7 @@ $(document).ready(function () {
     });
 });
 
-// TOGGLE FILL LIKE
+// TOGGLE FILL H4 LIKE
 function step2(){
     if(document.querySelector('.step1Content').style.display === "none"){
         document.querySelector('.step2Content').style.display = 'none';
