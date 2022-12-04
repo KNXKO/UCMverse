@@ -3,7 +3,7 @@
 error_reporting(-1);
 ini_set('display_errors', 'On');
 
-  $mysqli= new mysqli('localhost','root','','databaza_pal') or die($mysqli->connect_error);
+  $mysqli= new mysqli('localhost','root','','ucm_verse') or die($mysqli->connect_error);
   $table ='posts';   
   $l_table ='likes';
     
