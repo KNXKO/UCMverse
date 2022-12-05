@@ -137,6 +137,20 @@ select {
     object-fit: cover;
 }
 
+.img-avatar-user {
+    width: 50px !important;
+    height: 50px !important;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.img-avatar-anotheruser {
+    width: 45px !important;
+    height: 45px !important;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
 @media only screen and (min-width: 1000px) {
 
     /* For desktop: */
@@ -720,6 +734,7 @@ h4:hover {
 .off {
     display: none;
 }
+
 .OFFon {
     display: none;
 }
@@ -751,6 +766,7 @@ h4:hover {
 .SAVEOFF {
     display: none;
 }
+
 .SAVEOFFON {
     display: none;
 }

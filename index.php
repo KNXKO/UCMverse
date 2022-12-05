@@ -15,14 +15,13 @@ error_reporting(E_ALL);
                 <div class="col-8 col-xxl-7">
                     <h1 class="fw-semibold mb-4 shadow-sm">Prihláste sa na <br> <span class="c-primary shadow-sm">UCMverse</span></h1>
                 </div>
-               <!-- <form class="d-flex flex-column justify-content-center align-items-center col-10 col-lg-11 col-xxl-9">-->
-                <form action="includes/login.inc.php" method="POST">
+                <form class="d-flex flex-column justify-content-center align-items-center col-10 col-lg-11 col-xxl-9" action="includes/login.inc.php" method="POST">
                     <input class="mb-4 w-75 shadow-sm" type="email" name="email" id="email" placeholder="E-mail" required maxlength="35">
 
                     <input class="mb-4 w-75 shadow-sm" type="password" name="password" id="password" placeholder="Heslo" required maxlength="40">
 
                     <a class="menu-list" href="">
-                        <button class="fw-semibold mb-4 btn-submit px-5 shadow-sm" type="submit" name="submit" >Prihlásiť sa</button>
+                        <button class="fw-semibold mb-4 btn-submit px-5 shadow-sm" type="submit" name="submit">Prihlásiť sa</button>
                     </a>
                     
                 </form>

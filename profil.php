@@ -88,18 +88,18 @@ ini_set('display_errors', 'On');
                     <!-- DROPDOWN -->
                     <div class="d-flex align-items-center mt-3 mt-md-0 mt-lg-0">
                         <!-- USER FOTO -->
-                        <img class="mx-3 shadow-sm" src="assets/img/Ellipse 3.png" alt="">
+                        <img class="img-avatar-user mx-3 shadow-sm " src="<?php echo"{$a_info['usersImgdir']}";?>" alt="User avatar">
                         <div class="dropdown shadow-sm">
                             <button class="menu-list dropdown-toggle bg-transparent fw-bold c-black" type="button" id="dropdownMenuButton1"
                                 data-bs-toggle="dropdown" aria-expanded="false">
-                                Oman Gulvi
+                                <?php echo"{$a_info['usersName']} ";?><?php echo"{$a_info['usersLastname']}";?>
                             </button>
                             <!-- LIST -->
                             <ul class="dropdown-menu bg-dark" aria-labelledby="dropdownMenuButton1">
                                 <!-- 1 -->
                                 <li>
                                     <a href="#" onclick="btnColor('background')" class="c-black ms-3 shadow-sm">
-                                        Switch mode
+                                        Dark mode
                                     </a>
                                 </li>
                                 <!-- 2 -->
@@ -145,7 +145,7 @@ ini_set('display_errors', 'On');
                     </div>
                 </a>
                 <!-- 5.  -->
-                <a class="menu-bg" href="blank.html">
+                <a class="menu-bg" href="savedposts.php">
                     <div class="d-flex align-content-center align-items-center mb-lg-4 px-3">
                         <h3 class="bi bi-bookmark me-lg-3"></h3>
                         <h3 class="fs-5 d-none d-lg-inline">Uložené</h3>

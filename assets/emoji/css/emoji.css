@@ -44,7 +44,8 @@ img.emoji {
 
 .emoji-wysiwyg-editor:empty:before {
     content: attr(placeholder);
-    color: #9aa2ab
+    /*color: #9aa2ab*/
+    color:#555555 !important;
 }
 
 .emoji-picker-container {

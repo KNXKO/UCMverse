@@ -99,11 +99,9 @@ session_start();
                     <!-- DROPDOWN -->
                     <div class="d-flex align-items-center mt-3 mt-md-0 mt-lg-0">
                         <!-- USER FOTO -->
-                       <img class="mx-3 shadow-sm" src="assets/img/Ellipse 3.png" alt="">
-                        <!-- <img class="mx-3 shadow-sm" src="<?php echo"{$a_info['usersImgdir']}";?>" alt="">-->
-                     
-                        <div class="dropdown shadow-sm" onclick="event.stopPropagation()" aria-labelledby="triggerId">
-                            <button class="menu-list dropdown-toggle bg-transparent fw-bold c-black" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                             <img class="img-avatar-user mx-3 shadow-sm " src="<?php echo"{$a_info['usersImgdir']}";?>" alt="User avatar">
+                            <div class="dropdown shadow-sm" onclick="event.stopPropagation()" aria-labelledby="triggerId">
+                            <button class="dropdown-toggle bg-transparent fw-bold c-black" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                             <?php echo"{$a_info['usersName']} ";?><?php echo"{$a_info['usersLastname']}";?>
                             </button>
                             <!-- LIST -->
@@ -208,7 +206,6 @@ session_start();
                         <div class="row me-1">
                             <img class="img-thumbnail max-vw-25" src="assets/img/udalosti/banners/banner_DOD.jpg" alt="">
                         </div>
-
                         <div class="mx-3 d-flex flex-column justify-content-center">
                             <h5 class="fw-300 fw-bold c-darkgrey fs-6 mb-1">Deň otvorených dverí na FPV</h5>
                             <p class="fw-300 fs-6 mb-0">14.10 10:30</p>
@@ -225,7 +222,7 @@ session_start();
                     <!-- CONTAINER -->
                     <div class="d-flex align-items-center align-content-center justify-content-between col-12">
                         <!-- USER FOTO -->
-                        <img src="assets/img/Ellipse 3.png" alt="">
+                        <img class="img-avatar-user" src="<?php echo"{$a_info['usersImgdir']}";?>" alt="User avatar">
                         <!-- MSG -->
                         <div class="col-6 col-xxl-8 col-md-8 col-lg-7">
                             <!-- EMOJI -->
@@ -329,9 +326,7 @@ session_start();
                 <!-- TOP CONTAINER -->
                 <div class='py-2 d-flex flex-row'>
                     <!-- USER FOTO -->
-                   
-                    <img class='me-3 shadow-sm' src='assets/img/Ellipse 3.png' alt=''>
-                   <!-- <img class='me-3 shadow-sm' src='{$data['author_photo_dir']}' alt=''>-->
+                   <img class='img-avatar-anotheruser me-3 shadow-sm' src='{$data['author_photo_dir']}' alt=''>
                     <!-- CONTAINER -->
                     <div class='d-flex flex-column'>
                         <!-- USER NAME -->

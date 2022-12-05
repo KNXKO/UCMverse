@@ -90,18 +90,18 @@ session_start();
                     <!-- DROPDOWN -->
                     <div class="d-flex align-items-center mt-3 mt-md-0 mt-lg-0">
                         <!-- USER FOTO -->
-                        <img class="mx-3 shadow-sm" src="assets/img/Ellipse 3.png" alt="">
+                        <img class="img-avatar-user mx-3 shadow-sm" src="<?php echo"{$a_info['usersImgdir']}";?>" alt="User avatar">
                         <div class="dropdown shadow-sm" onclick="event.stopPropagation()" aria-labelledby="triggerId">
                             <button class="menu-list dropdown-toggle bg-transparent fw-bold c-black" type="button" id="dropdownMenuButton1"
                                 data-bs-toggle="dropdown" aria-expanded="false">
-                                Oman Gulvi
+                                <?php echo"{$a_info['usersName']} ";?><?php echo"{$a_info['usersLastname']}";?>
                             </button>
                             <!-- LIST -->
                             <ul class="dropdown-menu bg-dark" aria-labelledby="dropdownMenuButton1">
                                 <!-- 1 -->
                                 <li>
                                     <a id="toggleMode" href="#!" onclick="btnColor('background')" class="c-black ms-3 shadow-sm">
-                                        Switch mode
+                                        Dark mode
                                     </a>
                                 </li>
                                 <!-- 2 -->
@@ -259,11 +259,11 @@ session_start();
                 <!-- TOP CONTAINER -->
                 <div class='py-2 d-flex flex-row'>
                     <!-- USER FOTO -->
-                    <img class='me-3 shadow-sm' src='assets/img/Ellipse 3.png' alt=''>
+                    <img class='img-avatar-anotheruser me-3 shadow-sm' src='{$data['author_photo_dir']}' alt=''>
                     <!-- CONTAINER -->
                     <div class='d-flex flex-column'>
                         <!-- USER NAME -->
-                        <p class='text-light mb-0'>Matúš Moťovský</p>
+                        <p class='text-light mb-0'>{$data['author_name']} {$data['author_last_name']}</p>
                         <!-- POST UPLOAD DATE-->
                         <p class='mb-0 c-black'>{$data['time']}</p>
                     </div>
