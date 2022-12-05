@@ -36,10 +36,6 @@ jQuery.fn.chainCombo = function () {
         });
     });
 }();
-/* ATTACH PHOTO */
-function toggler(divId) {
-    $("#" + divId).toggle();
-}
 
 
 /* SWITCH WALLPAPER */
@@ -68,27 +64,6 @@ $(function () {
     // It can be called as many times as necessary; previously converted input fields will not be converted again
     window.emojiPicker.discover();
 });
-
-// TOGGLE FILL BACKGROUND - LIKE ICON
-$(".likeToggle").click(function () {
-    $(this).toggleClass('bi-hand-thumbs-up');
-    $(this).toggleClass('bi-hand-thumbs-up-fill');
-});
-
-// TOGGLE FILL BACKGROUND - CHAT ICON
-$(".commentToggle").click(function () {
-    $(this).toggleClass('bi bi-chat');
-    $(this).toggleClass('bi bi-chat-fill');
-});
-
-// TOGGLE FILL BACKGROUND - SHARE ICON
-$(".shareToggle").click(function () {
-    $(this).toggleClass('bi bi-share');
-    $(this).toggleClass('bi bi-share-fill');
-});
-
-
-
 // UDALOSTI PRELOADER ANIMATION
 $(document).ready(function () {
     $(".udalosti").click(function (e) {

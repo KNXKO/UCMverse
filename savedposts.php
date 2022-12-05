@@ -207,41 +207,7 @@ session_start();
                     <hr class="c-black">
                 </div>
             </div>
-            <!-- POST CONTAINER -->
-            <?php /*
-            <div class="container m-auto p-lg-4 p-md-3 p-sm-3 mt-3 rounded-3 bd-black col-md-12 col-lg-5 py-sm-3 post-bg-color shadow-sm">
-                <!-- TOP CONTAINER -->
-                <div class="py-2 d-flex flex-row">
-                    <!-- USER FOTO -->
-                    <img class="me-3 shadow-sm" src="assets/img/Ellipse 3.png" alt="">
-                    <!-- CONTAINER -->
-                    <div class="d-flex flex-column">
-                        <!-- USER NAME -->
-                        <p class="text-light mb-0">Matúš Moťovský</p>
-                        <!-- POST UPLOAD DATE-->
-                        <p class="mb-0 c-black">Včera, 11:34</p>
-                    </div>
-                </div>
-                <!-- LINE -->
-                <hr class="c-black">
-                <!-- POST TEXT-->
-                <h5 class="d-inline c-darkgrey">Ahojte UCM</h5>
-                <!-- CONTAINER-->
-                <div class="my-3">
-                    <!-- LIKE ICON-->
-                    <h4 class="likeToggle bi bi-hand-thumbs-up d-inline c-darkblack"></h4>
-                    <p class="d-inline me-3 c-darkgrey">6</p>
-                    <!-- COMMENTS ICON-->
-                    <h4 class="commentToggle bi bi-chat d-inline c-darkblack"></h4>
-                    <p class="d-inline me-3 c-darkgrey">3</p>
-                    <!-- SHARE ICON-->
-                    <h4 class="shareToggle bi bi-share d-inline c-darkblack"></h4>
-                    <p class="d-inline me-3 c-darkgrey">4</p>
-                    <!-- BOOKMARK ICON-->
-                    <h4 class="saveToggle bi bi-bookmark d-inline c-darkblack float-end"></h4>
-                </div>
-            </div>*/ ?>
-
+           
             <!-- POST CONTAINER -->
             <?php
            
@@ -313,12 +279,7 @@ session_start();
                 
                 <?php
                     
-                   echo" <!-- COMMENTS ICON-->
-                    <h4 class='commentToggle bi bi-chat d-inline c-darkblack'></h4>
-                    <p class='d-inline me-3 c-darkgrey'>3</p>
-                    <!-- SHARE ICON-->
-                    <h4 class='shareToggle bi bi-share d-inline c-darkblack'></h4>
-                    <p class='d-inline me-3 c-darkgrey'>4</p>
+                   echo" 
                     <!-- BOOKMARK ICON-->";
                  if (mysqli_num_rows($results_saved) == 1 and $saved == 1) { ?>
                <div class="SAVE d-inline float-end">

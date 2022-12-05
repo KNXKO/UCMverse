@@ -244,65 +244,8 @@ session_start();
                         <i class="bi bi-image-fill d-inline c-darkprimary fa-md mr-2"></i>
                         <input type="file" class="inputfile form-control" name="userfile[]" value="" multiple="" />
                     </label>
-                    <!--
-                        <a onclick="toggler('zvukdiv');"><img src="assets/img/Group 15.png" alt="Vlozit zvuk">
-                            <p class="d-inline me-3 c-darkgrey">Zvuk</p>
-                        </a>
-                        <img src="assets/img/Group 16.png" alt="Vlozit video"> 
-                        <p class="d-inline me-3 c-darkgrey">Video</p>
-                    <div id="fotodiv" class="hidden">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <input type="file" class="form-control bg-black border-0 h-25 mt-3 my-2 w-100 fs-6 rounded-3" name="userfile[]" value="" multiple="" />
-                        </div>
-                    </div>-->
                 </form>
-                <!-- CENTER MENU
-                    <div id="zvukdiv" class="hidden">
-                        <div class="form">
-                            <form>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <input type='file' class="form-control bg-black border-0 h-25 mt-3 my-2 w-50 fs-6 rounded-3" accept="audio/*">
-                                    <button type="submit" class="btn btn-dark border-0 border w-25 bg-purple h-25 rounded-3">Odoslať</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>-->
             </div>
-            <!-- POST CONTAINER -->
-            <?php /*
-            <div class="container m-auto p-lg-4 p-md-3 p-sm-3 mt-3 rounded-3 bd-black col-md-12 col-lg-5 py-sm-3 post-bg-color shadow-sm">
-                <!-- TOP CONTAINER -->
-                <div class="py-2 d-flex flex-row">
-                    <!-- USER FOTO -->
-                    <img class="me-3 shadow-sm" src="assets/img/Ellipse 3.png" alt="">
-                    <!-- CONTAINER -->
-                    <div class="d-flex flex-column">
-                        <!-- USER NAME -->
-                        <p class="text-light mb-0">Matúš Moťovský</p>
-                        <!-- POST UPLOAD DATE-->
-                        <p class="mb-0 c-black">Včera, 11:34</p>
-                    </div>
-                </div>
-                <!-- LINE -->
-                <hr class="c-black">
-                <!-- POST TEXT-->
-                <h5 class="d-inline c-darkgrey">Ahojte UCM</h5>
-                <!-- CONTAINER-->
-                <div class="my-3">
-                    <!-- LIKE ICON-->
-                    <h4 class="likeToggle bi bi-hand-thumbs-up d-inline c-darkblack"></h4>
-                    <p class="d-inline me-3 c-darkgrey">6</p>
-                    <!-- COMMENTS ICON-->
-                    <h4 class="commentToggle bi bi-chat d-inline c-darkblack"></h4>
-                    <p class="d-inline me-3 c-darkgrey">3</p>
-                    <!-- SHARE ICON-->
-                    <h4 class="shareToggle bi bi-share d-inline c-darkblack"></h4>
-                    <p class="d-inline me-3 c-darkgrey">4</p>
-                    <!-- BOOKMARK ICON-->
-                    <h4 class="saveToggle bi bi-bookmark d-inline c-darkblack float-end"></h4>
-                </div>
-            </div>*/ ?>
-
             <!-- POST CONTAINER -->
             <?php
             while ($data = $result->fetch_assoc()) {
@@ -373,12 +316,7 @@ session_start();
                 
                 <?php
                     
-                   echo" <!-- COMMENTS ICON-->
-                    <h4 class='commentToggle bi bi-chat d-inline c-darkblack'></h4>
-                    <p class='d-inline me-3 c-darkgrey'>3</p>
-                    <!-- SHARE ICON-->
-                    <h4 class='shareToggle bi bi-share d-inline c-darkblack'></h4>
-                    <p class='d-inline me-3 c-darkgrey'>4</p>
+                   echo" 
                     <!-- BOOKMARK ICON-->";
                  if (mysqli_num_rows($results_saved) == 1 and $saved == 1) { ?>
                <div class="SAVE d-inline float-end">
