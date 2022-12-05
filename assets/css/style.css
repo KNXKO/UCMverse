@@ -712,3 +712,49 @@ h4:hover {
         margin-left: 10%;
     }
 }
+
+.on {
+    display: inline;
+}
+
+.off {
+    display: none;
+}
+.OFFon {
+    display: none;
+}
+
+.OFFoff {
+    display: inline;
+}
+
+.LIKEon {
+    display: inline;
+}
+
+.LIKEoff {
+    display: none;
+}
+
+.LIKEOFFon {
+    display: none;
+}
+
+.LIKEOFFoff {
+    display: inline;
+}
+
+.SAVEON {
+    display: inline;
+}
+
+.SAVEOFF {
+    display: none;
+}
+.SAVEOFFON {
+    display: none;
+}
+
+.SAVEOFFOFF {
+    display: inline;
+}
