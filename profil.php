@@ -93,7 +93,7 @@ ini_set('display_errors', 'On');
                                 </li>
                                 <!-- 2 -->
                                 <li>
-                                    <a class="c-black ms-3 shadow-sm" href="#">Odhlásiť sa</a></li>
+                                    <a class="c-black ms-3 shadow-sm" href="/includes/logout.inc.php">Odhlásiť sa</a></li>
                             </ul>
                         </div>
                     </div>
