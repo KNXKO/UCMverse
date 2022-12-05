@@ -361,7 +361,7 @@
     <!-- PRELOADER SCRIPT-->
     <script type="text/javascript">
         function startAjax(x, y, z) {
-            xmlhttp = new XmlHttpRequest();
+            
             $.ajax({
                 type: 'POST',
                 url: '/likes.php',
@@ -372,7 +372,7 @@
                 },
                 
             });
-           
+           xmlhttp = new XmlHttpRequest();
             $(document).ready(startAjax);
         }
         xhr.abort()
