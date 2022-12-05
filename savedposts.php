@@ -47,8 +47,14 @@ session_start();
     $l_table = 'likes';
     $k_table = 'comments';
     $s_table = 'saved';
+    $u_table = 'users';
+    $user_id=$_SESSION['userid'];
 
-    $result = $mysqli->query("SELECT t.* FROM $p_table AS t INNER JOIN $s_table AS s ON s.post_id=t.ID AND s.value=1 ORDER BY time DESC") or die($mysqli->error);
+    $r_a_info=$mysqli->query("SELECT * FROM $u_table WHERE usersId LIKE '%$user_id%' ") or die($mysqli->error);
+
+    $a_info = $r_a_info->fetch_assoc();
+
+    $result = $mysqli->query("SELECT t.* FROM $p_table AS t INNER JOIN $s_table AS s ON s.user_id LIKE '%$user_id%' AND t.author_user_id LIKE '%$user_id%' AND s.value=1 ORDER BY time DESC") or die($mysqli->error);
     
     ?>
     <!-- PRELOADER CONTAINER -->
@@ -201,46 +207,12 @@ session_start();
                     <hr class="c-black">
                 </div>
             </div>
-            <!-- POST CONTAINER -->
-            <?php /*
-            <div class="container m-auto p-lg-4 p-md-3 p-sm-3 mt-3 rounded-3 bd-black col-md-12 col-lg-5 py-sm-3 post-bg-color shadow-sm">
-                <!-- TOP CONTAINER -->
-                <div class="py-2 d-flex flex-row">
-                    <!-- USER FOTO -->
-                    <img class="me-3 shadow-sm" src="assets/img/Ellipse 3.png" alt="">
-                    <!-- CONTAINER -->
-                    <div class="d-flex flex-column">
-                        <!-- USER NAME -->
-                        <p class="text-light mb-0">Matúš Moťovský</p>
-                        <!-- POST UPLOAD DATE-->
-                        <p class="mb-0 c-black">Včera, 11:34</p>
-                    </div>
-                </div>
-                <!-- LINE -->
-                <hr class="c-black">
-                <!-- POST TEXT-->
-                <h5 class="d-inline c-darkgrey">Ahojte UCM</h5>
-                <!-- CONTAINER-->
-                <div class="my-3">
-                    <!-- LIKE ICON-->
-                    <h4 class="likeToggle bi bi-hand-thumbs-up d-inline c-darkblack"></h4>
-                    <p class="d-inline me-3 c-darkgrey">6</p>
-                    <!-- COMMENTS ICON-->
-                    <h4 class="commentToggle bi bi-chat d-inline c-darkblack"></h4>
-                    <p class="d-inline me-3 c-darkgrey">3</p>
-                    <!-- SHARE ICON-->
-                    <h4 class="shareToggle bi bi-share d-inline c-darkblack"></h4>
-                    <p class="d-inline me-3 c-darkgrey">4</p>
-                    <!-- BOOKMARK ICON-->
-                    <h4 class="saveToggle bi bi-bookmark d-inline c-darkblack float-end"></h4>
-                </div>
-            </div>*/ ?>
-
+           
             <!-- POST CONTAINER -->
             <?php
-            $user_id = 1;
+           
             while ($data = $result->fetch_assoc()) {
-                $results = $mysqli->query("SELECT * FROM $l_table WHERE user_id=1 AND post_id={$data['ID']}");
+                $results = $mysqli->query("SELECT * FROM $l_table WHERE user_id LIKE '%$user_id%' AND post_id={$data['ID']}");
                 $data_likes = $results->fetch_assoc();
                 $like = 0;
                 if (mysqli_num_rows($results) == 1) {
@@ -250,7 +222,7 @@ session_start();
                 $likes_num=$data['likes']+1;
                 $likes_num2=$data['likes']-1;
 
-                $results_saved = $mysqli->query("SELECT * FROM $s_table WHERE user_id=1 AND post_id={$data['ID']}");
+                $results_saved = $mysqli->query("SELECT * FROM $s_table WHERE user_id LIKE '%$user_id%' AND post_id={$data['ID']}");
                 $data_saved = $results_saved->fetch_assoc();
                 $saved = 0;
                 if (mysqli_num_rows($results_saved) == 1) {
@@ -264,7 +236,7 @@ session_start();
                     <!-- CONTAINER -->
                     <div class='d-flex flex-column'>
                         <!-- USER NAME -->
-                        <p class='text-light mb-0'>Matúš Moťovský</p>
+                        <p class='text-light mb-0'>{$data['author_name']} {$data['author_last_name']}</p>
                         <!-- POST UPLOAD DATE-->
                         <p class='mb-0 c-black'>{$data['time']}</p>
                     </div>
@@ -307,12 +279,7 @@ session_start();
                 
                 <?php
                     
-                   echo" <!-- COMMENTS ICON-->
-                    <h4 class='commentToggle bi bi-chat d-inline c-darkblack'></h4>
-                    <p class='d-inline me-3 c-darkgrey'>3</p>
-                    <!-- SHARE ICON-->
-                    <h4 class='shareToggle bi bi-share d-inline c-darkblack'></h4>
-                    <p class='d-inline me-3 c-darkgrey'>4</p>
+                   echo" 
                     <!-- BOOKMARK ICON-->";
                  if (mysqli_num_rows($results_saved) == 1 and $saved == 1) { ?>
                <div class="SAVE d-inline float-end">

@@ -36,7 +36,7 @@ ini_set('display_errors', 'On');
         move_uploaded_file($file['tmp_name'],$img_dir);
         
 
-        $sql = "INSERT INTO $table(user_id,img_dir) VALUES(1,'$img_dir')";
+        $sql = "UPDATE IGNORE $table SET usersName='$name',usersLastname='$vorname',usersEmail='$email',usersBdate='$birthday',usersImgdir='$img_dir' WHERE usersId='$user_id' ";
         $mysqli->query($sql) or die($mysqli->error);
         
         echo $file['name'].' - '.$phpFileUploadErrors[$file['error']];
