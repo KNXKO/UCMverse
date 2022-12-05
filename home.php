@@ -44,6 +44,7 @@
     $p_table = 'posts';
     $l_table = 'likes';
     $k_table = 'comments';
+    $s_table = 'saved';
 
     $result = $mysqli->query("SELECT * FROM $p_table WHERE 1 ORDER BY time DESC") or die($mysqli->error);
     ?>
@@ -296,6 +297,15 @@
                     $like = $data_likes['value'];
                 }
                 $postid = $data['ID'];
+                $likes_num=$data['likes']+1;
+                $likes_num2=$data['likes']-1;
+
+                $results_saved = $mysqli->query("SELECT * FROM $s_table WHERE user_id=1 AND post_id={$data['ID']}");
+                $data_saved = $results->fetch_assoc();
+                $saved = 0;
+                if (mysqli_num_rows($results_saved) == 1) {
+                    $saved = $data_saved['value'];
+                }
                 echo "<div class='container m-auto p-lg-3 p-md-3 p-sm-3 mt-3 rounded-3 bd-black col-md-12 col-lg-5 py-sm-3 post-bg-color shadow-sm'>
                 <!-- TOP CONTAINER -->
                 <div class='py-2 d-flex flex-row'>
@@ -330,6 +340,8 @@
                 <div class="togglecko d-inline">
                     <h4 class='on bi-hand-thumbs-up-fill c-darkprimary c-darkblack ' onclick='startAjax(<?php echo $data["ID"] ?>,<?php echo $user_id ?>,0);'></h4>
                     <h4 class='off bi-hand-thumbs-up  c-darkprimary c-darkblack' onclick="startAjax(<?php echo $data['ID'] ?>,<?php echo $user_id ?>,1);"></h4>
+                    <p class='LIKEon me-3 c-darkgrey'><?php echo "{$data['likes']}"?></p>
+                    <p class='LIKEoff me-3 c-darkgrey'><?php echo "{$likes_num2}"?></p>
                 </div>
                 
                 <?php 
@@ -338,20 +350,34 @@
                 <div class="toggleckoOFF d-inline">
                     <h4 class='OFFon bi-hand-thumbs-up-fill c-darkprimary c-darkblack ' onclick='startAjax(<?php echo $data["ID"] ?>,<?php echo $user_id ?>,0);'></h4>
                     <h4 class='OFFoff bi-hand-thumbs-up  c-darkprimary c-darkblack ' onclick="startAjax(<?php echo $data['ID'] ?>,<?php echo $user_id ?>,1);"></h4>
+                    <p class='LIKEOFFon me-3 c-darkgrey'><?php echo "{$likes_num}"?></p>
+                    <p class='LIKEOFFoff me-3 c-darkgrey'><?php echo "{$data['likes']}"?></p>
                 </div>
-                <?php  }   
+                <?php  }   ?>
                 
-                echo "<p class='d-inline me-3 c-darkgrey'>{$data['likes']}</p>
+                <?php
                     
-                    <!-- COMMENTS ICON-->
+                   echo" <!-- COMMENTS ICON-->
                     <h4 class='commentToggle bi bi-chat d-inline c-darkblack'></h4>
                     <p class='d-inline me-3 c-darkgrey'>3</p>
                     <!-- SHARE ICON-->
                     <h4 class='shareToggle bi bi-share d-inline c-darkblack'></h4>
                     <p class='d-inline me-3 c-darkgrey'>4</p>
-                    <!-- BOOKMARK ICON-->
-                    <h4 class='saveToggle bi bi-bookmark d-inline c-darkblack float-end'></h4>
-                </div>
+                    <!-- BOOKMARK ICON-->";
+                 if (mysqli_num_rows($results_saved) == 1 and $saved == 1) { ?>?>
+               <div class="SAVE d-inline float-end">
+                    <h4 class='SAVEON bi bi-bookmark c-darkblack '></h4>
+                    <h4 class='SAVEOFF bi bi-bookmark-fill c-darkblack '></h4>
+                </div> 
+                <?php 
+                } else 
+                { ?>   
+                <div class="SAVEOFF d-inline float-end border border-warning">
+                    <h4 class='SAVEOFFON bi bi-bookmark-fill c-darkblack'></h4>
+                    <h4 class='SAVEOFFOFF bi bi-bookmark c-darkblack'></h4>
+               </div> 
+
+               <?php } echo"</div>
             </div>";
             }
             ?>

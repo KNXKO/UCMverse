@@ -725,3 +725,34 @@ h4:hover {
 .OFFoff {
     display: inline;
 }
+
+.LIKEon {
+    display: inline;
+}
+
+.LIKEoff {
+    display: none;
+}
+
+.LIKEOFFon {
+    display: none;
+}
+
+.LIKEOFFoff {
+    display: inline;
+}
+
+.SAVEON {
+    display: inline;
+}
+
+.SAVEOFF {
+    display: none;
+}
+.SAVEOFFON {
+    display: none;
+}
+
+.SAVEOFFOFF {
+    display: inline;
+}

@@ -99,11 +99,7 @@ $(".shareToggle").click(function () {
     $(this).toggleClass('bi bi-share-fill');
 });
 
-// TOGGLE FILL BACKGROUND - SAVE ICON
-$(".saveToggle").click(function () {
-    $(this).toggleClass('bi bi-bookmark');
-    $(this).toggleClass('bi bi-bookmark-fill');
-});
+
 
 // UDALOSTI PRELOADER ANIMATION
 $(document).ready(function () {
@@ -122,10 +118,14 @@ $(".togglecko").click(function () {
     {
         $(this).children('.off').css('display', 'none');
         $(this).children('.on').css('display', 'inline');
+        $(this).children('.LIKEon').css('display', 'inline');
+        $(this).children('.LIKEoff').css('display', 'none');
     } 
     else {
         $(this).children('.on').css('display', 'none');
         $(this).children('.off').css('display', 'inline');
+        $(this).children('.LIKEoff').css('display', 'inline');
+        $(this).children('.LIKEon').css('display', 'none');
 }
 });
 
@@ -134,10 +134,43 @@ $(".toggleckoOFF").click(function () {
     {
         $(this).children('.OFFoff').css('display', 'none');
         $(this).children('.OFFon').css('display', 'inline');
+        $(this).children('.LIKEOFFoff').css('display', 'none');
+        $(this).children('.LIKEOFFon').css('display', 'inline');
     } 
     else {
         $(this).children('.OFFon').css('display', 'none');
         $(this).children('.OFFoff').css('display', 'inline');
+        $(this).children('.LIKEOFFon').css('display', 'none');
+        $(this).children('.LIKEOFFoff').css('display', 'inline');
 }
 });
+
+$(".SAVE").click(function () {
+    if($(this).children('.SAVEON').css('display') == 'none')
+    {
+        $(this).children('.SAVEOFF').css('display', 'none');
+        $(this).children('.SAVEON').css('display', 'inline');
+       
+    } 
+    else {
+        $(this).children('.SAVEON').css('display', 'none');
+        $(this).children('.SAVEOFF').css('display', 'inline');
+}
+});
+
+$(".SAVEOFF").click(function () {
+    if($(this).children('.SAVEOFFON').css('display') == 'none')
+    {
+        $(this).children('.SAVEOFFOFF').css('display', 'inline');
+        $(this).children('.SAVEOFFON').css('display', 'none');
+       
+    } 
+    else {
+        $(this).children('.SAVEOFFON').css('display', 'inline');
+        $(this).children('.SAVEOFFOFF').css('display', 'none');
+}
+});
+
+
+
 
