@@ -54,8 +54,9 @@ session_start();
 
     $a_info = $r_a_info->fetch_assoc();
 
-    $result = $mysqli->query("SELECT t.* FROM $p_table AS t INNER JOIN $s_table AS s ON s.user_id LIKE '%$user_id%' AND t.author_user_id LIKE '%$user_id%' AND s.value=1 ORDER BY time DESC") or die($mysqli->error);
-    
+    $result = $mysqli->query("SELECT * FROM $p_table 
+     WHERE value=0 FROM $s_table  ORDER BY time DESC") or die($mysqli->error);
+
     ?>
     <!-- PRELOADER CONTAINER -->
     <div class="loader-wrapper overflow-hidden">
@@ -289,7 +290,7 @@ session_start();
                 <?php 
                 } else 
                 { ?>   
-                <div class="SAVEOFF d-inline float-end border border-warning">
+                <div class="SAVEOFF d-inline float-end">
                     <h4 class='SAVEOFFON bi bi-bookmark-fill c-darkblack' onclick='savedAjax(<?php echo $data["ID"] ?>,<?php echo $user_id ?>,0);'></h4>
                     <h4 class='SAVEOFFOFF bi bi-bookmark c-darkblack' onclick='savedAjax(<?php echo $data["ID"] ?>,<?php echo $user_id ?>,1);'></h4>
                </div> 

@@ -18,6 +18,7 @@ ini_set('display_errors', 'On');
        $vorname = @$_POST['vorname'];
        $email = @$_POST['email'];
        $birthday = @$_POST['birthday'];
+       $picture=@$_POST['pic'];
 
        /* NEPOTREBNE $name=$file_ext[0];
         $name= preg_replace("!-!"," ",$name);
@@ -34,12 +35,21 @@ ini_set('display_errors', 'On');
          
         $img_dir='images/profiles/'.$file['name'];
         move_uploaded_file($file['tmp_name'],$img_dir);
-        
 
-        $sql = "UPDATE IGNORE $table SET usersName='$name',usersLastname='$vorname',usersEmail='$email',usersBdate='$birthday',usersImgdir='$img_dir' WHERE usersId='$user_id' ";
+        if($img_dir=='images/profiles/')
+        {
+          $sql = "UPDATE IGNORE $table SET usersName='$name',usersLastname='$vorname',usersEmail='$email',usersBdate='$birthday',usersImgdir='$picture' WHERE usersId='$user_id' ";
+          $mysqli->query($sql) or die($mysqli->error);
+        
+        }
+        else{
+          $sql = "UPDATE IGNORE $table SET usersName='$name',usersLastname='$vorname',usersEmail='$email',usersBdate='$birthday',usersImgdir='$img_dir' WHERE usersId='$user_id' ";
         $mysqli->query($sql) or die($mysqli->error);
         
         echo $file['name'].' - '.$phpFileUploadErrors[$file['error']];
+        }
+
+        
         
         
         /* echo '

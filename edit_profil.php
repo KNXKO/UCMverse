@@ -189,11 +189,13 @@ session_start();
                             <input class="mb-4 " type="email" name="email" value="<?php echo"{$data['usersEmail']}";?>" id="email" placeholder="E-mail" maxlength="35" required>
                             <input type="date" name="birthday" value="<?php echo"{$data['usersBdate']}";?>" class="mb-4 p-2 me-2" min='1920-01-01' max='2005-01-01'>
                             <input type="hidden" name="user_id" value="<?php echo $user_id ?>">
+                            <input type="hidden" name="pic" value=" <?php echo"{$data['usersImgdir']}";?>">
+                
                             <div class="edit-photo">
                                 <label for="inputTag">
                                     Select Image <br />
                                     <i class="fa fa-2x fa-camera"></i>
-                                    <input id="inputTag" name="picture" type="file" value="<?php echo"{$data['usersImgdir']}";?>" />
+                                    <input id="inputTag" name="picture" type="file" value="" />
                                     <br />
                                     <span id="imageName"></span>
                                 </label>
