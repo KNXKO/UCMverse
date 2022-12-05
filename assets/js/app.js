@@ -160,5 +160,22 @@ $(".SAVEOFF").click(function () {
 });
 
 
-
+// TEXTAREA BLOCKWORDS 
+function fnCheckForRestrictedWords() {
+    var restrictedWords = new Array("kokot", "KOKOT", "KKT", "kkt",  "bagana", "dement", "DMNT", "štetka", "štetka", "kurva", "KURVA", "JEBO", "JBMNT", "piča", "pica", "PICA", "rit", "buzna", "buzerant", "cicina", "flandra", "chuj", "drbat", "kunda", "srat", "zmrd", "dojebat", "fas", "gec", "hejzel", "ojeb", "najebat", "zajebat", "pojebat", "zabit", "nigga", "negger", "NIGGA");
+    var txtInput = document.getElementById("msg").value;
+    var error = 0;
+    for (var i = 0; i < restrictedWords.length; i++) {
+        var val = restrictedWords[i];
+        if ((txtInput.toLowerCase()).indexOf(val.toString()) > -1) {
+            error = error + 1;
+            break;
+        }
+    }
+    if (error > 0) {
+        alert('Zadali ste zakázané slovo/á');
+        window.history.forward(-1);
+        event.preventDefault();
+    }
+}
 
