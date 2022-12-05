@@ -1,3 +1,15 @@
+$(document).ready(function () {
+    $(window).scroll(function () {
+        if ($(window).scrollTop() > $(window).height()) {
+            $(".nav").css({ "background-color": "transparent" });
+        }
+        else {
+            $(".nav").css({ "background-color": "white" });
+        }
+
+    })
+})
+
 /* SELECTS */
 function jq_ChainCombo(el) {
     var selected = $(el).find(':selected').data('id'); // get parent selected options' data-id attribute
@@ -87,11 +99,7 @@ $(".shareToggle").click(function () {
     $(this).toggleClass('bi bi-share-fill');
 });
 
-// TOGGLE FILL BACKGROUND - SAVE ICON
-$(".saveToggle").click(function () {
-    $(this).toggleClass('bi bi-bookmark');
-    $(this).toggleClass('bi bi-bookmark-fill');
-});
+
 
 // UDALOSTI PRELOADER ANIMATION
 $(document).ready(function () {
@@ -122,3 +130,15 @@ function fnCheckForRestrictedWords() {
         event.preventDefault();
     }
 }
+
+// BG NAV
+$(document).ready(function(){
+    $(window).scroll(function(){
+        if($(window).scrollTop() > $(window).height()){
+            $(".nav").css({"background-color":"transparent"});   
+        }
+        else{
+            $(".nav").css({"background-color":"white"});
+        }
+    })
+})

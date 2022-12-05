@@ -1,3 +1,12 @@
+<?php 
+session_start();
+
+	include("includes/dbh.inc.php");
+	include("includes/functions.inc.php");
+
+	$user_data = check_login($conn);
+
+?>
 <!DOCTYPE html>
 <html>
 
@@ -40,11 +49,17 @@
     error_reporting(-1);
     ini_set('display_errors', 'On');
 
-    $mysqli = new mysqli('localhost', 'root', '', 'databaza_pal') or die($mysqli->connect_error);
+    $mysqli = new mysqli('localhost', 'root', '', 'ucm_verse') or die($mysqli->connect_error);
     $p_table = 'posts';
     $l_table = 'likes';
     $k_table = 'comments';
+    $s_table = 'saved';
+    $u_table = 'users';
+    $user_id=$_SESSION['userid'];
+    $r_a_info=$mysqli->query("SELECT * FROM $u_table WHERE usersId LIKE '%$user_id%' ") or die($mysqli->error);
 
+    $a_info = $r_a_info->fetch_assoc();
+    
     $result = $mysqli->query("SELECT * FROM $p_table WHERE 1 ORDER BY time DESC") or die($mysqli->error);
     ?>
     <!-- PRELOADER CONTAINER -->
@@ -84,10 +99,12 @@
                     <!-- DROPDOWN -->
                     <div class="d-flex align-items-center mt-3 mt-md-0 mt-lg-0">
                         <!-- USER FOTO -->
-                        <img class="mx-3 shadow-sm" src="assets/img/Ellipse 3.png" alt="">
+                       <img class="mx-3 shadow-sm" src="assets/img/Ellipse 3.png" alt="">
+                        <!-- <img class="mx-3 shadow-sm" src="<?php echo"{$a_info['usersImgdir']}";?>" alt="">-->
+                     
                         <div class="dropdown shadow-sm" onclick="event.stopPropagation()" aria-labelledby="triggerId">
                             <button class="menu-list dropdown-toggle bg-transparent fw-bold c-black" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                Oman Gulvi
+                            <?php echo"{$a_info['usersName']} ";?><?php echo"{$a_info['usersLastname']}";?>
                             </button>
                             <!-- LIST -->
                             <ul class="dropdown-menu bg-dark" aria-labelledby="dropdownMenuButton1">
@@ -99,7 +116,7 @@
                                 </li>
                                 <!-- 2 -->
                                 <li>
-                                    <a class="c-black ms-3 shadow-sm" href="index.html">Odhlásiť sa</a>
+                                    <a class="c-black ms-3 shadow-sm" href="/includes/logout.inc.php">Odhlásiť sa</a>
                                 </li>
                             </ul>
                         </div>
@@ -213,9 +230,13 @@
                         <div class="col-6 col-xxl-8 col-md-8 col-lg-7">
                             <!-- EMOJI -->
                             <p class="emoji-picker-container">
-                                <textarea class="c-darkgrey border-0 prosim" placeholder="O čom chceš informovať UCM, Oman?" type="text" name="msg" id="msg" maxlength="250" data-emojiable="true" data-emoji-input="unicode" minlength="6" required></textarea>
+                                <textarea class="c-darkgrey border-0 prosim" placeholder="O čom chceš informovať UCM, <?php echo" {$a_info['usersName']}";?>?" type="text" name="msg" id="msg" maxlength="250" data-emojiable="true" data-emoji-input="unicode" minlength="6" required></textarea>
                             </p>
                         </div>
+                        <input type="hidden" name="user_id" value="<?php echo $user_id ?>">
+                        <input type="hidden" name="a_name" value="<?php echo $a_info['usersName'] ?>">
+                        <input type="hidden" name="a_l_name" value="<?php echo $a_info['usersLastname'] ?>">
+                        <input type="hidden" name="a_photo" value="<?php echo $a_info['usersImgdir'] ?>">
                         <!-- SUBMIT BUTTON-->
                         <button type="submit" name="submit" class="bg-purple px-4 py-2 rounded-3 menu-list fw-bold shadow-sm" onclick="fnCheckForRestrictedWords();">Odoslať</button>
                     </div>
@@ -287,24 +308,34 @@
 
             <!-- POST CONTAINER -->
             <?php
-            $user_id = 1;
             while ($data = $result->fetch_assoc()) {
-                $results = $mysqli->query("SELECT * FROM $l_table WHERE user_id=1 AND post_id={$data['ID']}");
+                $results = $mysqli->query("SELECT * FROM $l_table WHERE user_id LIKE '%$user_id%' AND post_id={$data['ID']}");
                 $data_likes = $results->fetch_assoc();
                 $like = 0;
                 if (mysqli_num_rows($results) == 1) {
                     $like = $data_likes['value'];
                 }
                 $postid = $data['ID'];
+                $likes_num=$data['likes']+1;
+                $likes_num2=$data['likes']-1;
+
+                $results_saved = $mysqli->query("SELECT * FROM $s_table WHERE user_id LIKE '%$user_id%' AND post_id={$data['ID']}");
+                $data_saved = $results_saved->fetch_assoc();
+                $saved = 0;
+                if (mysqli_num_rows($results_saved) == 1) {
+                    $saved = $data_saved['value'];
+                }
                 echo "<div class='container m-auto p-lg-3 p-md-3 p-sm-3 mt-3 rounded-3 bd-black col-md-12 col-lg-5 py-sm-3 post-bg-color shadow-sm'>
                 <!-- TOP CONTAINER -->
                 <div class='py-2 d-flex flex-row'>
                     <!-- USER FOTO -->
+                   
                     <img class='me-3 shadow-sm' src='assets/img/Ellipse 3.png' alt=''>
+                   <!-- <img class='me-3 shadow-sm' src='{$data['author_photo_dir']}' alt=''>-->
                     <!-- CONTAINER -->
                     <div class='d-flex flex-column'>
                         <!-- USER NAME -->
-                        <p class='text-light mb-0'>Matúš Moťovský</p>
+                        <p class='text-light mb-0'>{$data['author_name']} {$data['author_last_name']}</p>
                         <!-- POST UPLOAD DATE-->
                         <p class='mb-0 c-black'>{$data['time']}</p>
                     </div>
@@ -323,24 +354,51 @@
                 <!-- CONTAINER-->
                 <div class='my-3'>
                     <!-- LIKE ICON-->";
-
+            
+            
                 if (mysqli_num_rows($results) == 1 and $like == 1) { ?>
 
-                    <h4 id="response" class="likeToggle bi bi-hand-thumbs-up-fill c-darkprimary d-inline c-darkblack" onclick='startAjax(<?php echo $data["ID"] ?>,<?php echo $user_id ?>,0);'></h4>
-                <?php } else { ?>
-                    <h4 id="response" class="likeToggle bi bi-hand-thumbs-up d-inline c-darkblack" onclick="startAjax(<?php echo $data['ID'] ?>,<?php echo $user_id ?>,1);"></h4>
-            <?php }
-                echo "<p class='d-inline me-3 c-darkgrey'>{$data['likes']}</p>
+                <div class="togglecko d-inline">
+                    <h4 class='on bi-hand-thumbs-up-fill c-darkprimary c-darkblack ' onclick='startAjax(<?php echo $data["ID"] ?>,<?php echo $user_id ?>,0);'></h4>
+                    <h4 class='off bi-hand-thumbs-up  c-darkprimary c-darkblack' onclick="startAjax(<?php echo $data['ID'] ?>,<?php echo $user_id ?>,1);"></h4>
+                    <p class='LIKEon me-3 c-darkgrey'><?php echo "{$data['likes']}"?></p>
+                    <p class='LIKEoff me-3 c-darkgrey'><?php echo "{$likes_num2}"?></p>
+                </div>
+                
+                <?php 
+                } else 
+                { ?>
+                <div class="toggleckoOFF d-inline">
+                    <h4 class='OFFon bi-hand-thumbs-up-fill c-darkprimary c-darkblack ' onclick='startAjax(<?php echo $data["ID"] ?>,<?php echo $user_id ?>,0);'></h4>
+                    <h4 class='OFFoff bi-hand-thumbs-up  c-darkprimary c-darkblack ' onclick="startAjax(<?php echo $data['ID'] ?>,<?php echo $user_id ?>,1);"></h4>
+                    <p class='LIKEOFFon me-3 c-darkgrey'><?php echo "{$likes_num}"?></p>
+                    <p class='LIKEOFFoff me-3 c-darkgrey'><?php echo "{$data['likes']}"?></p>
+                </div>
+                <?php  }   ?>
+                
+                <?php
                     
-                    <!-- COMMENTS ICON-->
+                   echo" <!-- COMMENTS ICON-->
                     <h4 class='commentToggle bi bi-chat d-inline c-darkblack'></h4>
                     <p class='d-inline me-3 c-darkgrey'>3</p>
                     <!-- SHARE ICON-->
                     <h4 class='shareToggle bi bi-share d-inline c-darkblack'></h4>
                     <p class='d-inline me-3 c-darkgrey'>4</p>
-                    <!-- BOOKMARK ICON-->
-                    <h4 class='saveToggle bi bi-bookmark d-inline c-darkblack float-end'></h4>
-                </div>
+                    <!-- BOOKMARK ICON-->";
+                 if (mysqli_num_rows($results_saved) == 1 and $saved == 1) { ?>
+               <div class="SAVE d-inline float-end">
+                    <h4 class='SAVEON bi bi-bookmark-fill c-darkblack ' onclick='savedAjax(<?php echo $data["ID"] ?>,<?php echo $user_id ?>,0);'></h4>
+                    <h4 class='SAVEOFF bi bi-bookmark c-darkblack ' onclick='savedAjax(<?php echo $data["ID"] ?>,<?php echo $user_id ?>,1);'></h4>
+                </div> 
+                <?php 
+                } else 
+                { ?>   
+                <div class="SAVEOFF d-inline float-end">
+                    <h4 class='SAVEOFFON bi bi-bookmark-fill c-darkblack' onclick='savedAjax(<?php echo $data["ID"] ?>,<?php echo $user_id ?>,0);'></h4>
+                    <h4 class='SAVEOFFOFF bi bi-bookmark c-darkblack' onclick='savedAjax(<?php echo $data["ID"] ?>,<?php echo $user_id ?>,1);'></h4>
+               </div> 
+
+               <?php } echo"</div>
             </div>";
             }
             ?>
@@ -350,7 +408,7 @@
     <!-- PRELOADER SCRIPT-->
     <script type="text/javascript">
         function startAjax(x, y, z) {
-
+            
             $.ajax({
                 type: 'POST',
                 url: '/likes.php',
@@ -359,18 +417,30 @@
                     user_id: y,
                     value: z
                 },
-                success: function(response) {
-                    content.html(response);
-                },
+                
             });
-
+           xmlhttp = new XmlHttpRequest();
             $(document).ready(startAjax);
         }
-        $(document).ajaxStart(function() {
-
-            window.location.reload(true);
-
-        });
+        xhr.abort()
+    </script>
+    <script type="text/javascript">
+        function savedAjax(x, y, z) {
+            
+            $.ajax({
+                type: 'POST',
+                url: '/saved_script.php',
+                data: {
+                    post_id: x,
+                    user_id: y,
+                    value: z
+                },
+                
+            });
+           xmlhttp = new XmlHttpRequest();
+            $(document).ready(startAjax);
+        }
+        xhr.abort()
     </script>
     <script>
         $(window).on("load", function() {

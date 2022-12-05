@@ -1,3 +1,12 @@
+<?php 
+session_start();
+
+	include("includes/dbh.inc.php");
+	include("includes/functions.inc.php");
+
+	$user_data = check_login($conn);
+
+?>
 <!DOCTYPE html>
 <html>
 
@@ -33,9 +42,11 @@
 error_reporting(-1);
 ini_set('display_errors', 'On');
 
-  $mysqli= new mysqli('localhost','root','','databaza_pal') or die($mysqli->connect_error);
-     $table ='profiles';
-     $result= $mysqli->query("SELECT * FROM $table WHERE user_id=1") or die($mysqli->error);
+  $mysqli= new mysqli('localhost','root','','ucm_verse') or die($mysqli->connect_error);
+     $table ='users';
+     $user_id=$_SESSION['userid'];
+     
+     $result= $mysqli->query("SELECT * FROM $table WHERE usersId LIKE '%$user_id%'") or die($mysqli->error);
      $data = $result->fetch_assoc();
 ?>
     <!-- PRELOADER CONTAINER -->
@@ -93,7 +104,7 @@ ini_set('display_errors', 'On');
                                 </li>
                                 <!-- 2 -->
                                 <li>
-                                    <a class="c-black ms-3 shadow-sm" href="#">Odhlásiť sa</a></li>
+                                    <a class="c-black ms-3 shadow-sm" href="/includes/logout.inc.php">Odhlásiť sa</a></li>
                             </ul>
                         </div>
                     </div>
@@ -176,7 +187,7 @@ ini_set('display_errors', 'On');
                         <!-- Profilva fotka-->
                         <div class="mb-3">
                             <?php
-                            echo"<img src='{$data['img_dir']}' class='m-auto d-flex rounded-circle img-profile' alt=''>";
+                            echo"<img src='{$data['usersImgdir']}' class='m-auto d-flex rounded-circle img-profile' alt=''>";
                             ?>
                         </div>
                         <div class="justify-content-center align-content-center d-flex flex-row">
