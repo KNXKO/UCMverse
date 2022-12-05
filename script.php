@@ -35,7 +35,7 @@ ini_set('display_errors', 'On');
 
                 $file_ext = explode('.',$file_array[$i]['name']);
                
-                $msg = @$_POST['msg'];
+                $msg = filter_var(@$_POST['msg'], FILTER_SANITIZE_STRING);
 
                /* NEPOTREBNE $name=$file_ext[0];
                 $name= preg_replace("!-!"," ",$name);
