@@ -41,7 +41,12 @@ session_start();
 
 <body>
     <?php
+    $mysqli= new mysqli('localhost','root','','ucm_verse') or die($mysqli->connect_error);
+    $table ='users';
     $user_id=$_SESSION['userid'];
+    
+    $result= $mysqli->query("SELECT * FROM $table WHERE usersId LIKE '%$user_id%'") or die($mysqli->error);
+    $data = $result->fetch_assoc();
     ?>
     <!-- PRELOADER CONTAINER -->
     <div class="loader-wrapper overflow-hidden">
@@ -82,11 +87,11 @@ session_start();
                     <!-- DROPDOWN -->
                     <div class="d-flex align-items-center mt-3 mt-md-0 mt-lg-0">
                         <!-- USER FOTO -->
-                        <img class="mx-3 shadow-sm" src="assets/img/Ellipse 3.png" alt="">
+                        <img class="img-avatar-user mx-3 shadow-sm" src="<?php echo"{$data['usersImgdir']}";?>" alt="">
                         <div class="dropdown shadow-sm">
                             <button class="dropdown-toggle bg-transparent fw-bold c-black" type="button" id="dropdownMenuButton1"
                                 data-bs-toggle="dropdown" aria-expanded="false">
-                                Oman Gulvi
+                                <?php echo"{$data['usersName']} ";?><?php echo"{$data['usersLastname']}";?>
                             </button>
                             <!-- LIST -->
                             <ul class="dropdown-menu bg-dark" aria-labelledby="dropdownMenuButton1">
@@ -174,21 +179,21 @@ session_start();
                 <!-- Zmena osobný údajov - meno , priezvisko , dátum narodenia , profilová fotka-->
                 <div class="edit-container-up">
                     <div class="profil_photo w-auto">
-                        <img class="img-profile rounded-circle" src="assets/img/profile_pic.png" alt="profilova_fotka">
+                        <img class="img-profile rounded-circle" src="<?php echo"{$data['usersImgdir']}";?>" alt="profilova_fotka">
                     </div>
                     <div class="edit-mpd">
                         <h1> Osobné údaje </h1>
                         <form action="profile_script.php" method="POST" enctype="multipart/form-data">
-                            <input class="" type="text" name="name" id="name" placeholder="Meno" maxlength="15" required>
-                            <input class="mb-4 " type="text" name="vorname" id="priezvisko" placeholder="Priezvisko" maxlength="25" required>
-                            <input class="mb-4 " type="email" name="email" id="email" placeholder="E-mail" maxlength="35" required>
-                            <input type="date" name="birthday" class="mb-4 p-2 me-2">
+                            <input class="" type="text" name="name" value="<?php echo"{$data['usersName']}";?>" id="name" placeholder="Meno" maxlength="15" required>
+                            <input class="mb-4 " type="text" name="vorname" value="<?php echo"{$data['usersLastname']}";?>" id="priezvisko" placeholder="Priezvisko" maxlength="25" required>
+                            <input class="mb-4 " type="email" name="email" value="<?php echo"{$data['usersEmail']}";?>" id="email" placeholder="E-mail" maxlength="35" required>
+                            <input type="date" name="birthday" value="<?php echo"{$data['usersBdate']}";?>" class="mb-4 p-2 me-2" min='1920-01-01' max='2005-01-01'>
                             <input type="hidden" name="user_id" value="<?php echo $user_id ?>">
                             <div class="edit-photo">
                                 <label for="inputTag">
                                     Select Image <br />
                                     <i class="fa fa-2x fa-camera"></i>
-                                    <input id="inputTag" name="picture" type="file" value="" multiple="" />
+                                    <input id="inputTag" name="picture" type="file" value="<?php echo"{$data['usersImgdir']}";?>" />
                                     <br />
                                     <span id="imageName"></span>
                                 </label>
@@ -204,10 +209,10 @@ session_start();
                             </script>
                             <div class="d-flex justify-content-around col-12 mt-4">
                                 <a class="menu-list" href="">
-                                    <button class="fw-semibold mb-4 btn-submit px-5 shadow-sm" type="submit">Uložiť</button>
+                                    <button class="fw-semibold mb-4 btn-submit px-5 shadow-sm" type="submit" name="submit">Uložiť</button>
                                 </a>
                                 <a class="menu-list" href="home.php">
-                                    <button class="fw-semibold btn-fg-pw mb-4 px-4 shadow-sm">Vrátiť zmeny</button>
+                                    <button type="reset" class="fw-semibold btn-fg-pw mb-4 px-4 shadow-sm">Vrátiť zmeny</button>
                                 </a>
                               </div>
                                
