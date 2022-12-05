@@ -161,13 +161,13 @@ $(".SAVE").click(function () {
 $(".SAVEOFF").click(function () {
     if($(this).children('.SAVEOFFON').css('display') == 'none')
     {
-        $(this).children('.SAVEOFFOFF').css('display', 'inline');
-        $(this).children('.SAVEOFFON').css('display', 'none');
+        $(this).children('.SAVEOFFOFF').css('display', 'none');
+        $(this).children('.SAVEOFFON').css('display', 'inline');
        
     } 
     else {
-        $(this).children('.SAVEOFFON').css('display', 'inline');
-        $(this).children('.SAVEOFFOFF').css('display', 'none');
+        $(this).children('.SAVEOFFON').css('display', 'none');
+        $(this).children('.SAVEOFFOFF').css('display', 'inline');
 }
 });
 

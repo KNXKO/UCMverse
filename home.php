@@ -301,7 +301,7 @@
                 $likes_num2=$data['likes']-1;
 
                 $results_saved = $mysqli->query("SELECT * FROM $s_table WHERE user_id=1 AND post_id={$data['ID']}");
-                $data_saved = $results->fetch_assoc();
+                $data_saved = $results_saved->fetch_assoc();
                 $saved = 0;
                 if (mysqli_num_rows($results_saved) == 1) {
                     $saved = $data_saved['value'];
@@ -364,17 +364,17 @@
                     <h4 class='shareToggle bi bi-share d-inline c-darkblack'></h4>
                     <p class='d-inline me-3 c-darkgrey'>4</p>
                     <!-- BOOKMARK ICON-->";
-                 if (mysqli_num_rows($results_saved) == 1 and $saved == 1) { ?>?>
+                 if (mysqli_num_rows($results_saved) == 1 and $saved == 1) { ?>
                <div class="SAVE d-inline float-end">
-                    <h4 class='SAVEON bi bi-bookmark c-darkblack '></h4>
-                    <h4 class='SAVEOFF bi bi-bookmark-fill c-darkblack '></h4>
+                    <h4 class='SAVEON bi bi-bookmark-fill c-darkblack ' onclick='savedAjax(<?php echo $data["ID"] ?>,<?php echo $user_id ?>,0);'></h4>
+                    <h4 class='SAVEOFF bi bi-bookmark c-darkblack ' onclick='savedAjax(<?php echo $data["ID"] ?>,<?php echo $user_id ?>,1);'></h4>
                 </div> 
                 <?php 
                 } else 
                 { ?>   
                 <div class="SAVEOFF d-inline float-end border border-warning">
-                    <h4 class='SAVEOFFON bi bi-bookmark-fill c-darkblack'></h4>
-                    <h4 class='SAVEOFFOFF bi bi-bookmark c-darkblack'></h4>
+                    <h4 class='SAVEOFFON bi bi-bookmark-fill c-darkblack' onclick='savedAjax(<?php echo $data["ID"] ?>,<?php echo $user_id ?>,0);'></h4>
+                    <h4 class='SAVEOFFOFF bi bi-bookmark c-darkblack' onclick='savedAjax(<?php echo $data["ID"] ?>,<?php echo $user_id ?>,1);'></h4>
                </div> 
 
                <?php } echo"</div>
@@ -391,6 +391,24 @@
             $.ajax({
                 type: 'POST',
                 url: '/likes.php',
+                data: {
+                    post_id: x,
+                    user_id: y,
+                    value: z
+                },
+                
+            });
+           xmlhttp = new XmlHttpRequest();
+            $(document).ready(startAjax);
+        }
+        xhr.abort()
+    </script>
+    <script type="text/javascript">
+        function savedAjax(x, y, z) {
+            
+            $.ajax({
+                type: 'POST',
+                url: '/saved_script.php',
                 data: {
                     post_id: x,
                     user_id: y,
