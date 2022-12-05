@@ -35,8 +35,12 @@ ini_set('display_errors', 'On');
 
                 $file_ext = explode('.',$file_array[$i]['name']);
                
+                $user_id=@$_POST['user_id'];
+                echo $user_id;
                 $msg = filter_var(@$_POST['msg'], FILTER_SANITIZE_STRING);
-
+                $a_name=@$_POST['a_name'];
+                $a_l_name=@$_POST['a_l_name'];
+                $a_photo=@$_POST['a_photo'];
                /* NEPOTREBNE $name=$file_ext[0];
                 $name= preg_replace("!-!"," ",$name);
                 $name= preg_replace("!_!"," ",$name);
@@ -53,7 +57,7 @@ ini_set('display_errors', 'On');
                 $img_dir='images/web/'.$file_array[$i]['name'];
                 move_uploaded_file($file_array[$i]['tmp_name'],$img_dir);
                 
-                $sql = "INSERT INTO $table(msg,img_dir,time) VALUES('$msg','$img_dir',now())";
+                $sql = "INSERT INTO $table(author_user_id,author_name,author_last_name,author_photo_dir,img_dir,msg,time) VALUES('$user_id','$a_name','$a_l_name','$a_photo','$img_dir','$msg',now())";
                 $mysqli->query($sql) or die($mysqli->error);
                 
                 echo $file_array[$i]['name'].' - '.$phpFileUploadErrors[$file_array[$i]['error']];
@@ -70,7 +74,7 @@ location.reload();
                 //}
             //}
         }
-       header("location:home.php");
+       //header("location:home.php");
         
          
      

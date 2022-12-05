@@ -40,6 +40,9 @@ session_start();
 </head>
 
 <body>
+    <?php
+    $user_id=$_SESSION['userid'];
+    ?>
     <!-- PRELOADER CONTAINER -->
     <div class="loader-wrapper overflow-hidden">
         <div class="lds-ellipsis">
@@ -180,7 +183,7 @@ session_start();
                             <input class="mb-4 " type="text" name="vorname" id="priezvisko" placeholder="Priezvisko" maxlength="25" required>
                             <input class="mb-4 " type="email" name="email" id="email" placeholder="E-mail" maxlength="35" required>
                             <input type="date" name="birthday" class="mb-4 p-2 me-2">
-
+                            <input type="hidden" name="user_id" value="<?php echo $user_id ?>">
                             <div class="edit-photo">
                                 <label for="inputTag">
                                     Select Image <br />

@@ -54,7 +54,12 @@ session_start();
     $l_table = 'likes';
     $k_table = 'comments';
     $s_table = 'saved';
+    $u_table = 'users';
+    $user_id=$_SESSION['userid'];
+    $r_a_info=$mysqli->query("SELECT * FROM $u_table WHERE usersId LIKE '%$user_id%' ") or die($mysqli->error);
 
+    $a_info = $r_a_info->fetch_assoc();
+    
     $result = $mysqli->query("SELECT * FROM $p_table WHERE 1 ORDER BY time DESC") or die($mysqli->error);
     ?>
     <!-- PRELOADER CONTAINER -->
@@ -94,10 +99,12 @@ session_start();
                     <!-- DROPDOWN -->
                     <div class="d-flex align-items-center mt-3 mt-md-0 mt-lg-0">
                         <!-- USER FOTO -->
-                        <img class="mx-3 shadow-sm" src="assets/img/Ellipse 3.png" alt="">
+                       <img class="mx-3 shadow-sm" src="assets/img/Ellipse 3.png" alt="">
+                        <!-- <img class="mx-3 shadow-sm" src="<?php echo"{$a_info['usersImgdir']}";?>" alt="">-->
+                     
                         <div class="dropdown shadow-sm" onclick="event.stopPropagation()" aria-labelledby="triggerId">
                             <button class="menu-list dropdown-toggle bg-transparent fw-bold c-black" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                Oman Gulvi
+                            <?php echo"{$a_info['usersName']} ";?><?php echo"{$a_info['usersLastname']}";?>
                             </button>
                             <!-- LIST -->
                             <ul class="dropdown-menu bg-dark" aria-labelledby="dropdownMenuButton1">
@@ -223,9 +230,13 @@ session_start();
                         <div class="col-6 col-xxl-8 col-md-8 col-lg-7">
                             <!-- EMOJI -->
                             <p class="emoji-picker-container">
-                                <textarea class="c-darkgrey border-0 prosim" placeholder="O čom chceš informovať UCM, Oman?" type="text" name="msg" id="msg" maxlength="250" data-emojiable="true" data-emoji-input="unicode" minlength="6" required></textarea>
+                                <textarea class="c-darkgrey border-0 prosim" placeholder="O čom chceš informovať UCM, <?php echo" {$a_info['usersName']}";?>?" type="text" name="msg" id="msg" maxlength="250" data-emojiable="true" data-emoji-input="unicode" minlength="6" required></textarea>
                             </p>
                         </div>
+                        <input type="hidden" name="user_id" value="<?php echo $user_id ?>">
+                        <input type="hidden" name="a_name" value="<?php echo $a_info['usersName'] ?>">
+                        <input type="hidden" name="a_l_name" value="<?php echo $a_info['usersLastname'] ?>">
+                        <input type="hidden" name="a_photo" value="<?php echo $a_info['usersImgdir'] ?>">
                         <!-- SUBMIT BUTTON-->
                         <button type="submit" name="submit" class="bg-purple px-4 py-2 rounded-3 menu-list fw-bold shadow-sm" onclick="fnCheckForRestrictedWords();">Odoslať</button>
                     </div>
@@ -297,9 +308,8 @@ session_start();
 
             <!-- POST CONTAINER -->
             <?php
-            $user_id = 1;
             while ($data = $result->fetch_assoc()) {
-                $results = $mysqli->query("SELECT * FROM $l_table WHERE user_id=1 AND post_id={$data['ID']}");
+                $results = $mysqli->query("SELECT * FROM $l_table WHERE user_id LIKE '%$user_id%' AND post_id={$data['ID']}");
                 $data_likes = $results->fetch_assoc();
                 $like = 0;
                 if (mysqli_num_rows($results) == 1) {
@@ -309,7 +319,7 @@ session_start();
                 $likes_num=$data['likes']+1;
                 $likes_num2=$data['likes']-1;
 
-                $results_saved = $mysqli->query("SELECT * FROM $s_table WHERE user_id=1 AND post_id={$data['ID']}");
+                $results_saved = $mysqli->query("SELECT * FROM $s_table WHERE user_id LIKE '%$user_id%' AND post_id={$data['ID']}");
                 $data_saved = $results_saved->fetch_assoc();
                 $saved = 0;
                 if (mysqli_num_rows($results_saved) == 1) {
@@ -319,11 +329,13 @@ session_start();
                 <!-- TOP CONTAINER -->
                 <div class='py-2 d-flex flex-row'>
                     <!-- USER FOTO -->
+                   
                     <img class='me-3 shadow-sm' src='assets/img/Ellipse 3.png' alt=''>
+                   <!-- <img class='me-3 shadow-sm' src='{$data['author_photo_dir']}' alt=''>-->
                     <!-- CONTAINER -->
                     <div class='d-flex flex-column'>
                         <!-- USER NAME -->
-                        <p class='text-light mb-0'>Matúš Moťovský</p>
+                        <p class='text-light mb-0'>{$data['author_name']} {$data['author_last_name']}</p>
                         <!-- POST UPLOAD DATE-->
                         <p class='mb-0 c-black'>{$data['time']}</p>
                     </div>
@@ -381,7 +393,7 @@ session_start();
                 <?php 
                 } else 
                 { ?>   
-                <div class="SAVEOFF d-inline float-end border border-warning">
+                <div class="SAVEOFF d-inline float-end">
                     <h4 class='SAVEOFFON bi bi-bookmark-fill c-darkblack' onclick='savedAjax(<?php echo $data["ID"] ?>,<?php echo $user_id ?>,0);'></h4>
                     <h4 class='SAVEOFFOFF bi bi-bookmark c-darkblack' onclick='savedAjax(<?php echo $data["ID"] ?>,<?php echo $user_id ?>,1);'></h4>
                </div> 

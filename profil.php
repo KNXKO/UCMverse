@@ -44,7 +44,9 @@ ini_set('display_errors', 'On');
 
   $mysqli= new mysqli('localhost','root','','ucm_verse') or die($mysqli->connect_error);
      $table ='users';
-     $result= $mysqli->query("SELECT * FROM $table WHERE usersId=1") or die($mysqli->error);
+     $user_id=$_SESSION['userid'];
+     
+     $result= $mysqli->query("SELECT * FROM $table WHERE usersId LIKE '%$user_id%'") or die($mysqli->error);
      $data = $result->fetch_assoc();
 ?>
     <!-- PRELOADER CONTAINER -->

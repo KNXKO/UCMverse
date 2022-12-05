@@ -13,6 +13,7 @@ ini_set('display_errors', 'On');
         $file_ext = explode('.',$file['name']);
        
        // $msg = @$_POST['msg'];
+       $user_id=@$_POST['user_id'];
        $name = @$_POST['name'];
        $vorname = @$_POST['vorname'];
        $email = @$_POST['email'];

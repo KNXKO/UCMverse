@@ -47,6 +47,7 @@ session_start();
     $l_table = 'likes';
     $k_table = 'comments';
     $s_table = 'saved';
+    $user_id=$_SESSION['userid'];
 
     $result = $mysqli->query("SELECT * FROM $p_table WHERE 1 ORDER BY likes DESC") or die($mysqli->error);
     ?>
@@ -236,9 +237,9 @@ session_start();
 
             <!-- POST CONTAINER -->
             <?php
-            $user_id = 1;
+           
             while ($data = $result->fetch_assoc()) {
-                $results = $mysqli->query("SELECT * FROM $l_table WHERE user_id=1 AND post_id={$data['ID']}");
+                $results = $mysqli->query("SELECT * FROM $l_table WHERE user_id LIKE '%$user_id%' AND post_id={$data['ID']}");
                 $data_likes = $results->fetch_assoc();
                 $like = 0;
                 if (mysqli_num_rows($results) == 1) {
@@ -248,7 +249,7 @@ session_start();
                 $likes_num=$data['likes']+1;
                 $likes_num2=$data['likes']-1;
 
-                $results_saved = $mysqli->query("SELECT * FROM $s_table WHERE user_id=1 AND post_id={$data['ID']}");
+                $results_saved = $mysqli->query("SELECT * FROM $s_table WHERE user_id LIKE '%$user_id%' AND post_id={$data['ID']}");
                 $data_saved = $results_saved->fetch_assoc();
                 $saved = 0;
                 if (mysqli_num_rows($results_saved) == 1) {
