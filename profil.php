@@ -1,3 +1,12 @@
+<?php 
+session_start();
+
+	include("includes/dbh.inc.php");
+	include("includes/functions.inc.php");
+
+	$user_data = check_login($conn);
+
+?>
 <!DOCTYPE html>
 <html>
 
@@ -33,9 +42,9 @@
 error_reporting(-1);
 ini_set('display_errors', 'On');
 
-  $mysqli= new mysqli('localhost','root','','databaza_pal') or die($mysqli->connect_error);
-     $table ='profiles';
-     $result= $mysqli->query("SELECT * FROM $table WHERE user_id=1") or die($mysqli->error);
+  $mysqli= new mysqli('localhost','root','','ucm_verse') or die($mysqli->connect_error);
+     $table ='users';
+     $result= $mysqli->query("SELECT * FROM $table WHERE usersId=1") or die($mysqli->error);
      $data = $result->fetch_assoc();
 ?>
     <!-- PRELOADER CONTAINER -->
@@ -176,7 +185,7 @@ ini_set('display_errors', 'On');
                         <!-- Profilva fotka-->
                         <div class="mb-3">
                             <?php
-                            echo"<img src='{$data['img_dir']}' class='m-auto d-flex rounded-circle img-profile' alt=''>";
+                            echo"<img src='{$data['usersImgdir']}' class='m-auto d-flex rounded-circle img-profile' alt=''>";
                             ?>
                         </div>
                         <div class="justify-content-center align-content-center d-flex flex-row">
