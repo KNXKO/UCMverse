@@ -97,7 +97,7 @@ session_start();
                         <!-- USER FOTO -->
                         <img class="img-avatar-user mx-3 shadow-sm" src="<?php echo"{$a_info['usersImgdir']}";?>" alt="User avatar">
                         <div class="dropdown shadow-sm" onclick="event.stopPropagation()" aria-labelledby="triggerId">
-                            <button class="menu-list dropdown-toggle bg-transparent fw-bold c-black" type="button" id="dropdownMenuButton1"
+                            <button class="dropdown-toggle bg-transparent fw-bold c-black" type="button" id="dropdownMenuButton1"
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 <?php echo"{$a_info['usersName']} ";?><?php echo"{$a_info['usersLastname']}";?>
                             </button>

@@ -84,7 +84,7 @@ session_start();
                         <!-- USER FOTO -->
                         <img class="mx-3 shadow-sm" src="assets/img/Ellipse 3.png" alt="">
                         <div class="dropdown shadow-sm">
-                            <button class="menu-list dropdown-toggle bg-transparent fw-bold c-black" type="button" id="dropdownMenuButton1"
+                            <button class="dropdown-toggle bg-transparent fw-bold c-black" type="button" id="dropdownMenuButton1"
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 Oman Gulvi
                             </button>
@@ -93,7 +93,7 @@ session_start();
                                 <!-- 1 -->
                                 <li>
                                     <a href="#" onclick="btnColor('background')" class="c-black ms-3 shadow-sm">
-                                        Switch mode
+                                        Dark Mode
                                     </a>
                                 </li>
                                 <!-- 2 -->
