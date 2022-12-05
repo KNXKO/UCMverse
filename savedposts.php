@@ -47,8 +47,14 @@ session_start();
     $l_table = 'likes';
     $k_table = 'comments';
     $s_table = 'saved';
+    $u_table = 'users';
+    $user_id=$_SESSION['userid'];
 
-    $result = $mysqli->query("SELECT t.* FROM $p_table AS t INNER JOIN $s_table AS s ON s.post_id=t.ID AND s.value=1 ORDER BY time DESC") or die($mysqli->error);
+    $r_a_info=$mysqli->query("SELECT * FROM $u_table WHERE usersId LIKE '%$user_id%' ") or die($mysqli->error);
+
+    $a_info = $r_a_info->fetch_assoc();
+
+    $result = $mysqli->query("SELECT t.* FROM $p_table AS t INNER JOIN $s_table AS s ON s.user_id LIKE '%$user_id%' AND t.author_user_id LIKE '%$user_id%' AND s.value=1 ORDER BY time DESC") or die($mysqli->error);
     
     ?>
     <!-- PRELOADER CONTAINER -->
@@ -238,9 +244,9 @@ session_start();
 
             <!-- POST CONTAINER -->
             <?php
-            $user_id = 1;
+           
             while ($data = $result->fetch_assoc()) {
-                $results = $mysqli->query("SELECT * FROM $l_table WHERE user_id=1 AND post_id={$data['ID']}");
+                $results = $mysqli->query("SELECT * FROM $l_table WHERE user_id LIKE '%$user_id%' AND post_id={$data['ID']}");
                 $data_likes = $results->fetch_assoc();
                 $like = 0;
                 if (mysqli_num_rows($results) == 1) {
@@ -250,7 +256,7 @@ session_start();
                 $likes_num=$data['likes']+1;
                 $likes_num2=$data['likes']-1;
 
-                $results_saved = $mysqli->query("SELECT * FROM $s_table WHERE user_id=1 AND post_id={$data['ID']}");
+                $results_saved = $mysqli->query("SELECT * FROM $s_table WHERE user_id LIKE '%$user_id%' AND post_id={$data['ID']}");
                 $data_saved = $results_saved->fetch_assoc();
                 $saved = 0;
                 if (mysqli_num_rows($results_saved) == 1) {
@@ -264,7 +270,7 @@ session_start();
                     <!-- CONTAINER -->
                     <div class='d-flex flex-column'>
                         <!-- USER NAME -->
-                        <p class='text-light mb-0'>Matúš Moťovský</p>
+                        <p class='text-light mb-0'>{$data['author_name']} {$data['author_last_name']}</p>
                         <!-- POST UPLOAD DATE-->
                         <p class='mb-0 c-black'>{$data['time']}</p>
                     </div>

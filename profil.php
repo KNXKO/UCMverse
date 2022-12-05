@@ -48,6 +48,11 @@ ini_set('display_errors', 'On');
      
      $result= $mysqli->query("SELECT * FROM $table WHERE usersId LIKE '%$user_id%'") or die($mysqli->error);
      $data = $result->fetch_assoc();
+
+     $r_age=$mysqli->query("SELECT YEAR(CURRENT_TIMESTAMP) - YEAR(usersBdate) - (RIGHT(CURRENT_TIMESTAMP, 5) < RIGHT(usersBdate, 5)) as age 
+     FROM $table WHERE usersId LIKE '%$user_id%' ;");
+     $age = $r_age->fetch_assoc();
+
 ?>
     <!-- PRELOADER CONTAINER -->
     <div class="loader-wrapper overflow-hidden">
@@ -88,11 +93,11 @@ ini_set('display_errors', 'On');
                     <!-- DROPDOWN -->
                     <div class="d-flex align-items-center mt-3 mt-md-0 mt-lg-0">
                         <!-- USER FOTO -->
-                        <img class="img-avatar-user mx-3 shadow-sm " src="<?php echo"{$a_info['usersImgdir']}";?>" alt="User avatar">
+                        <img class="img-avatar-user mx-3 shadow-sm " src="<?php echo"{$data['usersImgdir']}";?>" alt="User avatar">
                         <div class="dropdown shadow-sm">
                             <button class="menu-list dropdown-toggle bg-transparent fw-bold c-black" type="button" id="dropdownMenuButton1"
                                 data-bs-toggle="dropdown" aria-expanded="false">
-                                <?php echo"{$a_info['usersName']} ";?><?php echo"{$a_info['usersLastname']}";?>
+                                <?php echo"{$data['usersName']} ";?><?php echo"{$data['usersLastname']}";?>
                             </button>
                             <!-- LIST -->
                             <ul class="dropdown-menu bg-dark" aria-labelledby="dropdownMenuButton1">
@@ -209,7 +214,7 @@ ini_set('display_errors', 'On');
                     <div class="profil-right col-12 col-lg-7 col-md-7 col-xl-6">
                         <!-- Meno , Priezvisko , E-mail, dátum naordenia , fakulta ,  stupen odbor -->
                         <div class="d-flex justify-content-center justify-content-md-start">
-                            <h1>Oman Gulvi</h1>
+                            <h1><?php echo"{$data['usersName']} ";?><?php echo"{$data['usersLastname']}";?></h1>
                         </div>
                         <hr class="ms-md-2 col-12 col-md-10 col-lg-10 col-xl-11">
                         <div class="profil-right-info d-flex justify-content-center justify-content-md-start">
@@ -228,11 +233,11 @@ ini_set('display_errors', 'On');
                         <div class="d-flex flex-column  align-items-center align-items-md-start">
                             <div class="mb-1 d-flex flex-row align-items-center">
                                 <h2 class="bi bi-calendar4 c-darkblack fs-4 me-2"></h2>
-                                <p class="c-darkgrey mt-1">22 rokov</p>
+                                <p class="c-darkgrey mt-1"><?php echo"{$age['age']} ";?> rokov</p>
                             </div>
                             <div class="mb-1 d-flex flex-row align-items-center">
                                 <h2 class="bi bi-envelope c-darkblack fs-4 me-2"></h2>
-                                <p class="c-darkgrey mt-1">murinova5@ucm.sk</p>
+                                <p class="c-darkgrey mt-1"><?php echo"{$data['usersEmail']} ";?></p>
                             </div>
                         </div>
                     </div>

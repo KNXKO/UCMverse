@@ -47,7 +47,12 @@ session_start();
     $l_table = 'likes';
     $k_table = 'comments';
     $s_table = 'saved';
+    $u_table = 'users';
     $user_id=$_SESSION['userid'];
+
+    $r_a_info=$mysqli->query("SELECT * FROM $u_table WHERE usersId LIKE '%$user_id%' ") or die($mysqli->error);
+
+    $a_info = $r_a_info->fetch_assoc();
 
     $result = $mysqli->query("SELECT * FROM $p_table WHERE 1 ORDER BY likes DESC") or die($mysqli->error);
     ?>
@@ -321,7 +326,7 @@ session_start();
                 <?php 
                 } else 
                 { ?>   
-                <div class="SAVEOFF d-inline float-end border border-warning">
+                <div class="SAVEOFF d-inline float-end">
                     <h4 class='SAVEOFFON bi bi-bookmark-fill c-darkblack' onclick='savedAjax(<?php echo $data["ID"] ?>,<?php echo $user_id ?>,0);'></h4>
                     <h4 class='SAVEOFFOFF bi bi-bookmark c-darkblack' onclick='savedAjax(<?php echo $data["ID"] ?>,<?php echo $user_id ?>,1);'></h4>
                </div> 
