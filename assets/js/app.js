@@ -1,15 +1,3 @@
-$(document).ready(function () {
-    $(window).scroll(function () {
-        if ($(window).scrollTop() > $(window).height()) {
-            $(".nav").css({ "background-color": "transparent" });
-        }
-        else {
-            $(".nav").css({ "background-color": "white" });
-        }
-
-    })
-})
-
 /* SELECTS */
 function jq_ChainCombo(el) {
     var selected = $(el).find(':selected').data('id'); // get parent selected options' data-id attribute
@@ -112,21 +100,65 @@ $(document).ready(function () {
     });
 });
 
-// TEXTAREA BLOCKWORDS 
-function fnCheckForRestrictedWords() {
-    var restrictedWords = new Array("kokot", "KOKOT", "KKT", "kkt",  "bagana", "dement", "DMNT", "štetka", "štetka", "kurva", "KURVA", "JEBO", "JBMNT", "piča", "pica", "PICA", "rit", "buzna", "buzerant", "cicina", "flandra", "chuj", "drbat", "kunda", "srat", "zmrd", "dojebat", "fas", "gec", "hejzel", "ojeb", "najebat", "zajebat", "pojebat", "zabit", "nigga", "negger", "NIGGA");
-    var txtInput = document.getElementById("msg").value;
-    var error = 0;
-    for (var i = 0; i < restrictedWords.length; i++) {
-        var val = restrictedWords[i];
-        if ((txtInput.toLowerCase()).indexOf(val.toString()) > -1) {
-            error = error + 1;
-            break;
-        }
-    }
-    if (error > 0) {
-        alert('Zadali ste zakázané slovo/á');
-        window.history.forward(-1);
-        event.preventDefault();
-    }
+// TOGGLE FILL H4 LIKE
+$(".togglecko").click(function () {
+    if($(this).children('.on').css('display') == 'none')
+    {
+        $(this).children('.off').css('display', 'none');
+        $(this).children('.on').css('display', 'inline');
+        $(this).children('.LIKEon').css('display', 'inline');
+        $(this).children('.LIKEoff').css('display', 'none');
+    } 
+    else {
+        $(this).children('.on').css('display', 'none');
+        $(this).children('.off').css('display', 'inline');
+        $(this).children('.LIKEoff').css('display', 'inline');
+        $(this).children('.LIKEon').css('display', 'none');
 }
+});
+
+$(".toggleckoOFF").click(function () {
+    if($(this).children('.OFFon').css('display') == 'none')
+    {
+        $(this).children('.OFFoff').css('display', 'none');
+        $(this).children('.OFFon').css('display', 'inline');
+        $(this).children('.LIKEOFFoff').css('display', 'none');
+        $(this).children('.LIKEOFFon').css('display', 'inline');
+    } 
+    else {
+        $(this).children('.OFFon').css('display', 'none');
+        $(this).children('.OFFoff').css('display', 'inline');
+        $(this).children('.LIKEOFFon').css('display', 'none');
+        $(this).children('.LIKEOFFoff').css('display', 'inline');
+}
+});
+
+$(".SAVE").click(function () {
+    if($(this).children('.SAVEON').css('display') == 'none')
+    {
+        $(this).children('.SAVEOFF').css('display', 'none');
+        $(this).children('.SAVEON').css('display', 'inline');
+       
+    } 
+    else {
+        $(this).children('.SAVEON').css('display', 'none');
+        $(this).children('.SAVEOFF').css('display', 'inline');
+}
+});
+
+$(".SAVEOFF").click(function () {
+    if($(this).children('.SAVEOFFON').css('display') == 'none')
+    {
+        $(this).children('.SAVEOFFOFF').css('display', 'none');
+        $(this).children('.SAVEOFFON').css('display', 'inline');
+       
+    } 
+    else {
+        $(this).children('.SAVEOFFON').css('display', 'none');
+        $(this).children('.SAVEOFFOFF').css('display', 'inline');
+}
+});
+
+
+
+
