@@ -54,8 +54,7 @@ session_start();
 
     $a_info = $r_a_info->fetch_assoc();
 
-    $result = $mysqli->query("SELECT * FROM $p_table 
-     WHERE value=0 FROM $s_table  ORDER BY time DESC") or die($mysqli->error);
+    $result = $mysqli->query("SELECT $p_table.* FROM $p_table LEFT JOIN $s_table ON $p_table.ID = $s_table.post_id WHERE $s_table.value=1 AND $s_table.user_id LIKE '%$user_id%'  ORDER BY time DESC") or die($mysqli->error);
 
     ?>
     <!-- PRELOADER CONTAINER -->
