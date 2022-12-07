@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hostiteľ: 127.0.0.1
--- Čas generovania: Po 05.Dec 2022, 18:49
+-- Čas generovania: St 07.Dec 2022, 20:49
 -- Verzia serveru: 10.4.25-MariaDB
 -- Verzia PHP: 8.1.10
 
@@ -39,8 +39,11 @@ CREATE TABLE `likes` (
 --
 
 INSERT INTO `likes` (`relation_id`, `post_id`, `user_id`, `value`) VALUES
-(1, 1, 1, 1),
-(2, 2, 1, 1);
+(3, 9, 1, 1),
+(4, 11, 1, 1),
+(5, 10, 1, 1),
+(6, 12, 1, 1),
+(7, 13, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -50,7 +53,9 @@ INSERT INTO `likes` (`relation_id`, `post_id`, `user_id`, `value`) VALUES
 
 CREATE TABLE `posts` (
   `ID` int(11) NOT NULL,
+  `author_user_id` int(11) NOT NULL,
   `author_name` varchar(255) NOT NULL,
+  `author_last_name` varchar(255) NOT NULL,
   `author_photo_dir` varchar(255) NOT NULL,
   `img_dir` varchar(255) NOT NULL,
   `msg` varchar(255) NOT NULL,
@@ -62,9 +67,15 @@ CREATE TABLE `posts` (
 -- Sťahujem dáta pre tabuľku `posts`
 --
 
-INSERT INTO `posts` (`ID`, `author_name`, `author_photo_dir`, `img_dir`, `msg`, `likes`, `time`) VALUES
-(1, '', '', 'images/web/profile_default.png', 'Ahoj, ahoj', -1, '2022-12-04 10:45:57'),
-(2, '', '', 'images/web/', 'Zjec mi', 1, '2022-12-05 16:37:28');
+INSERT INTO `posts` (`ID`, `author_user_id`, `author_name`, `author_last_name`, `author_photo_dir`, `img_dir`, `msg`, `likes`, `time`) VALUES
+(9, 1, 'Erik', 'Pál', '/images/profiles/profile_default.png', 'images/web/', 'Ahoj', 1, '2022-12-05 22:33:04'),
+(10, 2, 'Matus', 'Motovsky', '/images/profiles/profile_default.png', 'images/web/', 'Ty kokot jebnuty', 1, '2022-12-05 23:38:39'),
+(11, 2, 'Matus', 'Motovsky', '/images/profiles/profile_default.png', 'images/web/', 'Kokot', 1, '2022-12-05 23:38:57'),
+(12, 1, 'Erik', 'Pál', 'images/profiles/IMG_9936.jpg', 'images/web/', 'Ahoj dement\r\n', 1, '2022-12-05 23:39:23'),
+(13, 1, 'Erik', 'Pál', 'images/profiles/IMG_9936.jpg', 'images/web/', 'Pornicko', 1, '2022-12-05 23:44:19'),
+(14, 1, 'Erik', 'Pál', '    images/profiles/profile_default.png', 'images/web/', 'Ahoj klara', 0, '2022-12-07 20:36:36'),
+(15, 1, 'Erik', 'Pál', '    images/profiles/profile_default.png', 'images/web/', 'Ahoj ', 0, '2022-12-07 20:37:02'),
+(16, 1, 'Erik', 'Pál', '    images/profiles/profile_default.png', 'images/web/', 'kok*t', 0, '2022-12-07 20:37:52');
 
 -- --------------------------------------------------------
 
@@ -84,8 +95,12 @@ CREATE TABLE `saved` (
 --
 
 INSERT INTO `saved` (`relation_id`, `post_id`, `user_id`, `value`) VALUES
-(1, 2, 1, 1),
-(2, 1, 1, 1);
+(5, 9, 1, 0),
+(6, 11, 1, 0),
+(7, 13, 1, 0),
+(8, 10, 1, 0),
+(9, 10, 2, 1),
+(10, 11, 2, 1);
 
 -- --------------------------------------------------------
 
@@ -108,7 +123,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`usersId`, `usersName`, `usersLastname`, `usersEmail`, `usersBdate`, `usersPwd`, `usersImgdir`) VALUES
-(1, 'Erik', 'Pál', 'erikpal201@gmail.com', '2001-11-02', '$2y$10$5fdN5rwkTsQBzecV4K/G2OomEvyWfUSdHrH01Apm/c7ShSwjnNAFS', '/images/profiles/profile_default.png');
+(1, 'Erik', 'Pál', 'erikpal201@gmail.com', '2001-11-02', '$2y$10$5fdN5rwkTsQBzecV4K/G2OomEvyWfUSdHrH01Apm/c7ShSwjnNAFS', '    images/profiles/profile_default.png'),
+(2, 'Matus', 'Motovsky', 'erik.pal@azet.sk', '2000-02-02', '$2y$10$4ct17ZPT3lj1kTyk1QHggulozTWx4xiYBgWz7VYA2kR//K7NUGcBG', '/images/profiles/profile_default.png');
 
 --
 -- Kľúče pre exportované tabuľky
@@ -146,25 +162,25 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT pre tabuľku `likes`
 --
 ALTER TABLE `likes`
-  MODIFY `relation_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `relation_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT pre tabuľku `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT pre tabuľku `saved`
 --
 ALTER TABLE `saved`
-  MODIFY `relation_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `relation_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT pre tabuľku `users`
 --
 ALTER TABLE `users`
-  MODIFY `usersId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `usersId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 DELIMITER $$
 --
