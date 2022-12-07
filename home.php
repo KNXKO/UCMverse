@@ -242,7 +242,7 @@ session_start();
                     <!-- ATTACH FOTO -->
                     <label class="uploadFile menu-list">
                         <i class="bi bi-image-fill d-inline c-darkprimary fa-md mr-2"></i>
-                        <input type="file" class="inputfile form-control" name="userfile[]" value="" />
+                        <input type="file" class="inputfile form-control" name="userfile[]" value="" multiple=""/>
                     </label>
                 </form>
             </div>
