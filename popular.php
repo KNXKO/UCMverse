@@ -55,6 +55,20 @@ session_start();
     $a_info = $r_a_info->fetch_assoc();
 
     $result = $mysqli->query("SELECT * FROM $p_table WHERE 1 ORDER BY likes DESC") or die($mysqli->error);
+
+    if (isset($_POST['search'])) { 
+        $search_value = $_POST['search'];
+        if($search_value == "")
+        {
+            $result = $mysqli->query("SELECT * FROM $p_table WHERE 1 ORDER BY likes DESC") or die($mysqli->error);
+        }
+        else{
+        $result =$mysqli->query("SELECT * FROM $p_table WHERE author_name REGEXP '$search_value' OR author_last_name REGEXP '$search_value' OR msg REGEXP '$search_value'  ORDER BY likes DESC") or die($mysqli->error);
+        
+        }
+     
+        
+    }
     ?>
     <!-- PRELOADER CONTAINER -->
     <div class="loader-wrapper overflow-hidden">
@@ -81,14 +95,17 @@ session_start();
                     id="navbarCollapse">
                     <!-- SEARCH -->
                     <div class="flex-grow-1 d-flex">
-                        <form class="form-inline flex-nowrap mx-lg-auto">
+                    <form method="POST" class="form-inline flex-nowrap mx-lg-auto">
                             <div class="input-group mx-0 d-flex align-items-center">
-                                <input type="text" class="search rounded-pill px-4 mr-sm-2 bd-purple shadow-sm" placeholder="#Hladať" maxlength="15"
-                                    required>
+                                <?php
+                                if((isset($_POST['search']))&&$search_value != "")
+                                {?>
+                                    <input name="search" type="text" class="search rounded-pill px-4 mr-sm-2 bd-purple shadow-sm" placeholder="<?php echo"{$search_value}";?>" maxlength="15">
+                               <?php }else { ?>
+                                <input name="search" type="text" class="search rounded-pill px-4 mr-sm-2 bd-purple shadow-sm" placeholder="#Hladať" maxlength="15">
+                                <?php } ?>
                                 <!-- SEARCH ICON -->
-                                <a class="menu-list ms-2">
-                                    <i class="bi-search shadow-sm"></i>
-                                </a>
+                                <button class="search menu-list btn bi-search shadow-sm mt-0 bg-darkprimary" type="submit"></button>
                             </div>
                         </form>
                     </div>

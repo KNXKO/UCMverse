@@ -183,20 +183,7 @@ ini_set('display_errors', 'On');
                             echo"<img src='{$data['usersImgdir']}' class='m-auto d-flex rounded-circle img-profile' alt=''>";
                             ?>
                         </div>
-                        <div class="justify-content-center align-content-center d-flex flex-row">
-                            <div class="d-flex flex-row ms-3">
-                                <h2 class="bi bi-hand-thumbs-up c-primary me-2"></h2>
-                                <p class="fs-4">15</p>
-                            </div>
-                            <div class="d-flex flex-row ms-3">
-                                <h2 class="bi bi-chat c-primary me-2"></h2>
-                                <p class="fs-4">15</p>
-                            </div>
-                            <div class="d-flex flex-row ms-3">
-                                <h2 class="bi bi-images c-primary me-2"></h2>
-                                <p class="fs-4">15</p>
-                            </div>
-                        </div>
+                        
                     </div>
                     <!-- Profil info -->
                     <div class="profil-right col-12 col-lg-7 col-md-7 col-xl-6">
@@ -205,19 +192,8 @@ ini_set('display_errors', 'On');
                             <h1><?php echo"{$data['usersName']} ";?><?php echo"{$data['usersLastname']}";?></h1>
                         </div>
                         <hr class="ms-md-2 col-12 col-md-10 col-lg-10 col-xl-11">
-                        <div class="profil-right-info d-flex justify-content-center justify-content-md-start">
-                            <h3 class="fs-5 ms-md-3">O tebe</h3>
-                        </div>
-                        <div class="profil-right-faculty d-flex justify-content-center justify-content-md-start my-2 my-lg-4 ms-md-4">
-                            <div class="profil-info-year d-flex align-content-center justify-content-center">
-                                <h1 class="c-black fs-1 d-flex
-                                align-items-center">2.Bc</h1>
-                            </div>
-                            <div class="profil-right-field ms-2">
-                                <h4 class="fs-2 c-primary">Fakulta prírodných vied</h4>
-                                <h3 class="fs-4">Aplikovaná informatika</h3>
-                            </div>
-                        </div>
+                        
+                        
                         <div class="d-flex flex-column  align-items-center align-items-md-start">
                             <div class="mb-1 d-flex flex-row align-items-center">
                                 <h2 class="bi bi-calendar4 c-darkblack fs-4 me-2"></h2>
