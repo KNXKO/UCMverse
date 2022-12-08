@@ -217,6 +217,10 @@ session_start();
                 </div>
             </div>
             <!-- CENTER MENU-->
+            <?php 
+            if($a_info['usersPoststoday']<10){?>
+
+          
             <div class="container m-lg-auto p-lg-3 p-md-3 p-sm-3 p-3 rounded-3 col-md-12 col-lg-5 user-post-bg-color order-2 order-lg-3 bd-purple shadow-sm">
                 <form action="script.php" method="POST" enctype="multipart/form-data" onSubmit="if (this.message.value == '') {return false;}">
                     <!-- CONTAINER -->
@@ -236,7 +240,8 @@ session_start();
                         <input type="hidden" name="a_photo" value="<?php echo $a_info['usersImgdir'] ?>">
                         <!-- SUBMIT BUTTON-->
                         <button type="submit" name="submit" class="bg-purple px-4 py-2 rounded-3 menu-list fw-bold shadow-sm" onclick="fnCheckForRestrictedWords();">Odoslať</button>
-                    </div>
+                    </div>  
+             
                     <!-- LINE -->
                     <hr class="c-black m-0">
                     <!-- ATTACH FOTO -->
@@ -245,7 +250,7 @@ session_start();
                         <input type="file" class="inputfile form-control" name="userfile[]" value="" multiple=""/>
                     </label>
                 </form>
-            </div>
+            </div> <?php  }?>
             <!-- POST CONTAINER -->
             <?php
             while ($data = $result->fetch_assoc()) {

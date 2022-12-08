@@ -5,6 +5,7 @@ ini_set('display_errors', 'On');
 
   $mysqli= new mysqli('localhost','root','','ucm_verse') or die($mysqli->connect_error);
      $table ='posts';
+     $u_table = 'users';
                  
     $phpFileUploadErrors = array(
         0=>'Succes',
@@ -45,6 +46,8 @@ ini_set('display_errors', 'On');
                 $name= preg_replace("!-!"," ",$name);
                 $name= preg_replace("!_!"," ",$name);
                 $name = ucfirst($name);*/
+
+                $mysqli->query("UPDATE IGNORE  $u_table  SET usersPoststoday=usersPoststoday+1 WHERE usersId LIKE '%$user_id%'");
 
                 $file_ext = end($file_ext);
 
