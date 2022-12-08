@@ -61,7 +61,21 @@ session_start();
     $a_info = $r_a_info->fetch_assoc();
     
     $result = $mysqli->query("SELECT * FROM $p_table WHERE 1 ORDER BY time DESC") or die($mysqli->error);
+
+    if (isset($_POST['search'])) { 
+        $search_value = $_POST['search'];
+        if($search_value == "")
+        {
+            $result = $mysqli->query("SELECT * FROM $p_table WHERE 1 ORDER BY time DESC") or die($mysqli->error);
+        }
+        else{
+        $result =$mysqli->query("SELECT * FROM $p_table WHERE author_name REGEXP '$search_value' OR author_last_name REGEXP '$search_value' OR msg REGEXP '$search_value'  ORDER BY time DESC") or die($mysqli->error);
+        }
+     
+        
+    }
     ?>
+
     <!-- PRELOADER CONTAINER -->
     <div class="loader-wrapper overflow-hidden">
         <div class="lds-ellipsis">
@@ -86,12 +100,12 @@ session_start();
                 <div class="navbar collapse navbar-collapse justify-content-between flex-column flex-md-row align-content-md-center align-items-md-center" id="navbarCollapse">
                     <!-- SEARCH -->
                     <div class="flex-grow-1 d-flex">
-                        <form class="form-inline flex-nowrap mx-lg-auto">
+                        <form method="POST" class="form-inline flex-nowrap mx-lg-auto">
                             <div class="input-group mx-0 d-flex align-items-center">
-                                <input type="text" class="search rounded-pill px-4 mr-sm-2 bd-purple shadow-sm" placeholder="#Hladať" maxlength="15" required>
+                                <input name="search" type="text" class="search rounded-pill px-4 mr-sm-2 bd-purple shadow-sm" placeholder="#Hladať" maxlength="15">
                                 <!-- SEARCH ICON -->
                                 <a class="menu-list ms-2">
-                                    <i class="bi-search shadow-sm"></i>
+                                <button class="bi-search shadow-sm" type="submit"></button>
                                 </a>
                             </div>
                         </form>
