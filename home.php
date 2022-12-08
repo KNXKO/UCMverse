@@ -70,6 +70,7 @@ session_start();
         }
         else{
         $result =$mysqli->query("SELECT * FROM $p_table WHERE author_name REGEXP '$search_value' OR author_last_name REGEXP '$search_value' OR msg REGEXP '$search_value'  ORDER BY time DESC") or die($mysqli->error);
+        
         }
      
         
@@ -102,7 +103,13 @@ session_start();
                     <div class="flex-grow-1 d-flex">
                         <form method="POST" class="form-inline flex-nowrap mx-lg-auto">
                             <div class="input-group mx-0 d-flex align-items-center">
+                                <?php
+                                if((isset($_POST['search']))&&$search_value != "")
+                                {?>
+                                    <input name="search" type="text" class="search rounded-pill px-4 mr-sm-2 bd-purple shadow-sm" placeholder="<?php echo"{$search_value}";?>" maxlength="15">
+                               <?php }else { ?>
                                 <input name="search" type="text" class="search rounded-pill px-4 mr-sm-2 bd-purple shadow-sm" placeholder="#Hladať" maxlength="15">
+                                <?php } ?>
                                 <!-- SEARCH ICON -->
                                 <button class="search menu-list btn bi-search shadow-sm mt-0 bg-darkprimary" type="submit"></button>
                             </div>
