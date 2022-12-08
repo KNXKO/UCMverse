@@ -4,6 +4,7 @@ ini_set('display_errors', 'On');
 
   $mysqli= new mysqli('localhost','root','','ucm_verse') or die($mysqli->connect_error);
      $table ='users';
+     $p_table = 'posts';
 
      if(isset($_POST['submit'])){
       
@@ -27,6 +28,20 @@ ini_set('display_errors', 'On');
 
         $file_ext = end($file_ext);
 
+        $result=$mysqli->query("SELECT * FROM $table WHERE usersId LIKE '%$user_id%' ") or die($mysqli->error);
+
+        $data = $result->fetch_assoc();
+
+        if($data['usersName']!=$name)
+        {
+          $mysqli->query("UPDATE IGNORE  $p_table  SET author_name='$name' WHERE author_user_id LIKE '%$user_id%'")  or die($mysqli->error);
+        }
+        if($data['usersLastname']!=$vorname)
+        {
+          $mysqli->query("UPDATE IGNORE  $p_table  SET author_last_name='$vorname' WHERE author_user_id LIKE '%$user_id%'")  or die($mysqli->error);
+        }
+
+
         /*if (!in_array($file_ext,$extensions))
         {
             echo "$file_array[$i]['name'] - Invalid file extension!";
@@ -45,6 +60,8 @@ ini_set('display_errors', 'On');
         else{
           $sql = "UPDATE IGNORE $table SET usersName='$name',usersLastname='$vorname',usersEmail='$email',usersBdate='$birthday',usersImgdir='$img_dir' WHERE usersId='$user_id' ";
         $mysqli->query($sql) or die($mysqli->error);
+
+        $mysqli->query("UPDATE IGNORE  $p_table  SET author_photo_dir='$img_dir' WHERE author_user_id LIKE '%$user_id%'")  or die($mysqli->error);
         
         echo $file['name'].' - '.$phpFileUploadErrors[$file['error']];
         }
