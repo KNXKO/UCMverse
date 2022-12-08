@@ -71,19 +71,7 @@ session_start();
                 <!-- HAMBURGER -->
                 <div class="navbar collapse navbar-collapse justify-content-between flex-column flex-md-row align-content-md-center align-items-md-center"
                     id="navbarCollapse">
-                    <!-- SEARCH -->
-                    <div class="flex-grow-1 d-flex">
-                        <form class="form-inline flex-nowrap mx-lg-auto">
-                            <div class="input-group mx-0 d-flex align-items-center">
-                                <input type="text" class="search rounded-pill px-4 mr-sm-2 bd-purple shadow-sm" placeholder="#Hladať" maxlength="15"
-                                    required>
-                                <!-- SEARCH ICON -->
-                                <a class="menu-list ms-2">
-                                    <i class="bi-search shadow-sm"></i>
-                                </a>
-                            </div>
-                        </form>
-                    </div>
+                    <div class="w-50"> </div>
                     <!-- DROPDOWN -->
                     <div class="d-flex align-items-center mt-3 mt-md-0 mt-lg-0">
                         <!-- USER FOTO -->
