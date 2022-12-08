@@ -104,9 +104,7 @@ session_start();
                             <div class="input-group mx-0 d-flex align-items-center">
                                 <input name="search" type="text" class="search rounded-pill px-4 mr-sm-2 bd-purple shadow-sm" placeholder="#Hladať" maxlength="15">
                                 <!-- SEARCH ICON -->
-                                <a class="menu-list ms-2">
-                                <button class="bi-search shadow-sm" type="submit"></button>
-                                </a>
+                                <button class="search menu-list btn bi-search shadow-sm mt-0 bg-darkprimary" type="submit"></button>
                             </div>
                         </form>
                     </div>

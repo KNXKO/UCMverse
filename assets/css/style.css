@@ -300,7 +300,6 @@ select {
     height: 50px;
 }
 
-.bi-search,
 .navbar-nav a,
 .navbar-nav a:visited,
 .dropdown-menu li a {
@@ -312,7 +311,6 @@ select {
 }
 
 .navbar-nav a:hover,
-.bi-search:hover,
 .dropdown-menu li a:hover {
     opacity: .7;
     transition: .2s ease-in-out;
@@ -322,16 +320,19 @@ select {
 .search {
     background-color: #0202022c;
     font-weight: 300;
+    outline: none !important;;
 }
 
 .search:focus {
     opacity: .7;
     transition: .2s ease-in-out;
+    outline: none !important;;
 }
 
 .search::placeholder {
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
+    color: #4e4e4e;
 }
 
 .menu-list,
